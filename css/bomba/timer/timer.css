@@ -1,0 +1,49 @@
+.timer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.timer .errori {
+    height: 25%;
+    width: 50%;
+    border: 1vh inset rgb(203, 203, 203);
+    background-color: #222;
+
+}
+
+@font-face {
+    font-family: timer;
+    src: url("/css/fonts/timerfont.ttf");
+}
+
+.timer .display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    width: 100%;
+    color: rgb(235, 18, 18);
+    font-size: 14vh;
+    text-shadow: 0px 0px 1vh rgba(216, 51, 51, 0.763);
+    font-family: timer;
+    z-index: 1;
+    border: 1vh inset rgb(203, 203, 203);
+}
+
+.timer .display2 {
+    position: absolute;
+    /* Position the second display behind the original one */
+    bottom: 17.5%;
+    left: 0;
+    z-index: 0;
+    background-color: #222;
+    text-shadow: none;
+    /* Place it behind the original display */
+    color: rgba(63, 12, 12, 0.613);
+    /* Adjust color for visibility */
+}

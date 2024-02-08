@@ -1,29 +1,34 @@
 button {
   position: absolute;
-  right: 2%;
-  height: 20%;
+  right: 2vw;
+  /* 2% of the viewport width */
+  height: 20vh;
+  /* 20% of the viewport height */
   aspect-ratio: 1/1;
   border-radius: 50%;
   cursor: pointer;
-  background-color: #3498db; /* Colore di sfondo del pulsante */
-  color: #ffffff; /* Colore del testo */
-  font-family: "Arial", sans-serif; /* Font del testo */
-  font-size: 16px; /* Dimensione del testo */
+  background-color: #3498db;
+  color: #ffffff;
+  font-family: "Arial", sans-serif;
+  font-size: 1.6vw;
+  /* 16px relative to viewport width */
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   outline: none;
-  text-transform: uppercase; /* Assicura che il testo sia in maiuscolo */
-  letter-spacing: 2px; /* Aggiunge spaziatura tra le lettere */
-  text-shadow: 0 0 5px #2980b9; /* Aggiunge un'ombra per l'effetto LED */
+  text-transform: uppercase;
+  letter-spacing: 0.2vw;
+  /* 2px relative to viewport width */
+  text-shadow: 0 0 0.5vw #2980b9;
+  /* 5px relative to viewport width for the shadow */
 }
 
 button:hover {
-  background-color: #2980b9; /* Cambia colore al passaggio del mouse */
+  background-color: #2980b9;
 }
 
 button:active {
-  transform: scale(0.95); /* Effetto di ridimensionamento immediato al clic */
-  transition: none; /* Rimuovi la transizione */
+  transform: scale(0.95);
+  transition: none;
 }

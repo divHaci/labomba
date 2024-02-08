@@ -1,0 +1,7 @@
+.container-modulo {
+  border-radius: 1vw;
+  border: solid 1vh #222;
+  width: 30%;
+  aspect-ratio: 1/1;
+  background-color: #5b5b5b;
+}
