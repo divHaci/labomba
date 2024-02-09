@@ -11,9 +11,9 @@
   background-image: url("../../../img/bomba/bg.png");
   background-size: 100%;
   background-blend-mode: soft-light;
+  transition: transform 0.5s ease; /* Aggiungi una transizione per l'animazione */
 }
 
 .dietro {
   display: none;
-  transform: rotateY(180deg);
 }
