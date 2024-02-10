@@ -5,7 +5,7 @@ const giraButton = document.querySelector("button"); // Aggiunta del riferimento
 var fronte = true;
 
 function gira() {
-    var click = new Audio("../../sounds/effects/click.mp3")
+    var click = new Audio("../../sounds/effects/swap.mp3")
 
     if (fronte) {
         for (let i = 0; i < numero_moduli/2; i++) {
