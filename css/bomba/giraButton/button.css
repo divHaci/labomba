@@ -1,16 +1,20 @@
+@font-face {
+  font-family: gira;
+  src: url(/css/fonts/greco.ttf);
+}
+
 button {
   position: absolute;
-  right: 2.5vw;
+  right: 2.0vw;
   /* 2% of the viewport width */
   height: 20vh;
   /* 20% of the viewport height */
   aspect-ratio: 1/1;
   border-radius: 50%;
   cursor: pointer;
-  background-color: #3498db;
   color: #ffffff;
-  font-family: "Arial", sans-serif;
-  font-size: 1.6vw;
+  font-family: gira;
+  font-size: 3vw;
   /* 16px relative to viewport width */
   display: flex;
   align-items: center;
@@ -20,7 +24,10 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.2vw;
   /* 2px relative to viewport width */
-  text-shadow: 0 0 0.5vw #2980b9;
+  background-image: url("../moduli/img/press-it/pngwing.com.png");
+  background-size: cover;
+  filter: grayscale();
+  text-shadow: 2px 2px 1vh rgba(255, 108, 108, 1);
   /* 5px relative to viewport width for the shadow */
 }
 

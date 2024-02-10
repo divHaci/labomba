@@ -1,28 +1,89 @@
+@font-face {
+    font-family: timer;
+    src: url("/css/fonts/timerfont.ttf");
+}
+
+@font-face {
+    font-family: error;
+    src: url("/css/fonts/xfont.ttf");
+}
+
+@font-face {
+    font-family: label;
+    src: url("/css/fonts/label.otf");
+}
+
+.press-it-module {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: rgb(15, 32, 39);
+    background: radial-gradient(circle, rgba(15, 32, 39, 1) 0%, rgba(32, 58, 67, 1) 62%, rgba(44, 83, 100, 1) 100%);
+    z-index: 1;
+}
+
+.press-it-label {
+    position: absolute;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    font-size: 2vw;
+    aspect-ratio: 1/1;
+    top: 0;
+    left: 0;
+    border: 0.6vh inset rgb(102, 137, 149);
+    color: rgb(201, 217, 224);
+    text-shadow: 0px 0px 1vh rgba(44, 83, 100, 1);
+    font-family: label;
+}
+
 .press-it-button {
-  width: 60%;
-  aspect-ratio: 1/1;
-  background-color: red;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
+    width: 60%;
+    aspect-ratio: 1/1;
+    background-color: red;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("img/press-it/pngwing.com.png");
+    background-size: cover;
 }
+
+.press-it-button::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    font-size: 3vh;
+    font-family: "Outline", sans-serif;
+}
+
 .press-it-timer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  border-radius: 50%;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    user-select: none;
 }
+
 .press-it-display {
-  font-size: 3vw; 
+    font-size: 3vw;
+    font-family: timer;
+    color: white;
+    text-shadow: 0px 0px 1vh rgba(255, 108, 108, 1);
 }
+
 .press-it-circle {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }

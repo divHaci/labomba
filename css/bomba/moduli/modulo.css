@@ -4,4 +4,5 @@
   width: 30%;
   aspect-ratio: 1/1;
   background-color: #5b5b5b;
+  z-index: 1;
 }
