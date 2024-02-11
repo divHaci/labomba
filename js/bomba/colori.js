@@ -145,6 +145,7 @@ function check(button) {
     ledContainer.children[livello].style.webkitBoxShadow = "0px 0px 2vw 0.5vw #fde910";
     ledContainer.children[livello].style.boxShadow = "0px 0px 2vw 0.5vw #fde910";
     livello = livello + 1;
+    right.play();
     
     if(livello == 3){
       for (let i = 0; i < ledContainer.children.length; i++) {
