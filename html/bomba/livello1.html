@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La bomba</title>
-    <link rel="stylesheet" href="../../css/bomba/generale.css">
+    <link rel="stylesheet" href="../../css/generale.css">
+    <link rel="stylesheet" href="../../css/menu/menu.css">
     <link rel="stylesheet" href="../../css/bomba/bomba/bomba.css">
     <link rel="stylesheet" href="../../css/bomba/giraButton/button.css">
     <link rel="stylesheet" href="../../css/bomba/moduli/modulo.css">
     <link rel="stylesheet" href="../../css/bomba/moduli/pressit.css">
+    <link rel="stylesheet" href="../../css/bomba/moduli/colori.css">
     <link rel="stylesheet" href="../../css/bomba/timer/timer.css">
     <link rel="stylesheet" href="../../css/bomba/moduli/led.css">
 
@@ -17,14 +19,24 @@
 
 <body>
     <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none;">4</div>
+
+    <div class="menu-container" style="display: none;">
+        <h1>PAUSA</h1>
+
+        <button>LIVELLI</button>
+        <button>RIPROVA</button>
+    </div>
+    <div class="starting-minutes" style="display: none;">5</div>
     <div class="starting-seconds" style="display: none;">0</div>
-    <div class="max-errori" style="display: none;">3</div>
-    <button onclick="gira()">GIRA</button>
+    <div class="max-errori" style="display: none;">2</div>
+    <div class="n-moduli" style="display: none;">3</div>
+    <div class="n-moduli-completati" style="display: none;">0</div>
+    <button class="gira-button" onclick="gira()">GIRA</button>
     <!-- Creazione bomba con moduli vuoti -->
     <script src="../../js/bomba/bomba.js"></script>
     <script src="../../js/bomba/timer.js"></script>
     <script src="../../js/bomba/pressit.js"></script>
+    <script src="../../js/bomba/colori.js"></script>
     <script src="../../js/bomba/check-modulo-vuoto.js"></script>
 </body>
 

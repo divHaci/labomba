@@ -1,5 +1,10 @@
 // Creazione del modulo time
 
+var ticking = new Audio("/sounds/effects/tickingClock.mp3")
+var boom = new Audio("/sounds/effects/explosion.mp3")
+
+let intervalId;
+
 function crea_timer(startingMinutes, startingSeconds) {
     let timer = document.createElement("div");
     timer.classList.add("timer");
@@ -25,18 +30,23 @@ function crea_timer(startingMinutes, startingSeconds) {
 
     // Update timer display every second
     let totalSeconds = startingMinutes * 60 + startingSeconds;
-    let intervalId = setInterval(() => {
+    intervalId = setInterval(() => {
         totalSeconds--;
-
+        if(totalSeconds == 0){
+            ticking.volume = 0
+            boom.play()
+        }
         if (totalSeconds < 0) {
             clearInterval(intervalId);
-            display.textContent = "00:00"; // Display "00:00" when timer ends
-            // You can add additional actions when the timer ends
+            display.textContent = "00:00";
+
         } else {
             let minutes = Math.floor(totalSeconds / 60);
             let seconds = totalSeconds % 60;
             display.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
+
+        //ticking.play()
     }, 1000);
 
     return timer;
@@ -62,3 +72,8 @@ var starting_minutes = parseInt(document.querySelector(".starting-minutes").inne
 var starting_seconds = parseInt(document.querySelector(".starting-seconds").innerHTML)
 
 aggiungi_modulo(crea_timer(starting_minutes, starting_seconds))
+
+function stopTick() {
+    ticking.volume = 0;
+    clearInterval(intervalId)
+}

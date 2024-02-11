@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    filter: brightness(1);
 }
 
 .led {
@@ -15,4 +16,5 @@
     aspect-ratio: 1/1;
     background-color: gray;
     border-radius: 50%;
+    filter: brightness(1);
 }

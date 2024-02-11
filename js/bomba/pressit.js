@@ -1,6 +1,10 @@
 // Aggiunge il modulo timer a un container casuale tra i 12
 var errori = document.querySelector(".errori");
 var max_errori = document.querySelector(".max-errori");
+var click = new Audio("../../sounds/effects/click.mp3")
+var right = new Audio("/sounds/effects/right.mp3")
+var wrong = new Audio("/sounds/effects/wrong.mp3")
+var explosion = new Audio("/sounds/effects/explosion.mp3")
 
 function creaPressIt(solution) {
   let modulo = document.createElement("div")
@@ -46,7 +50,6 @@ function aggiungi_modulo(modulo) {
 }
 
 function creaTimer(durationInSeconds, module) {
-  console.log(module);
   let timer = document.createElement("div");
   timer.classList.add("press-it-timer");
 
@@ -57,10 +60,12 @@ function creaTimer(durationInSeconds, module) {
 
   // Funzione per gestire il completamento del timer e il reset
   function handleTimerCompletion() {
-    clearInterval(intervalId); // Cancella l'intervallo corrente
-
+    clearInterval(intervalId);
+    for (let i = 0; i < 2; i++) {
+      module.children[i].classList.add("complete")
+    }
+    module.querySelector(".press-it-timer").style.cursor = "default"
     if (count !== solution) {
-      console.log("ESPLOSO");
       if (errori.children.length < parseInt(max_errori.innerHTML)) {
         var x = document.createElement("div");
         x.innerHTML = "X";
@@ -68,9 +73,9 @@ function creaTimer(durationInSeconds, module) {
 
         var led = module.querySelector(".led-container .led")
         led.style.backgroundColor = "red"
-        led.style.webkitBoxShadow = "0px 0px 15px 5px red";
-        led.style.boxShadow = "0px 0px 15px 5px red";
-        var wrong = new Audio("/sounds/effects/wrong.mp3")
+        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+        led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        click.pause()
         wrong.play()
         count = 0;
 
@@ -80,13 +85,26 @@ function creaTimer(durationInSeconds, module) {
           display.textContent = formatTime(remainingTime);
           intervalId = setInterval(updateTimer, 1000);
         }
-      } 
+      }else{
+        var x = document.createElement("div");
+        x.innerHTML = "X";
+        errori.appendChild(x);
+        var led = module.querySelector(".led-container .led")
+        led.style.backgroundColor = "red"
+        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+        led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        click.pause()
+        stopTick();
+        wrong.play()
+        //explosion.play()
+        sconfitta();
+      }
     } else {
       var led = module.querySelector(".led-container .led")
       led.style.backgroundColor = "lime"
-      led.style.webkitBoxShadow = "0px 0px 15px 5px #74FF66";
-      led.style.boxShadow = "0px 0px 15px 5px #74FF66";
-      var right = new Audio("/sounds/effects/right.mp3")
+      led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
+      led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+      click.pause()
       right.play()
     }
   }
@@ -121,13 +139,11 @@ function formatTime(seconds) {
 
 var solution = Math.floor(Math.random() * (30 - 15 + 1)) + 15;
 var pressItModule = creaPressIt(solution);
-console.log(pressItModule);
 pressItModule.children[0].appendChild(creaTimer(0 * 60 + Math.floor(Math.random() * (20 - 15 + 1)) + 15, pressItModule));
 aggiungi_modulo(pressItModule);
 var count = 0;
 
 function newClick() {
-  var click = new Audio("../../sounds/effects/click.mp3")
   var times = Math.floor(Math.random() * 4 + 1);
 for (let i = 0; i < times; i++) {
   setTimeout(() => {
@@ -138,5 +154,4 @@ for (let i = 0; i < times; i++) {
   }, 500 * i + 100); // Adjust the pause timing to be after the play
 }
   count++;
-  console.log(times);
 }

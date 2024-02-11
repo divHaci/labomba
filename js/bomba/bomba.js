@@ -1,12 +1,12 @@
 const numero_moduli = 12;
 const bomba = document.querySelector(".bomba");
-const giraButton = document.querySelector("button"); // Aggiunta del riferimento al pulsante
+const giraButton = document.querySelector(".gira-button"); // Aggiunta del riferimento al pulsante
 
 var fronte = true;
 
+var win = new Audio("../../sounds/effects/livello-completato.mp3");
+var swap = new Audio("../../sounds/effects/swap.mp3");
 function gira() {
-    var click = new Audio("../../sounds/effects/swap.mp3")
-
     if (fronte) {
         for (let i = 0; i < numero_moduli/2; i++) {
             bomba.children[i].classList.add("dietro");     
@@ -15,6 +15,7 @@ function gira() {
             bomba.children[i].classList.remove("dietro");     
         }
         fronte = false
+        swap.play();
     }else{
         for (let i = 0; i < numero_moduli/2; i++) {
             bomba.children[i].classList.remove("dietro");     
@@ -23,8 +24,9 @@ function gira() {
             bomba.children[i].classList.add("dietro");     
         }
         fronte = true;
+        swap.play();
     } 
-    click.play();
+    
 }
 
 function creaBomba() {
@@ -41,4 +43,34 @@ function creaBomba() {
 
 creaBomba();
 
+
+
+var show = false;
 giraButton.addEventListener("onclick", gira);
+
+function vittoria() {
+    document.querySelector(".menu-container h1").innerHTML = "HAI VINTO!"
+    document.querySelector(".menu-container").style.display = "flex";
+    show = true
+    win.play();
+}
+function sconfitta() {
+    console.log("suca");
+    document.querySelector(".menu-container h1").innerHTML = "HAI PERSO!"
+    document.querySelector(".menu-container").style.display = "flex";
+    show = true
+}
+
+document.addEventListener('keydown', function(event) {
+    // Check if the pressed key is the "Escape" key (key code 27)
+    show = !show;
+    
+    if (event.key === "Escape") {
+        if(show){
+            document.querySelector(".menu-container h1").innerHTML = "PAUSA"
+            document.querySelector(".menu-container").style.display = "flex";
+        }else{
+            document.querySelector(".menu-container").style.display = "none";
+        }
+    }
+  });

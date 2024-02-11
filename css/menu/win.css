@@ -1,0 +1,16 @@
+.menu_container {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2vh;
+    z-index: 999;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2vh 7vh rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1vh solid rgba(255, 255, 255, 1);
+}
