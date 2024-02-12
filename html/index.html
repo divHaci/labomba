@@ -1,75 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-xx+J5NTHUqOCXb7wWZ6xrSzHOYVw2vA5Y8eb5xmNlMr5rP8H7O5EKWfSP9Hj3hFUKjTGFo/Md7mgiECEC6Oz0w=="
-      crossorigin="anonymous"
-    />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/ccbd4d6bc1.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="../css/index/index.css" />
-    <script
-      type="text/javascript"
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-xx+J5NTHUqOCXb7wWZ6xrSzHOYVw2vA5Y8eb5xmNlMr5rP8H7O5EKWfSP9Hj3hFUKjTGFo/Md7mgiECEC6Oz0w=="
+    crossorigin="anonymous" />
 
-    <title>La bomba</title>
-  </head>
-  <body ondragstart="return false" onselectstart="return false">
-    <div class="screen">
-      <video autoplay loop muted id="videoBackground">
-        <source src="../img/index/bg.mp4" type="video/mp4" />
-        <audio id="musiMenu" loop autoplay>
-          <source src="../sounds/effects/index/menuMusic.mp3" type="audio/mp3" />
-        </audio>
-      </video>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/ccbd4d6bc1.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/index/index.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
 
-      <audio id="audioClick">
-        <source
-          src="../sounds/effects/index/buttonclick.wav"
-          type="audio/wav"
-        />
+  <title>La bomba</title>
+</head>
+
+<body ondragstart="return false" onselectstart="return false">
+  <div class="screen">
+    <video autoplay loop muted id="videoBackground">
+      <source src="../img/index/bg.mp4" type="video/mp4" />
+      <audio id="musiMenu" loop autoplay>
+        <source src="../sounds/effects/index/menuMusic.mp3" type="audio/mp3" />
       </audio>
-      <audio id="audioHover">
-        <source
-          src="../sounds/effects/index/buttonclickrelease.wav"
-          type="audio/wav"
-        />
-      </audio>
-      <iframe
-        src="../sounds/effects/index/mouseEntered.wav"
-        allow="autoplay"
-        id="audio"
-        style="display: none"
-      ></iframe>
-      <audio id="player" autoplay loop>
-        <source src="../sounds/effects/index/musiMenu.mp3" type="audio/mp3" />
-      </audio>
-      <div class="menu">
-        <h1 class="customfont">LA BOMBA</h1>
-        <ul>
-          <li><a href="bomba/livello1.html">Gioca</a></li>
-          <li><a href="Manuale_Bomba.docx">Manuale Bomba</a></li>
-          <li><a href="">Riconoscimenti</a></li>
-        </ul>
-        <i id="sound" class="fas fa-volume-mute"></i>
-      </div>
+    </video>
+
+    <audio id="audioClick">
+      <source src="../sounds/effects/index/buttonclick.wav" type="audio/wav" />
+    </audio>
+    <audio id="audioHover">
+      <source src="../sounds/effects/index/buttonclickrelease.wav" type="audio/wav" />
+    </audio>
+    <iframe src="../sounds/effects/index/mouseEntered.wav" allow="autoplay" id="audio" style="display: none"></iframe>
+    <audio id="player" autoplay loop>
+      <source src="../sounds/effects/index/musiMenu.mp3" type="audio/mp3" />
+    </audio>
+    <div class="menu">
+      <h1 class="customfont">LA BOMBA</h1>
+      <ul>
+        <li><a href="bomba/livello1.html">Gioca</a></li>
+        <li><a href="Manuale_Bomba.docx">Manuale Bomba</a></li>
+        <li><a href="">Riconoscimenti</a></li>
+      </ul>
+      <i id="sound" class="fas fa-volume-mute"></i>
     </div>
+  </div>
+  <script src="../js/bomba/index.js"></script>
+</body>
 
-    <script src="../js/bomba/index.js"></script>
-  </body>
 </html>

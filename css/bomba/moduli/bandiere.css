@@ -1,0 +1,37 @@
+.bandiere-module {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.bandiere-module .answer {
+    height: 20%;
+    display: flex;
+}
+
+.bandiere-module img {
+    height: 60%;
+    object-fit: contain;
+}
+
+.bandiere-module .answer input[type="button"] {
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.bandiere-module .answer input[type="text"] {
+    height: 100%;
+    width: 80%;
+    background-color: rgb(213, 213, 213);
+}
+
+.bandiere-module .answer input {
+    border: none;
+    text-align: center;
+}
+
+.bandiere-module input:focus {
+    outline: none;
+}

@@ -42,7 +42,7 @@ function creaColori() {
   for (let i = 0; i < 5; i++) {
     let button = document.createElement("button");
     button.classList.add("colori-button");
-    button.setAttribute("onclick", "check('wrong')")
+    button.setAttribute("onclick", "checkColore('wrong')")
     buttons_container.appendChild(button);
   }
 
@@ -66,7 +66,7 @@ function creaColori() {
       if(soluzioni[soluzione_colonna].indexOf(random_color) == -1){
         //IL COLORE È VALIDO E SI PUÒ COLORARE IL BOTTONE
         buttons_container.children[count].style.backgroundColor = random_color;
-        buttons_container.children[count].setAttribute("onclick", "check('wrong')")
+        buttons_container.children[count].setAttribute("onclick", "checkColore('wrong')")
         count = count + 1;
       }
     }
@@ -75,7 +75,7 @@ function creaColori() {
   // DOPO AVER COLORATO TUTTI I BOTTONI DI COLORI A CASO NON PRESENTI NELLA SOLUZIONE SI PROCEDE A SCEGLIERE UN BOTTONE A CASO E A COLORARLO DI UN COLORE A CASO PRESENTE NELLA SOLUZIONE
   let random_solution = Math.floor(Math.random() * 5);
   buttons_container.children[correct_button_n].style.backgroundColor = soluzioni[soluzione_colonna][random_solution];
-  buttons_container.children[correct_button_n].setAttribute("onclick", "check('right')")
+  buttons_container.children[correct_button_n].setAttribute("onclick", "checkColore('right')")
 
 
   ledContainer = document.createElement("div");
@@ -107,7 +107,7 @@ function aggiungi_modulo(modulo) {
 
 var livello = 0;
 
-function check(button) {
+function checkColore(button) {
   if (button == "wrong") {
     var max_errori = document.querySelector(".max-errori")
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
@@ -183,7 +183,7 @@ function newLevel() {
       if(soluzioni[soluzione_colonna].indexOf(random_color) == -1){
         //IL COLORE È VALIDO E SI PUÒ COLORARE IL BOTTONE
         buttons_container.children[count].style.backgroundColor = random_color;
-        buttons_container.children[count].setAttribute("onclick", "check('wrong')")
+        buttons_container.children[count].setAttribute("onclick", "checkColore('wrong')")
         count = count + 1;
       }
     }
@@ -192,7 +192,7 @@ function newLevel() {
   // DOPO AVER COLORATO TUTTI I BOTTONI DI COLORI A CASO NON PRESENTI NELLA SOLUZIONE SI PROCEDE A SCEGLIERE UN BOTTONE A CASO E A COLORARLO DI UN COLORE A CASO PRESENTE NELLA SOLUZIONE
   let random_solution = Math.floor(Math.random() * 5);
   buttons_container.children[correct_button_n].style.backgroundColor = soluzioni[soluzione_colonna][random_solution];
-  buttons_container.children[correct_button_n].setAttribute("onclick", "check('right')")
+  buttons_container.children[correct_button_n].setAttribute("onclick", "checkColore('right')")
 }
 
 aggiungi_modulo(creaColori())

@@ -10,6 +10,7 @@
 
 h1.customfont {
     font-family: "Shotling";
+    text-shadow: 0px 0px 2vh rgba(255, 255, 255, 0.763);
 }
 
 h2.customfont {
