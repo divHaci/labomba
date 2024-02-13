@@ -6,6 +6,11 @@ var fronte = true;
 
 var win = new Audio("../../sounds/effects/livello-completato.mp3");
 var swap = new Audio("../../sounds/effects/swap.mp3");
+var click = new Audio("../../sounds/effects/click.mp3")
+var right = new Audio("/sounds/effects/right.mp3")
+var wrong = new Audio("/sounds/effects/wrong.mp3")
+var explosion = new Audio("/sounds/effects/explosion.mp3")
+
 function gira() {
     if (fronte) {
         for (let i = 0; i < numero_moduli/2; i++) {

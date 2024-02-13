@@ -6,3 +6,8 @@
   background-color: #5b5b5b;
   z-index: 1;
 }
+
+.complete {
+  pointer-events: none;
+  filter: brightness(0.3);
+}

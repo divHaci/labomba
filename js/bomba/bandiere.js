@@ -12,6 +12,8 @@ function creaBandiere() {
 
     bandiere.src = "../../img/modulo/bandiere/" + nazioni[random] + ".png";
 
+    bandiere.setAttribute("draggable", "false");
+
 
     let answer = document.createElement("div")
     answer.classList.add("answer")
@@ -21,16 +23,27 @@ function creaBandiere() {
     input.setAttribute("list", "capital")
     let btn = document.createElement("input")
     btn.type = "button"
-    input.setAttribute("id", "N-" + capitali[random] + "");
+    btn.value = "→";
+    modulo.setAttribute("id", "N-" + capitali[random] + "");
     btn.setAttribute("onclick", "checkCapitale('" + capitali[random] + "')")
 
+    let led_container = document.createElement("div")
+    led_container.classList.add("led-container");
+
+    let led = document.createElement("div")
+    led.classList.add("led")
+
+
+    
     nazioni.splice(random, 1);
     capitali.splice(random, 1);
-
+    
     answer.appendChild(input)
     answer.appendChild(btn)
     modulo.appendChild(bandiere)
     modulo.appendChild(answer)
+    modulo.appendChild(led_container)
+    led_container.appendChild(led)
 
     return modulo;
 }
@@ -53,11 +66,45 @@ function aggiungi_modulo(modulo) {
   aggiungi_modulo(creaBandiere())
 
   function checkCapitale(random) {
-    var text = document.querySelector("#N-"+random + "");
-    if(text.value.toLowerCase() == random.toLowerCase()){
-        console.log("giusto");
-    }else{
-        console.log("sbagliato");
+    var modulo = document.querySelector("#N-"+random + "");
+    var text = modulo.querySelector("input[type='text']")
+    if(text.value != ""){
+      if(text.value.toLowerCase() == random.toLowerCase()){
+        var led = modulo.querySelector(".led-container .led")
+        led.style.backgroundColor = "lime"
+        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
+        led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+        for (let i = 0; i < 2; i++) {
+          //SPEGNE IL MODULO TRANNE IL LED
+          modulo.children[i].classList.add("complete")
+        }
+        right.play()
+      }else{
+        if (errori.children.length < parseInt(max_errori.innerHTML)) {
+          var x = document.createElement("div");
+          x.innerHTML = "X";
+          errori.appendChild(x);
+
+          var led = modulo.querySelector(".led-container .led")
+          led.style.backgroundColor = "red"
+          led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+          led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+          wrong.play()
+        }else{
+          var x = document.createElement("div");
+          x.innerHTML = "X";
+          errori.appendChild(x);
+          var led = modulo.querySelector(".led-container .led")
+          led.style.backgroundColor = "red"
+          led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+          led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+          click.pause()
+          stopTick();
+          wrong.play()
+          explosion.play()
+          sconfitta();
+        }
+      }
     }
   }
 

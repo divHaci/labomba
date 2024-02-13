@@ -1,11 +1,4 @@
 // Aggiunge il modulo timer a un container casuale tra i 12
-var errori = document.querySelector(".errori");
-var max_errori = document.querySelector(".max-errori");
-var click = new Audio("../../sounds/effects/click.mp3")
-var right = new Audio("/sounds/effects/right.mp3")
-var wrong = new Audio("/sounds/effects/wrong.mp3")
-var explosion = new Audio("/sounds/effects/explosion.mp3")
-
 function creaPressIt(solution) {
   let modulo = document.createElement("div")
   modulo.classList.add("press-it-module")
@@ -62,6 +55,7 @@ function creaTimer(durationInSeconds, module) {
   function handleTimerCompletion() {
     clearInterval(intervalId);
     for (let i = 0; i < 2; i++) {
+      //SPEGNE IL MODULO TRANNE IL LED
       module.children[i].classList.add("complete")
     }
     module.querySelector(".press-it-timer").style.cursor = "default"

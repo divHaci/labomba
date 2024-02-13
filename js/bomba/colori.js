@@ -15,6 +15,8 @@ let correct_button_n;
 
 let ledContainer;
 
+let modulo;
+
 let soluzioni = [
   ["#DF00E3", "#FF0000", "#00FF00", "#FFFF00", "#FFFFFF"],
   ["#0000FF", "#000000", "#FF6B00", "#DF00E3", "#FFFF00"],
@@ -27,7 +29,7 @@ let soluzioni = [
 
 function creaColori() {
   soluzione_colonna = Math.floor(Math.random() * colori_colonna_hex.length);
-  let modulo = document.createElement("div");
+  modulo = document.createElement("div");
   modulo.classList.add("colori-module");
 
   display = document.createElement("div");
@@ -109,7 +111,6 @@ var livello = 0;
 
 function checkColore(button) {
   if (button == "wrong") {
-    var max_errori = document.querySelector(".max-errori")
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
       var x = document.createElement("div");
       x.innerHTML = "X";
@@ -136,11 +137,12 @@ function checkColore(button) {
     for (let i = 0; i < ledContainer.children.length; i++) {
       ledContainer.children[i].style.backgroundColor = "gray"
       ledContainer.children[i].style.boxShadow = "none";
-
     }
+    ledContainer.children[livello].style.backgroundColor = "red"
+    ledContainer.children[livello].style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+    ledContainer.children[livello].style.boxShadow = "0px 0px 2vw 0.5vw red";
     livello = 0;
   }else{
-    
     ledContainer.children[livello].style.backgroundColor = "#fde910"
     ledContainer.children[livello].style.webkitBoxShadow = "0px 0px 2vw 0.5vw #fde910";
     ledContainer.children[livello].style.boxShadow = "0px 0px 2vw 0.5vw #fde910";
@@ -152,6 +154,10 @@ function checkColore(button) {
         ledContainer.children[i].style.backgroundColor = "lime"
         ledContainer.children[i].style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
         ledContainer.children[i].style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+        for (let i = 1; i <= 2; i++) {
+          //SPEGNE IL MODULO TRANNE IL LED
+          modulo.children[i].classList.add("complete")
+        }
       }
     }
   }

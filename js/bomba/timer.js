@@ -39,6 +39,7 @@ function crea_timer(startingMinutes, startingSeconds) {
         if (totalSeconds < 0) {
             clearInterval(intervalId);
             display.textContent = "00:00";
+            sconfitta()
 
         } else {
             let minutes = Math.floor(totalSeconds / 60);
@@ -77,3 +78,8 @@ function stopTick() {
     ticking.volume = 0;
     clearInterval(intervalId)
 }
+
+
+
+var errori = document.querySelector(".errori");
+var max_errori = document.querySelector(".max-errori");
