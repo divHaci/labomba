@@ -1,10 +1,7 @@
-// per aggiungere le immagini basta prendere il nome della nazione aggiungere .png
-// le capitali sono nello stesso index delle nazioni, quindi la posizione coincide
-
 function creaBandiere() {
   let modulo = document.createElement("div");
   modulo.classList.add("bandiere-module");
-
+  
   let bandiere = document.createElement("img");
   bandiere.classList.add("bandieraImg");
 
@@ -207,7 +204,7 @@ function createDataList() {
     "<option value='Hamilton'>" +
     "<option value='Hanoi'>" +
     "<option value='Harare'>" +
-    "<option value='Havana'>" +
+    "<option value='Lavana'>" +
     "<option value='Helsinki'>" +
     "<option value='Honiara'>" +
     "<option value='Islamabad'>" +
