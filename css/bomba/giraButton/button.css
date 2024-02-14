@@ -31,11 +31,11 @@
   /* 5px relative to viewport width for the shadow */
 }
 
-button:hover {
+.gira-button:hover {
   background-color: #2980b9;
 }
 
-button:active {
+.gira-button:active {
   transform: scale(0.95);
   transition: none;
 }

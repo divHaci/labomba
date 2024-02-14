@@ -1,116 +1,140 @@
 // per aggiungere le immagini basta prendere il nome della nazione aggiungere .png
-// le capitali sono nello stesso index delle nazioni, quindi la posizione coincide 
+// le capitali sono nello stesso index delle nazioni, quindi la posizione coincide
 
 function creaBandiere() {
-    let modulo = document.createElement("div")
-    modulo.classList.add("bandiere-module")
+  let modulo = document.createElement("div");
+  modulo.classList.add("bandiere-module");
 
-    let bandiere = document.createElement("img")
-    bandiere.classList.add("bandieraImg")
-    
-    random = Math.floor(Math.random()*nazioni.length)
+  let bandiere = document.createElement("img");
+  bandiere.classList.add("bandieraImg");
 
-    bandiere.src = "../../img/modulo/bandiere/" + nazioni[random] + ".png";
+  random = Math.floor(Math.random() * nazioni.length);
 
-    bandiere.setAttribute("draggable", "false");
+  bandiere.src = "../../img/modulo/bandiere/" + nazioni[random] + ".png";
 
+  bandiere.setAttribute("draggable", "false");
 
-    let answer = document.createElement("div")
-    answer.classList.add("answer")
-    
-    let input = document.createElement("input")
-    input.type = "text"
-    input.setAttribute("list", "capital")
-    let btn = document.createElement("input")
-    btn.type = "button"
-    btn.value = "→";
-    modulo.setAttribute("id", "N-" + capitali[random] + "");
-    btn.setAttribute("onclick", "checkCapitale('" + capitali[random] + "')")
+  let answer = document.createElement("div");
+  answer.classList.add("answer");
 
-    let led_container = document.createElement("div")
-    led_container.classList.add("led-container");
+  let input = document.createElement("input");
+  input.type = "text";
+  input.setAttribute("list", "capital");
 
-    let led = document.createElement("div")
-    led.classList.add("led")
+  // Aggiungi un ascoltatore di eventi sull'input
+  input.addEventListener("input", function () {
+    // Abilita o disabilita il pulsante in base alla presenza della parola nel datalist
+    btn.disabled = !isParolaPresente(input.value);
+  });
 
+  let btn = document.createElement("input");
+  btn.type = "button";
+  btn.value = "→";
+  modulo.setAttribute("id", "N-" + capitali[random] + "");
+  btn.setAttribute("onclick", "checkCapitale('" + capitali[random] + "')");
 
-    
-    nazioni.splice(random, 1);
-    capitali.splice(random, 1);
-    
-    answer.appendChild(input)
-    answer.appendChild(btn)
-    modulo.appendChild(bandiere)
-    modulo.appendChild(answer)
-    modulo.appendChild(led_container)
-    led_container.appendChild(led)
+  // Disabilita il pulsante inizialmente
+  btn.disabled = true;
 
-    return modulo;
+  let led_container = document.createElement("div");
+  led_container.classList.add("led-container");
+
+  let led = document.createElement("div");
+  led.classList.add("led");
+
+  nazioni.splice(random, 1);
+  capitali.splice(random, 1);
+
+  answer.appendChild(input);
+  answer.appendChild(btn);
+  modulo.appendChild(bandiere);
+  modulo.appendChild(answer);
+  modulo.appendChild(led_container);
+  led_container.appendChild(led);
+
+  return modulo;
+}
+
+function isParolaPresente(parola) {
+  let datalist = document.getElementById("capital");
+  let opzioni = datalist.getElementsByTagName("option");
+  for (let i = 0; i < opzioni.length; i++) {
+    let opzioneSenzaSpazi = opzioni[i].value.toLowerCase().replace(/\s/g, "");
+    if (opzioneSenzaSpazi === parola.toLowerCase().replace(/\s/g, "")) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function aggiungi_modulo(modulo) {
-    var empty = true;
-    var containers = document.querySelectorAll(".container-modulo");
-    var random_container = Math.floor(Math.random() * containers.length / 2);
-    while (empty) {
-      if (containers[random_container].children.length == 0) {
-        containers[random_container].appendChild(modulo);
-        empty = false;
+  var empty = true;
+  var containers = document.querySelectorAll(".container-modulo");
+  var random_container = Math.floor((Math.random() * containers.length) / 2);
+  while (empty) {
+    if (containers[random_container].children.length == 0) {
+      containers[random_container].appendChild(modulo);
+      empty = false;
+    } else {
+      random_container = Math.floor(Math.random() * containers.length);
+    }
+  }
+}
+
+createDataList();
+aggiungi_modulo(creaBandiere());
+
+function checkCapitale(random) {
+  var modulo = document.querySelector("#N-" + random + "");
+  var text = modulo.querySelector("input[type='text']");
+  if (text.value != "") {
+    // Remove spaces from both the correct answer and user input
+    var correctAnswer = random.toLowerCase().replace(/\s/g, "");
+    var userInput = text.value.toLowerCase().replace(/\s/g, "");
+
+    if (userInput === correctAnswer) {
+      var led = modulo.querySelector(".led-container .led");
+      led.style.backgroundColor = "lime";
+      led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
+      led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+      for (let i = 0; i < 2; i++) {
+        // SPEGNE IL MODULO TRANNE IL LED
+        modulo.children[i].classList.add("complete");
+      }
+      right.play();
+    } else {
+      if (errori.children.length < parseInt(max_errori.innerHTML)) {
+        var x = document.createElement("div");
+        x.innerHTML = "X";
+        errori.appendChild(x);
+
+        var led = modulo.querySelector(".led-container .led");
+        led.style.backgroundColor = "red";
+        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+        led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        wrong.play();
       } else {
-        random_container = Math.floor(Math.random() * containers.length);
+        var x = document.createElement("div");
+        x.innerHTML = "X";
+        errori.appendChild(x);
+        var led = modulo.querySelector(".led-container .led");
+        led.style.backgroundColor = "red";
+        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+        led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        click.pause();
+        stopTick();
+        wrong.play();
+        explosion.play();
+        sconfitta();
       }
     }
   }
+}
 
-  createDataList()
-  aggiungi_modulo(creaBandiere())
-
-  function checkCapitale(random) {
-    var modulo = document.querySelector("#N-"+random + "");
-    var text = modulo.querySelector("input[type='text']")
-    if(text.value != ""){
-      if(text.value.toLowerCase() == random.toLowerCase()){
-        var led = modulo.querySelector(".led-container .led")
-        led.style.backgroundColor = "lime"
-        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
-        led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
-        for (let i = 0; i < 2; i++) {
-          //SPEGNE IL MODULO TRANNE IL LED
-          modulo.children[i].classList.add("complete")
-        }
-        right.play()
-      }else{
-        if (errori.children.length < parseInt(max_errori.innerHTML)) {
-          var x = document.createElement("div");
-          x.innerHTML = "X";
-          errori.appendChild(x);
-
-          var led = modulo.querySelector(".led-container .led")
-          led.style.backgroundColor = "red"
-          led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
-          led.style.boxShadow = "0px 0px 2vw 0.5vw red";
-          wrong.play()
-        }else{
-          var x = document.createElement("div");
-          x.innerHTML = "X";
-          errori.appendChild(x);
-          var led = modulo.querySelector(".led-container .led")
-          led.style.backgroundColor = "red"
-          led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
-          led.style.boxShadow = "0px 0px 2vw 0.5vw red";
-          click.pause()
-          stopTick();
-          wrong.play()
-          explosion.play()
-          sconfitta();
-        }
-      }
-    }
-  }
-
-  function createDataList() {
-    let div = document.createElement("div");
-    div.innerHTML = "<datalist id='capital'>" +
+function createDataList() {
+  let div = document.createElement("div");
+  div.innerHTML =
+    "<datalist id='capital'>" +
     "<option value='AbuDhabi'>" +
     "<option value='Accra'>" +
     "<option value='AddisAbeba'>" +
@@ -248,7 +272,6 @@ function aggiungi_modulo(modulo) {
     "<option value='Nouakchott'>" +
     "<option value='Nouméa'>" +
     "<option value='NukuAlofa'>" +
-    "<option value='NurSultan'>" +
     "<option value='Nuuk'>" +
     "<option value='Oranjestad'>" +
     "<option value='Oslo'>" +
@@ -338,7 +361,7 @@ function aggiungi_modulo(modulo) {
     "<option value='Yamoussoukro'>" +
     "<option value='Yerevan'>" +
     "<option value='Zagabria'>" +
-    "</datalist>"
+    "</datalist>";
 
-    document.querySelector("body").appendChild(div)
-  }
+  document.querySelector("body").appendChild(div);
+}

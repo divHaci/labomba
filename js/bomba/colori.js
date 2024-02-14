@@ -15,7 +15,7 @@ let correct_button_n;
 
 let ledContainer;
 
-let modulo;
+let moduloColori;
 
 let soluzioni = [
   ["#DF00E3", "#FF0000", "#00FF00", "#FFFF00", "#FFFFFF"],
@@ -29,8 +29,8 @@ let soluzioni = [
 
 function creaColori() {
   soluzione_colonna = Math.floor(Math.random() * colori_colonna_hex.length);
-  modulo = document.createElement("div");
-  modulo.classList.add("colori-module");
+  moduloColori = document.createElement("div");
+  moduloColori.classList.add("colori-module");
 
   display = document.createElement("div");
   display.classList.add("display");
@@ -87,10 +87,10 @@ function creaColori() {
     led.classList.add("led")
     ledContainer.appendChild(led);
   }
-  modulo.appendChild(ledContainer);
-  modulo.appendChild(display);
-  modulo.appendChild(buttons_container);
-  return modulo;
+  moduloColori.appendChild(ledContainer);
+  moduloColori.appendChild(display);
+  moduloColori.appendChild(buttons_container);
+  return moduloColori;
 }
 
 function aggiungi_modulo(modulo) {

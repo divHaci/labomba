@@ -21,6 +21,6 @@ let capitali = [
     "Tallinn", "AddisAbeba", "Suva", "Manila", "Helsinki", "Parigi", "Libreville", "Cardiff", "Banjul", "Tbilisi", "Berlino",
     "Accra", "Tokyo", "Amman", "Atene", "SaintGeorges", "CittàDelGuatemala", "Conakry", "GeorgeTown", "PortAuPrince", "Tegucigalpa", "HongKong",
     "NuovaDelhi", "Giacarta", "Tehran", "Baghdad", "Dublino", "Reykjavik", "Majuro", "Honiara", "Gerusalemme", "Roma",
-    "Kingston", "Nursultan", "Nairobi", "Tarawa", "KuwaitCity", "Vientiane", "Maseru", "Riga", "Beirut", "Monrovia",
+    "Kingston", "Astana", "Nairobi", "Tarawa", "KuwaitCity", "Vientiane", "Maseru", "Riga", "Beirut", "Monrovia",
     "Tripoli", "Vaduz", "Vilnius", "Lussemburgo", "Skopje", "Antananarivo", "Lilongwe", "Malé", "KualaLumpur", "Bamako", "LaValletta", "Londra", "SriJayawardenepuraKotte"
 ];

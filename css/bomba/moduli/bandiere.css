@@ -25,12 +25,14 @@
     border: 0.5vh #222 solid;
     border-bottom: 0.25vh solid #333;
     z-index: -1;
+    user-select: none;
 }
 
 .bandiere-module .answer input[type="button"] {
     height: 100%;
     aspect-ratio: 1/1;
     font-size: 3vh;
+    cursor: pointer;
 }
 
 .bandiere-module .answer input[type="text"] {
