@@ -35,5 +35,3 @@ let passwords = [
     {"word": "ZAZZO", "letters": ["Z", "A", "Z", "Z", "O"]},
     {"word": "ZOZZO", "letters": ["Z", "O", "Z", "Z", "O"]}
 ]
-
-let characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?'];

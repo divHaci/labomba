@@ -150,14 +150,14 @@ function checkColore(button) {
     right.play();
     
     if(livello == 3){
-      for (let i = 0; i < ledContainer.children.length; i++) {
+      for (let i = 0; i < 3; i++) {
         ledContainer.children[i].style.backgroundColor = "lime"
         ledContainer.children[i].style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
         ledContainer.children[i].style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
-        for (let i = 1; i <= 2; i++) {
-          //SPEGNE IL MODULO TRANNE IL LED
-          modulo.children[i].classList.add("complete")
-        }
+      }
+      for (let i = 1; i <= 2; i++) {
+        //SPEGNE IL MODULO TRANNE IL LED
+        moduloColori.children[i].classList.add("complete")
       }
     }
   }

@@ -8,11 +8,15 @@ function creaPassword() {
   password_modulo.classList.add("password-module");
 
   let slots = [[], [], [], [], []];
-
+  let characters;
   // FILL ALL THE SLOTS RANDOMICALLY
   for (let i = 0; i < slots.length; i++) {
+    characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?'];
+
     for (let j = 0; j < 7; j++) {
-      slots[i][j] = characters[Math.floor(Math.random() * characters.length)];
+        let index = Math.floor(Math.random() * characters.length);
+        slots[i][j] = characters[index];
+        slots[i][j].slice(index, 1)
     }
   }
 
@@ -73,7 +77,7 @@ function creaPassword() {
   submit.classList.add("submit-password");
   submit.innerText = "INVIO";
   submit.addEventListener("click", function () {
-    check(slots, indexes, led); 
+    check(slots, indexes, led, password_modulo); 
   });
 
   display.appendChild(button_left);
@@ -105,7 +109,7 @@ function updateDisplay(slotIndex, slots, indexes, slots_display) {
 }
 
 
-function check(slots, indexes, led) {
+function check(slots, indexes, led, modulo) {
   // Pass led as a parameter
   var userword = "";
   for (let i = 0; i < slots.length; i++) {
@@ -117,6 +121,10 @@ function check(slots, indexes, led) {
     led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
     led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
     right.play();
+    for (let i = 0; i < 3; i++) {
+        //SPEGNE IL MODULO TRANNE IL LED
+        modulo.children[i].classList.add("complete")
+      }
     console.log(userword + " is in the passwords array.");
   } else {
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
