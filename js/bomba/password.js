@@ -53,11 +53,13 @@ function creaPassword() {
         button_right.appendChild(arrowR);
     }
 
+    //CREA LED
+
     let submit = document.createElement("button");
     submit.classList.add("submit-password");
     submit.innerText = "INVIO";
     submit.addEventListener("click", function() {
-        check(slots, indexes);
+        check(slots, indexes); // PASSA LED
     });
 
     display.appendChild(button_left);
@@ -65,6 +67,7 @@ function creaPassword() {
     display.appendChild(button_right);
     password_modulo.appendChild(display);
     password_modulo.appendChild(submit)
+    // AGGIUNGI LED-CONTAINER A MODULO
     return password_modulo;
 }
 
@@ -83,7 +86,7 @@ function updateDisplay(slotIndex, slots, indexes, slots_display) {
     slots_display.children[slotIndex].innerText = slots[slotIndex][indexes[slotIndex]];
 }
 
-function check(slots, indexes) {
+function check(slots, indexes) { // PASSA LED
     var userword = "";
     for (let i = 0; i < slots.length; i++) {
         userword += slots[i][indexes[i]];
