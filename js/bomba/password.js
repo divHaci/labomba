@@ -5,11 +5,10 @@ function creaPassword() {
     password_modulo.classList.add("password-module");
 
     let slots = [[],[],[],[],[]];
-    
 
     // FILL ALL THE SLOTS RANDOMICALLY
     for (let i = 0; i < slots.length; i++) {
-        for (let j = 0; j < 5; j++) {    
+        for (let j = 0; j < 7; j++) {    
             slots[i][j] = characters[Math.floor(Math.random()*characters.length)];
         }
     }
@@ -40,16 +39,16 @@ function creaPassword() {
 
     for (let i = 0; i < 5; i++) {
         var arrowL = document.createElement("button");
-        arrowL.innerText = "◀";
+        arrowL.innerText = "▲";
         arrowL.addEventListener("click", function() {
-            back(i, slots, indexes);
+            back(i, slots, indexes, slots_display);
         });
         button_left.appendChild(arrowL);
 
         var arrowR = document.createElement("button");
-        arrowR.innerText = "▶";
+        arrowR.innerText = "▼";
         arrowR.addEventListener("click", function() {
-            ford(i, slots, indexes);
+            ford(i, slots, indexes, slots_display);
         });
         button_right.appendChild(arrowR);
     }
@@ -58,7 +57,7 @@ function creaPassword() {
     submit.classList.add("submit-password");
     submit.innerText = "INVIO";
     submit.addEventListener("click", function() {
-        check(randomWord, slots, indexes);
+        check(slots, indexes);
     });
 
     display.appendChild(button_left);
@@ -69,34 +68,41 @@ function creaPassword() {
     return password_modulo;
 }
 
-function back(slotIndex, slots, indexes) {
+function back(slotIndex, slots, indexes, slots_display) {
     indexes[slotIndex] = (indexes[slotIndex] - 1 + slots[slotIndex].length) % slots[slotIndex].length;
-    updateDisplay(slotIndex, slots, indexes);
+    updateDisplay(slotIndex, slots, indexes, slots_display);
 }
 
-function ford(slotIndex, slots, indexes) {
+function ford(slotIndex, slots, indexes, slots_display) {
     indexes[slotIndex] = (indexes[slotIndex] + 1) % slots[slotIndex].length;
-    updateDisplay(slotIndex, slots, indexes);
+    updateDisplay(slotIndex, slots, indexes, slots_display);
 }
 
-function updateDisplay(slotIndex, slots, indexes) {
-    let slots_display = document.querySelectorAll(".slots-display .slot");
-
+function updateDisplay(slotIndex, slots, indexes, slots_display) {
     // Update display with new letter for the specific slot
-    slots_display[slotIndex].innerText = slots[slotIndex][indexes[slotIndex]];
+    slots_display.children[slotIndex].innerText = slots[slotIndex][indexes[slotIndex]];
 }
 
-function check(correctWord, slots, indexes) {
+function check(slots, indexes) {
     var userword = "";
-    for (let i = 0; i < slots[0].length; i++) {
+    for (let i = 0; i < slots.length; i++) {
         userword += slots[i][indexes[i]];
     }
 
-    if(userword == correctWord){
-        console.log("giusto");
-    }else{
-        console.log("sbagliato");
+    if (isWordInPasswords(userword)) {
+        console.log(userword + " is in the passwords array.");
+    } else {
+        console.log(userword + " is not in the passwords array.");
     }
+}
+
+function isWordInPasswords(word) {
+    for (let i = 0; i < passwords.length; i++) {
+        if (passwords[i]["word"] === word) {
+            return true; // Word found in passwords
+        }
+    }
+    return false; // Word not found in passwords
 }
 
 function aggiungi_modulo(modulo) {
