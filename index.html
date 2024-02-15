@@ -17,6 +17,39 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
 
   <title>La bomba</title>
+
+  <style>
+    .arrow {
+      /* Adjust this value as needed */
+      color: white;
+      animation: blink-animation 1s infinite;
+      font-size: 5vw;
+      /* Adjust the font size as needed */
+      ;
+    }
+
+    li {
+      font-size: 2.5vw;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @keyframes blink-animation {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 
 <body ondragstart="return false" onselectstart="return false">
@@ -41,11 +74,16 @@
     <div class="menu">
       <h1 class="customfont">LA BOMBA</h1>
       <ul>
-        <li><a href="/html/bomba/livello1.html">Gioca</a></li>
+        <li><a href="/html/livelli/livelli.html">Gioca</a></li>
         <li><a href="Manuale_Bomba.docx">Manuale Bomba</a></li>
         <li><a href="">Riconoscimenti</a></li>
+        <li style="width: 40%;"><i style="position: relative; font-size: 5vw;" id="sound"
+            class="fas fa-volume-mute"></i>
+          <div class="arrow">🢀</div>
+        </li>
+
+
       </ul>
-      <i id="sound" class="fas fa-volume-mute"></i>
     </div>
   </div>
   <script src="../js/bomba/index.js"></script>
