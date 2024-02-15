@@ -9,14 +9,18 @@ function creaPassword() {
 
   let slots = [[], [], [], [], []];
   let characters;
-  // FILL ALL THE SLOTS RANDOMICALLY
+  // FILL ALL THE SLOTS RANDOMLY WITHOUT REPEATING CHARACTERS
   for (let i = 0; i < slots.length; i++) {
-    characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?'];
+    let characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?'];
+
+    // Fisher-Yates shuffle algorithm
+    for (let j = characters.length - 1; j > 0; j--) {
+        const randomIndex = Math.floor(Math.random() * (j + 1));
+        [characters[j], characters[randomIndex]] = [characters[randomIndex], characters[j]];
+    }
 
     for (let j = 0; j < 7; j++) {
-        let index = Math.floor(Math.random() * characters.length);
-        slots[i][j] = characters[index];
-        slots[i][j].slice(index, 1)
+        slots[i][j] = characters[j];
     }
   }
 
