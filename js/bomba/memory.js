@@ -62,7 +62,8 @@ function creaMemory() {
                 click.pause()
                 stopTick();
                 wrong.play()
-                //explosion.play()
+                musicLevel.pause()
+                explosion.play()
                 sconfitta();
               }
             }
@@ -91,7 +92,10 @@ function creaMemory() {
                 click.pause()
                 stopTick();
                 wrong.play()
-                //explosion.play()
+                explosion.play()
+                musicLevel.pause()
+                minuteLeft.pause();
+                timeLeft.pause()
                 sconfitta();
               }
             }

@@ -131,6 +131,7 @@ function checkColore(button) {
       click.pause()
       stopTick();
       wrong.play()
+      musicLevel.pause()
       //explosion.play()
       sconfitta();
     }

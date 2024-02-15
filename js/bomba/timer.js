@@ -2,8 +2,13 @@
 
 var ticking = new Audio("/sounds/effects/tickingClock.mp3")
 var boom = new Audio("/sounds/effects/explosion.mp3")
+var musicLevel = new Audio("/sounds/effects/music-level/musicLevel.mp3");
+var timeLeft = new Audio("/sounds/effects/10secondsleft.mp3");
+var minuteLeft = new Audio("/sounds/effects/music-level/30seconds.mp3");
 
 let intervalId;
+musicLevel.play()
+musicLevel.volume = 0.08
 
 function crea_timer(startingMinutes, startingSeconds) {
     let timer = document.createElement("div");
@@ -35,6 +40,19 @@ function crea_timer(startingMinutes, startingSeconds) {
         if(totalSeconds == 0){
             ticking.volume = 0
             boom.play()
+            musicLevel.pause()
+            timeLeft.pause()
+            minuteLeft.pause()
+        }
+        if(totalSeconds == 11) {
+            timeLeft.play()
+        }
+        if(totalSeconds == 30) {
+            minuteLeft.play()
+            musicLevel.volume = 0.09
+        }
+        if(totalSeconds == 27) {
+            musicLevel.pause()
         }
         if (totalSeconds < 0) {
             clearInterval(intervalId);
@@ -47,7 +65,7 @@ function crea_timer(startingMinutes, startingSeconds) {
             display.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
-        //ticking.play()
+        ticking.play()
     }, 1000);
 
     return timer;

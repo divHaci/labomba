@@ -151,6 +151,9 @@ function check(slots, indexes, led, modulo) {
       stopTick();
       wrong.play();
       explosion.play();
+      musicLevel.pause()
+      minuteLeft.pause();
+      timeLeft.pause()
       sconfitta();
     }
   }

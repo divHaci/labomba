@@ -121,7 +121,10 @@ function checkCapitale(random) {
         click.pause();
         stopTick();
         wrong.play();
+        musicLevel.pause()
         explosion.play();
+        minuteLeft.pause();
+        timeLeft.pause()
         sconfitta();
       }
     }

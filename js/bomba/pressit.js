@@ -90,7 +90,10 @@ function creaTimer(durationInSeconds, module) {
         click.pause()
         stopTick();
         wrong.play()
-        //explosion.play()
+        musicLevel.pause()
+        explosion.play()
+        minuteLeft.pause();
+        timeLeft.pause()
         sconfitta();
       }
     } else {
