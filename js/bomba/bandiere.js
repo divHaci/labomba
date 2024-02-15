@@ -195,7 +195,6 @@ function createDataList() {
     "<option value='Funafuti'>" +
     "<option value='Gaborone'>" +
     "<option value='GeorgeTown'>" +
-    "<option value='Georgetown'>" +
     "<option value='Gibilterra'>" +
     "<option value='Bujumbura'>" +
     "<option value='CittàDelGuatemala'>" +

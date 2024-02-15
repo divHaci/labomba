@@ -14,10 +14,12 @@ sound.addEventListener("click", () => {
         sound.classList.remove("fa-volume-mute");
         sound.classList.add("fa-volume-up");
         music.play();
+        hideArrow();
     } else {
         sound.classList.remove("fa-volume-up");
         sound.classList.add("fa-volume-mute");
         music.pause();
+        showArrow();
     }
 
     clickSound();
@@ -38,46 +40,12 @@ function hoverSound() {
     audioHover.play();
 }
 
-const fullscreenButton = document.getElementById('fullscreenButton');
-const fsIcon = document.getElementById('fs');
-
-fullscreenButton.addEventListener('click', toggleFullscreen);
-
-function toggleFullscreen() {
-    if (document.fullscreenElement) {
-        exitFullscreen();
-    } else {
-        requestFullscreen();
-    }
+function hideArrow() {
+    const arrow = document.querySelector('.arrow');
+    arrow.style.color = 'transparent';
 }
 
-function requestFullscreen() {
-    const element = document.documentElement;
-    if (element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) { /* Firefox */
-        element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-        element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) { /* IE/Edge */
-        element.msRequestFullscreen();
-    }
-    updateFullscreenIcon(true);
-}
-
-function exitFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { /* Firefox */
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE/Edge */
-        document.msExitFullscreen();
-    }
-    updateFullscreenIcon(false);
-}
-
-function updateFullscreenIcon(isFullscreen) {
-    fsIcon.className = isFullscreen ? 'fas fa-solid fa-compress' : 'fas fa-solid fa-expand';
+function showArrow() {
+    const arrow = document.querySelector('.arrow');
+    arrow.style.color = 'white';
 }
