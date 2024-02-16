@@ -126,7 +126,7 @@ function creaMemory() {
           default:
             break;
         }
-        if(user_index == 4){
+        if(user_index == 5){
           led.style.backgroundColor = "lime"
           led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw lime";
           led.style.boxShadow = "0px 0px 2vw 0.5vw lime";
