@@ -8,7 +8,7 @@ let nazioni = ["afghanistan", "albania", "algeria",
     "ghana", "giappone", "giordania", "grecia", "grenada", "guatamela", "guinea", "guyana", "haiti", "honduras", "hongkong",
     "india", "indonesia", "iran", "iraq", "irlanda", "islanda", "isolemarshall", "isolesolomone", "israele", "italia",
     "jamaica", "kazakistan", "kenya", "kiribati", "kuwait", "laos", "lesotho", "lettonia", "libano", "liberia",
-    "libia", "liechtnestein", "lituania", "lussemburgo", "macedonia", "madagascar", "malawi", "malesia", "mali", "malta", "regnounito", "srilanka"
+    "libia", "liechtnestein", "lituania", "lussemburgo", "macedonia", "madagascar", "malawi", "malesia", "mali", "malta", "regnounito", "srilanka", "maldive", "mauritania"
 ];
 
 let capitali = [
@@ -22,5 +22,5 @@ let capitali = [
     "Accra", "Tokyo", "Amman", "Atene", "SaintGeorges", "CittàDelGuatemala", "Conakry", "GeorgeTown", "PortAuPrince", "Tegucigalpa", "HongKong",
     "NuovaDelhi", "Giacarta", "Tehran", "Baghdad", "Dublino", "Reykjavik", "Majuro", "Honiara", "Gerusalemme", "Roma",
     "Kingston", "Astana", "Nairobi", "Tarawa", "KuwaitCity", "Vientiane", "Maseru", "Riga", "Beirut", "Monrovia",
-    "Tripoli", "Vaduz", "Vilnius", "Lussemburgo", "Skopje", "Antananarivo", "Lilongwe", "KualaLumpur", "Bamako", "LaValletta", "Londra", "SriJayawardenepuraKotte"
+    "Tripoli", "Vaduz", "Vilnius", "Lussemburgo", "Skopje", "Antananarivo", "Lilongwe", "KualaLumpur", "Bamako", "LaValletta", "Londra", "SriJayawardenepuraKotte", "Malé", "Nouakchott"
 ];
