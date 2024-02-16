@@ -22,7 +22,7 @@ people = [
     "Emma Marrone",
     "Enzo Miccio",
     "Giulio Vitelli",
-    "Lataro Martinez",
+    "Lautaro Martinez",
     "Osama Bin Laden",
     "Pierluigi Pardo",
     "Anna Pepe",
