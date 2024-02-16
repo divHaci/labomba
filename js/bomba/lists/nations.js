@@ -7,7 +7,7 @@ let nazioni = ["afghanistan", "albania", "algeria",
     "estonia", "etiopia", "figi", "filippine", "finlandia", "francia", "gabon", "galles", "gambia", "georgia", "germania",
     "ghana", "giappone", "giordania", "grecia", "grenada", "guatamela", "guinea", "guyana", "haiti", "honduras", "hongkong",
     "india", "indonesia", "iran", "iraq", "irlanda", "islanda", "isolemarshall", "isolesolomone", "israele", "italia",
-    "jamaica", "kazakistan", "kenya", "kiribati", "kuwait", "laos", "lesotho", "lettonia", "libano", "liberia",
+    "jamaica", "kazakistan", "kenya", "kiribati", "kuwait", "laos", "lesotho", "lettonia", "libano",
     "libia", "liechtnestein", "lituania", "lussemburgo", "macedonia", "madagascar", "malawi", "mali", "malta", "regnounito", "srilanka", "maldive", "mauritania"
 ];
 
@@ -21,6 +21,6 @@ let capitali = [
     "Tallinn", "AddisAbeba", "Suva", "Manila", "Helsinki", "Parigi", "Libreville", "Cardiff", "Banjul", "Tbilisi", "Berlino",
     "Accra", "Tokyo", "Amman", "Atene", "SaintGeorges", "CittàDelGuatemala", "Conakry", "GeorgeTown", "PortAuPrince", "Tegucigalpa", "HongKong",
     "NuovaDelhi", "Giacarta", "Tehran", "Baghdad", "Dublino", "Reykjavik", "Majuro", "Honiara", "Gerusalemme", "Roma",
-    "Kingston", "Astana", "Nairobi", "Tarawa", "KuwaitCity", "Vientiane", "Maseru", "Riga", "Beirut", "Monrovia",
+    "Kingston", "Astana", "Nairobi", "Tarawa", "KuwaitCity", "Vientiane", "Maseru", "Riga", "Beirut",
     "Tripoli", "Vaduz", "Vilnius", "Lussemburgo", "Skopje", "Antananarivo", "Lilongwe", "Bamako", "LaValletta", "Londra", "SriJayawardenepuraKotte", "Malé", "Nouakchott"
 ];
