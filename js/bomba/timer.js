@@ -38,16 +38,23 @@ function crea_timer(startingMinutes, startingSeconds) {
     intervalId = setInterval(() => {
         totalSeconds--;
         if(totalSeconds == 0){
+            document.querySelector(".bgvideo").style.display = "none";
             ticking.volume = 0
-            boom.play()
             musicLevel.pause()
             timeLeft.pause()
             minuteLeft.pause()
+        }
+        if(totalSeconds == 1) {
+            boom.play()
+        }
+        if(totalSeconds == 10){
+            ticking.volume = 0
         }
         if(totalSeconds == 11) {
             timeLeft.play()
         }
         if(totalSeconds == 30) {
+            document.querySelector(".bgvideo").style.display = "block";
             minuteLeft.play()
             musicLevel.volume = 0.09
         }

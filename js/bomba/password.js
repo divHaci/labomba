@@ -129,7 +129,6 @@ function check(slots, indexes, led, modulo) {
         //SPEGNE IL MODULO TRANNE IL LED
         modulo.children[i].classList.add("complete")
       }
-    console.log(userword + " is in the passwords array.");
   } else {
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
       var x = document.createElement("div");
@@ -139,7 +138,6 @@ function check(slots, indexes, led, modulo) {
       led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
       led.style.boxShadow = "0px 0px 2vw 0.5vw red";
       wrong.play();
-      console.log(userword + " is not in the passwords array.");
     } else {
       var x = document.createElement("div");
       x.innerHTML = "X";
@@ -151,6 +149,7 @@ function check(slots, indexes, led, modulo) {
       stopTick();
       wrong.play();
       explosion.play();
+      document.querySelector(".bgvideo").style.display = "none";
       musicLevel.pause()
       minuteLeft.pause();
       timeLeft.pause()

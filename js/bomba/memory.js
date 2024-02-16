@@ -46,7 +46,6 @@ function creaMemory() {
                 var x = document.createElement("div");
                 x.innerHTML = "X";
                 errori.appendChild(x);
-        
                 led.style.backgroundColor = "red"
                 led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
                 led.style.boxShadow = "0px 0px 2vw 0.5vw red";
@@ -60,10 +59,10 @@ function creaMemory() {
                 led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
                 led.style.boxShadow = "0px 0px 2vw 0.5vw red";
                 click.pause()
-                stopTick();
-                wrong.play()
+                wrong.play();
                 musicLevel.pause()
                 explosion.play()
+                document.querySelector(".bgvideo").style.display = "none";
                 sconfitta();
               }
             }
@@ -94,6 +93,7 @@ function creaMemory() {
                 wrong.play()
                 explosion.play()
                 musicLevel.pause()
+                document.querySelector(".bgvideo").style.display = "none";
                 minuteLeft.pause();
                 timeLeft.pause()
                 sconfitta();
@@ -125,7 +125,8 @@ function creaMemory() {
                 click.pause()
                 stopTick();
                 wrong.play()
-                //explosion.play()
+                explosion.play()
+                document.querySelector(".bgvideo").style.display = "none";
                 sconfitta();
               }
             }
@@ -133,8 +134,6 @@ function creaMemory() {
             break;
         }
       }
-
-      console.log(user_index);
     });
   }
   moduloMemory.appendChild(displayMemory);

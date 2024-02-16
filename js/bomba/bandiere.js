@@ -123,6 +123,7 @@ function checkCapitale(random) {
         wrong.play();
         musicLevel.pause()
         explosion.play();
+        document.querySelector(".bgvideo").style.display = "none";
         minuteLeft.pause();
         timeLeft.pause()
         sconfitta();

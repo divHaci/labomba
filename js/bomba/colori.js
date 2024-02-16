@@ -132,7 +132,8 @@ function checkColore(button) {
       stopTick();
       wrong.play()
       musicLevel.pause()
-      //explosion.play()
+      explosion.play()
+      document.querySelector(".bgvideo").style.display = "none";
       sconfitta();
     }
     for (let i = 0; i < ledContainer.children.length; i++) {

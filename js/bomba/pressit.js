@@ -79,7 +79,7 @@ function creaTimer(durationInSeconds, module) {
           display.textContent = formatTime(remainingTime);
           intervalId = setInterval(updateTimer, 1000);
         }
-      }else{
+      }else if(errori.children.length == parseInt(max_errori.innerHTML)){
         var x = document.createElement("div");
         x.innerHTML = "X";
         errori.appendChild(x);
@@ -95,6 +95,12 @@ function creaTimer(durationInSeconds, module) {
         minuteLeft.pause();
         timeLeft.pause()
         sconfitta();
+      }else if(errori.children.length > parseInt(max_errori.innerHTML)){
+        var led = module.querySelector(".led-container .led")
+        led.style.backgroundColor = "red"
+        led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+        led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        
       }
     } else {
       var led = module.querySelector(".led-container .led")

@@ -21,14 +21,26 @@
 </head>
 
 <body>
-    <div class="bomba"></div>
     <div class="menu-container" style="display: none;">
         <h1>PAUSA</h1>
-        <a href="/html/livelli/livelli.html"><button>LIVELLI</button></a>
-        <button onclick="location.reload()">RIPROVA</button>
+        <div style="display: flex;" class="vittime">Sono morti <span class="n-vittime"></span> bambini...</div>
+        <div style="display: flex;" class="famous-list">
+            Tra le vittime più famose:
+            <div class="list"></div>
+        </div>
+
+        <div class="buttons">
+            <button class="menu-buttons" id="levels"
+                onclick="window.location.href = '/html/livelli/livelli.html';"><span>Livelli</span></button>
+            <button class="menu-buttons" id="retry" onclick="location.reload()"><span>Riprova</span></button>
+        </div>
     </div>
-    <div class="starting-minutes" style="display: none;">0</div>
-    <div class="starting-seconds" style="display: none;">40</div>
+    <video class="bgvideo" autoplay loop muted id="videoBackground">
+        <source src="/img/bgvideo.mp4" type="video/mp4" />
+    </video>
+    <div class="bomba"></div>
+    <div class="starting-minutes" style="display: none;">1</div>
+    <div class="starting-seconds" style="display: none;">00</div>
     <div class="max-errori" style="display: none;">1</div>
     <div class="n-moduli" style="display: none;">3</div>
     <div class="n-moduli-completati" style="display: none;">0</div>
@@ -38,6 +50,7 @@
     <script src="../../js/bomba/timer.js"></script>
     <script src="../../js/bomba/lists/nations.js"></script>
     <script src="../../js/bomba/lists/passwords.js"></script>
+    <script src="../../js/bomba/lists/famous_people.js"></script>
     <script src="../../js/bomba/lists/sequenze.js"></script>
     <script src="../../js/bomba/colori.js"></script>
     <script src="../../js/bomba/bandiere.js"></script>

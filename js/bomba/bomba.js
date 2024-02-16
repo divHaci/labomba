@@ -61,10 +61,26 @@ function vittoria() {
     win.play();
 }
 function sconfitta() {
-    console.log("suca");
-    document.querySelector(".menu-container h1").innerHTML = "HAI PERSO!"
+    document.querySelector(".menu-container h1").innerHTML = "SEI ESPLOSO!"
     document.querySelector(".menu-container").style.display = "flex";
+
+    document.querySelector(".menu-container .n-vittime").innerHTML = " " + Math.floor(Math.random()*300 + 100) + " ";
+    for (let i = 0; i < 2; i++) {
+        var index = Math.floor(Math.random() * people.length);
+        var person = document.createElement("span");
+        person.textContent = people[index];
+        people.splice(index, 1); // Remove the selected person from the array
+        document.querySelector(".famous-list").querySelector(".list").appendChild(person);
+    }
     show = true
+
+    var allElements = document.querySelector("body").children;
+
+    for (let i = 2; i < allElements.length; i++) {
+        allElements[i].classList.add("complete");
+        document.querySelector(".gira-button").classList.remove("complete")
+    }
+
 }
 
 document.addEventListener('keydown', function(event) {
