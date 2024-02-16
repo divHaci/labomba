@@ -58,7 +58,7 @@ people = [
     "Antonio Pellegrino",
     "David Rubino",
     "Diletta Leotta",
-    "Karen Rebecca Casiraghi",
+    "Kokeshi",
     "Concetta Viola",
     "Simone Santoro",
     "Davide Marra",
