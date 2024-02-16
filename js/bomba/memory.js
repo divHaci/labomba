@@ -24,7 +24,7 @@ function creaMemory() {
     displayMemory.appendChild(square);
     square.addEventListener("click", function () {
       userclick.push(i);
-      if(user_index > 3){
+      if(user_index == 4){
         led.style.backgroundColor = "lime"
         led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw lime";
         led.style.boxShadow = "0px 0px 2vw 0.5vw lime";
