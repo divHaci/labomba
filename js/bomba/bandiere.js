@@ -243,7 +243,6 @@ function createDataList() {
     "<option value='Madrid'>" +
     "<option value='Majuro'>" +
     "<option value='Malabo'>" +
-    "<option value='Malé'>" +
     "<option value='Managua'>" +
     "<option value='Manama'>" +
     "<option value='Manila'>" +
