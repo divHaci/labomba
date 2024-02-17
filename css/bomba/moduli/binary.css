@@ -1,0 +1,157 @@
+.modulo-binary {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    background-color: #222;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4vw;
+}
+
+.display-binary {
+    width: 100%;
+    height: 60%;
+    background: radial-gradient(50% 50% at 50% 50%, #292929 0%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 0.5vw;
+    border-style: solid;
+    border-color: rgb(39, 39, 39);
+}
+
+.bit {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    border-left: solid 0.1vw rgb(125, 125, 125);
+    border-right: solid 0.1vw rgb(125, 125, 125);
+}
+
+.bit * {
+    margin: 1vw;
+}
+
+.on {
+    width: 80%;
+    height: 0.5vw;
+    background-color: gray;
+    border-radius: 0.2vw;
+}
+
+.off {
+    border-radius: 0.2vw;
+    width: 80%;
+    height: 0.5vw;
+    background-color: gray;
+}
+
+.n-lettera {
+    background: radial-gradient(50% 50% at 50% 50%, #202020 0%, #000000 100%);
+    font-family: display;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(211, 211, 211);
+    text-shadow: 0px 0px 0.3vw rgba(255, 255, 255);
+    width: 100%;
+    height: 20%;
+    font-family: "Outline", monospace;
+}
+
+.modulo-binary .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* invia al centro */
+.input-container .input-fields * {
+    width: 100%;
+    height: 50%;
+}
+
+/* x */
+.input-fields {
+    background: radial-gradient(50% 50% at 50% 50%, #2f2f2f 0%, #000000 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* inserisci x */
+.input-container input {
+    aspect-ratio: 10/1;
+    width: 100%;
+    text-align: center;
+    font-size: 2vw;
+    text-transform: uppercase;
+    font-family: binary;
+    background: transparent;
+    color: rgb(255, 196, 0);
+    text-shadow: 0px 0px 3vw rgb(148, 143, 0);
+    border: none;
+    font-family: "Outline", monospace;
+    -webkit-user-select: none;
+    /* Chrome, Safari, Opera */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    cursor: text;
+    /* Ensures cursor is still text cursor */
+}
+
+.input-word::selection {
+    background-color: transparent;
+}
+
+.input-container input:focus {
+    outline: none;
+}
+
+.input-container input::placeholder {
+    color: gray;
+    text-shadow: 0px 0px 2vh rgb(0, 0, 0);
+}
+
+.input-container button {
+    background: radial-gradient(50% 50% at 50% 50%, #ffc234 0%, #9f7617 100%);
+    color: #3c321d;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border: none;
+    cursor: pointer;
+    font-family: password;
+    font-size: 1.8vw;
+}
+
+.input-container button:focus {
+    outline: none;
+    border: none
+}
+
+.input-container {
+    border-style: solid;
+    border-color: rgb(39, 39, 39);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0.4vw;
+}

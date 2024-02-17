@@ -132,6 +132,7 @@ function creaMemory() {
           led.style.boxShadow = "0px 0px 2vw 0.5vw lime";
           right.play();
           displayMemory.classList.add("complete")
+          checkForWin();
         }
     });
   }
@@ -177,18 +178,5 @@ function newSequenza() {
   return sequence;
 }
 
-function aggiungi_modulo(modulo) {
-  var empty = true;
-  var containers = document.querySelectorAll(".container-modulo");
-  var random_container = Math.floor((Math.random() * containers.length) / 2);
-  while (empty) {
-    if (containers[random_container].children.length == 0) {
-      containers[random_container].appendChild(modulo);
-      empty = false;
-    } else {
-      random_container = Math.floor(Math.random() * containers.length);
-    }
-  }
-}
 
 aggiungi_modulo(creaMemory());

@@ -38,23 +38,38 @@ function crea_timer(startingMinutes, startingSeconds) {
     intervalId = setInterval(() => {
         totalSeconds--;
         if(totalSeconds == 0){
-            document.querySelector(".bgvideo").style.display = "none";
             ticking.volume = 0
             musicLevel.pause()
             timeLeft.pause()
             minuteLeft.pause()
+            document.querySelector(".left-red-light").style.animation = "none";
+            document.querySelector(".right-red-light").style.animation = "none";
+            document.querySelector(".left-red-light").style.backgroundColor = "red";
+            document.querySelector(".right-red-light").style.backgroundColor = "red";
+            boom.play()
         }
         if(totalSeconds == 1) {
-            boom.play()
         }
         if(totalSeconds == 10){
             ticking.volume = 0
+        }
+
+        if(totalSeconds == 10){
+            ticking.volume = 0
+            document.querySelector(".left-red-light").style.animation = "blink 0.1s ease-in-out infinite alternate-reverse";
+            document.querySelector(".right-red-light").style.animation = "blink 0.1s ease-in-out infinite alternate-reverse";
+        }
+
+        if (totalSeconds == 19) {
+            document.querySelector(".left-red-light").style.animation = "blink 0.5s ease-in-out infinite alternate-reverse";
+            document.querySelector(".right-red-light").style.animation = "blink 0.5s ease-in-out infinite alternate-reverse";
         }
         if(totalSeconds == 11) {
             timeLeft.play()
         }
         if(totalSeconds == 30) {
-            document.querySelector(".bgvideo").style.display = "block";
+            document.querySelector(".left-red-light").style.animation = "blink 1s ease-in-out infinite alternate";
+            document.querySelector(".right-red-light").style.animation = "blink 1s ease-in-out infinite alternate";
             minuteLeft.play()
             musicLevel.volume = 0.09
         }
@@ -76,22 +91,6 @@ function crea_timer(startingMinutes, startingSeconds) {
     }, 1000);
 
     return timer;
-}
-
-// Aggiunge il modulo timer a un container casuale tra i 12
-
-function aggiungi_modulo(modulo) {
-    var empty = true;
-    var containers = document.querySelectorAll(".container-modulo");
-    var random_container = Math.floor(Math.random()*containers.length);
-    while(empty){
-        if(containers[random_container].children.length == 0){
-            containers[random_container].appendChild(modulo)
-            empty = false;
-        }else{
-            random_container = Math.floor(Math.random()*containers.length);
-        }
-    }
 }
 
 var starting_minutes = parseInt(document.querySelector(".starting-minutes").innerHTML)

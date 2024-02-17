@@ -64,20 +64,6 @@ function isParolaPresente(parola) {
   return false;
 }
 
-function aggiungi_modulo(modulo) {
-  var empty = true;
-  var containers = document.querySelectorAll(".container-modulo");
-  var random_container = Math.floor((Math.random() * containers.length) / 2);
-  while (empty) {
-    if (containers[random_container].children.length == 0) {
-      containers[random_container].appendChild(modulo);
-      empty = false;
-    } else {
-      random_container = Math.floor(Math.random() * containers.length);
-    }
-  }
-}
-
 createDataList();
 aggiungi_modulo(creaBandiere());
 
@@ -99,6 +85,9 @@ function checkCapitale(random) {
         modulo.children[i].classList.add("complete");
       }
       right.play();
+
+      //CHECK FOR WIN
+      checkForWin();
     } else {
       if (errori.children.length < parseInt(max_errori.innerHTML)) {
         var x = document.createElement("div");
@@ -258,7 +247,6 @@ function createDataList() {
     "<option value='Monaco'>" +
     "<option value='Monrovia'>" +
     "<option value='Montevideo'>" +
-    "<option value='Moroni'>" +
     "<option value='Mosca'>" +
     "<option value='Muscat'>" +
     "<option value='NDjamena'>" +

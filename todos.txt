@@ -1,6 +1,6 @@
 Done:
-    // Fixato: "quando tutti i livelli dei colori sono completati solo il primo diventa verde"
-    // disabilitato colori quando corretto 
-    // disabilitato password quando corretto 
-    // Fixato: "evitare che nella stessa riga ci siano le stesse lettere"
+// fatto modulo codice binario
 To do:
+// renderlo responsive
+
+

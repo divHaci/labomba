@@ -129,6 +129,7 @@ function check(slots, indexes, led, modulo) {
         //SPEGNE IL MODULO TRANNE IL LED
         modulo.children[i].classList.add("complete")
       }
+    checkForWin();
   } else {
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
       var x = document.createElement("div");
@@ -165,20 +166,6 @@ function isWordInPasswords(word) {
     }
   }
   return false; // Word not found in passwords
-}
-
-function aggiungi_modulo(modulo) {
-  var empty = true;
-  var containers = document.querySelectorAll(".container-modulo");
-  var random_container = Math.floor((Math.random() * containers.length) / 2);
-  while (empty) {
-    if (containers[random_container].children.length == 0) {
-      containers[random_container].appendChild(modulo);
-      empty = false;
-    } else {
-      random_container = Math.floor(Math.random() * containers.length);
-    }
-  }
 }
 
 aggiungi_modulo(creaPassword());

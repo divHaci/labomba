@@ -28,20 +28,6 @@ function creaPressIt(solution) {
   return modulo;
 }
 
-function aggiungi_modulo(modulo) {
-  var empty = true;
-  var containers = document.querySelectorAll(".container-modulo");
-  var random_container = Math.floor(Math.random() * containers.length);
-  while (empty) {
-    if (containers[random_container].children.length == 0) {
-      containers[random_container].appendChild(modulo);
-      empty = false;
-    } else {
-      random_container = Math.floor(Math.random() * containers.length);
-    }
-  }
-}
-
 function creaTimer(durationInSeconds, module) {
   let timer = document.createElement("div");
   timer.classList.add("press-it-timer");
@@ -109,6 +95,7 @@ function creaTimer(durationInSeconds, module) {
       led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
       click.pause()
       right.play()
+      checkForWin();
     }
   }
 

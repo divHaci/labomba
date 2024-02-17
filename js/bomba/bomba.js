@@ -55,14 +55,24 @@ var show = false;
 giraButton.addEventListener("onclick", gira);
 
 function vittoria() {
-    document.querySelector(".menu-container h1").innerHTML = "HAI VINTO!"
+    document.querySelector(".menu-container h1").innerHTML = "BOMBA DISINNESCATA!"
     document.querySelector(".menu-container").style.display = "flex";
+    document.querySelector(".codice").style.display = "flex";
+    musicLevel.pause();
+    ticking.pause();
+    timeLeft.pause()
+    minuteLeft.pause();
+    document.querySelector(".left-red-light").style.animation = "none";
+    document.querySelector(".right-red-light").style.animation = "none";
+    clearInterval(intervalId)
     show = true
     win.play();
 }
 function sconfitta() {
     document.querySelector(".menu-container h1").innerHTML = "SEI ESPLOSO!"
     document.querySelector(".menu-container").style.display = "flex";
+    document.querySelector(".vittime").style.display = "flex";
+    document.querySelector(".famous-list").style.display = "flex";
 
     document.querySelector(".menu-container .n-vittime").innerHTML = " " + Math.floor(Math.random()*300 + 100) + " ";
     for (let i = 0; i < 2; i++) {
@@ -76,7 +86,9 @@ function sconfitta() {
 
     var allElements = document.querySelector("body").children;
 
-    for (let i = 2; i < allElements.length; i++) {
+    
+
+    for (let i = 4; i < allElements.length; i++) {
         allElements[i].classList.add("complete");
         document.querySelector(".gira-button").classList.remove("complete")
     }
@@ -89,10 +101,45 @@ document.addEventListener('keydown', function(event) {
     
     if (event.key === "Escape") {
         if(show){
-            document.querySelector(".menu-container h1").innerHTML = "PAUSA"
+            document.querySelector(".menu-container h1").innerHTML = "MENU"
             document.querySelector(".menu-container").style.display = "flex";
         }else{
             document.querySelector(".menu-container").style.display = "none";
         }
     }
   });
+
+  function aggiungi_modulo(modulo) {
+    var empty = true;
+    var containers = document.querySelectorAll(".container-modulo");
+    var random_container = Math.floor(Math.random() * containers.length / 2);
+    while (empty) {
+      if (containers[random_container].children.length == 0) {
+        containers[random_container].appendChild(modulo);
+        empty = false;
+      } else {
+        random_container = Math.floor(Math.random() * containers.length);
+      }
+    }
+  }
+
+  function checkForWin() {
+    var n_moduli = document.querySelector(".n-moduli");
+    var n_moduli_completati = document.querySelector(".n-moduli-completati");
+
+    n_moduli_completati.innerHTML = parseInt(n_moduli_completati.innerHTML) + 1;
+    
+
+    if(parseInt(n_moduli_completati.innerHTML) == parseInt(n_moduli.innerHTML)){
+        var allElements = document.querySelector("body").children;
+    
+        
+        setTimeout(() => {
+            document.querySelector(".win-led").style.display = "block";
+        }, 500);
+        
+        setTimeout(() => {
+            vittoria();
+        }, 500);
+    }
+  }

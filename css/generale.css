@@ -16,6 +16,7 @@ body {
   background-size: cover;
   transition: 0.5s filter ease-in-out;
   background-color: #111;
+  overflow: hidden;
 }
 
 video {
@@ -25,4 +26,59 @@ video {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+}
+
+.win-led {
+  display: none;
+  width: 90%;
+  z-index: -1;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  background: linear-gradient(-45deg, rgba(255, 0, 255, 0.3), rgba(255, 0, 0, 0.3), rgba(255, 255, 0, 0.3), rgba(0, 255, 0, 0.3), rgba(0, 255, 255, 0.3), rgba(0, 0, 255, 0.3), rgba(255, 0, 255, 0.3));
+  background-size: 600% 600%;
+  animation: win 1s ease-in-out infinite alternate;
+  filter: blur(10vw);
+}
+
+.left-red-light {
+  position: absolute;
+  left: -25%;
+  top: -50%;
+  width: 50%;
+  z-index: -2;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  filter: blur(10vw);
+}
+
+.right-red-light {
+  position: absolute;
+  right: -25%;
+  top: -50%;
+  width: 50%;
+  z-index: -2;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  filter: blur(10vw);
+}
+
+@keyframes blink {
+  0% {
+    background: transparent;
+  }
+
+  100% {
+    background: red;
+  }
+}
+
+@keyframes win {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }

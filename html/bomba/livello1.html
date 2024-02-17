@@ -17,16 +17,23 @@
     <link rel="stylesheet" href="../../css/bomba/moduli/memory.css">
     <link rel="stylesheet" href="../../css/bomba/moduli/bandiere.css">
     <link rel="stylesheet" href="../../css/bomba/moduli/password.css">
+    <link rel="stylesheet" href="../../css/bomba/moduli/binary.css">
 
 </head>
 
 <body>
+    <div class="win-led"></div>
+    <div class="left-red-light"></div>
+    <div class="right-red-light"></div>
     <div class="menu-container" style="display: none;">
-        <h1>PAUSA</h1>
-        <div style="display: flex;" class="vittime">Ci lasciano <span class="n-vittime"></span> bambini...</div>
-        <div style="display: flex;" class="famous-list">
+        <h1>MENU</h1>
+        <div style="display: none;" class="vittime">Ci lasciano <span class="n-vittime"></span> bambini...</div>
+        <div style="display: none;" class="famous-list">
             Tra le vittime più famose:
             <div class="list"></div>
+        </div>
+
+        <div style="display: none;" class="codice">Codice livello 2: <span>WINEGRI69</span>
         </div>
 
         <div class="buttons">
@@ -39,30 +46,34 @@
         <source src="/img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none;">5</div>
-    <div class="starting-seconds" style="display: none;">00</div>
-    <div class="max-errori" style="display: none;">1</div>
-    <div class="n-moduli" style="display: none;">3</div>
+    <div class="starting-minutes" style="display: none;">4</div>
+    <div class="starting-seconds" style="display: none;">0</div>
+    <div class="max-errori" style="display: none;">0</div>
+    <div class="n-moduli" style="display: none;">11</div>
     <div class="n-moduli-completati" style="display: none;">0</div>
     <button class="gira-button" onclick="gira()">GIRA</button>
     <!-- Creazione bomba con moduli vuoti -->
     <script src="../../js/bomba/bomba.js"></script>
     <script src="../../js/bomba/timer.js"></script>
+
+    <!-- LISTE PER I MODULI -->
     <script src="../../js/bomba/lists/nations.js"></script>
     <script src="../../js/bomba/lists/passwords.js"></script>
     <script src="../../js/bomba/lists/famous_people.js"></script>
     <script src="../../js/bomba/lists/sequenze.js"></script>
-    <script src="../../js/bomba/colori.js"></script>
-    <script src="../../js/bomba/bandiere.js"></script>
-    <script src="../../js/bomba/bandiere.js"></script>
-    <script src="../../js/bomba/bandiere.js"></script>
-    <script src="../../js/bomba/password.js"></script>
-    <script src="../../js/bomba/password.js"></script>
-    <script src="../../js/bomba/password.js"></script>
+    <script src="../../js/bomba/lists/binary.js"></script>
+
     <script src="../../js/bomba/pressit.js"></script>
+    <script src="../../js/bomba/bandiere.js"></script>
+    <script src="../../js/bomba/password.js"></script>
+    <script src="../../js/bomba/password.js"></script>
     <script src="../../js/bomba/memory.js"></script>
     <script src="../../js/bomba/memory.js"></script>
-    <script src="../../js/bomba/memory.js"></script>
+    <script src="../../js/bomba/colori.js"></script>
+    <script src="../../js/bomba/binary.js"></script>
+    <script src="../../js/bomba/binary.js"></script>
+    <script src="../../js/bomba/bandiere.js"></script>
+    <script src="../../js/bomba/password.js"></script>
 
     <script src="../../js/bomba/check-modulo-vuoto.js"></script>
 </body>

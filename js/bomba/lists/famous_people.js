@@ -201,6 +201,7 @@ people = [
     "Enrico Papi",
     "Rocco Hunt",
     "Iva Zanicchi",
+    "Ivan Grieco",
     "Cristiano Malgioglio",
     "Bryan Cristante",
     "Will Smith",
@@ -212,7 +213,7 @@ people = [
     "Capo Plaza",
     "Yara Cambirasi",
     "Filippo Turetta",
-    "Kobe Briant",
+    "Kobe Bryant",
     "Steph Curry",
     "Il Pancio",
     "Kekkobomba",
@@ -262,5 +263,5 @@ people = [
     "Bruno Vespa",
     "Weston McKenny",
     "Abraham Lincoln",
-    "Ed Sheeran"
+    "Ed Sheeran",
 ]

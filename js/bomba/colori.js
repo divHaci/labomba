@@ -93,20 +93,6 @@ function creaColori() {
   return moduloColori;
 }
 
-function aggiungi_modulo(modulo) {
-  var empty = true;
-  var containers = document.querySelectorAll(".container-modulo");
-  var random_container = Math.floor(Math.random() * containers.length / 2);
-  while (empty) {
-    if (containers[random_container].children.length == 0) {
-      containers[random_container].appendChild(modulo);
-      empty = false;
-    } else {
-      random_container = Math.floor(Math.random() * containers.length);
-    }
-  }
-}
-
 var livello = 0;
 
 function checkColore(button) {
@@ -161,6 +147,7 @@ function checkColore(button) {
         //SPEGNE IL MODULO TRANNE IL LED
         moduloColori.children[i].classList.add("complete")
       }
+      checkForWin();
     }
   }
   newLevel()

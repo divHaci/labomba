@@ -30,6 +30,14 @@
     font-weight: bolder;
 }
 
+.codice span {
+    margin: 2vw;
+    font-size: 2.8vw;
+    font-weight: bolder;
+    font-family: "Outline", monospace;
+    letter-spacing: 0.3vw;
+}
+
 .famous-list {
     font-size: 1.7vw;
     display: flex;
@@ -58,6 +66,9 @@
     justify-content: center;
     width: 45%;
     height: 100%;
+    user-select: all;
+    cursor: text;
+    z-index: 999;
 }
 
 .menu-container h1 {
@@ -123,4 +134,11 @@
     left: 0;
     right: 0;
     opacity: 1;
+}
+
+.codice {
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
