@@ -11,6 +11,8 @@ var right = new Audio("/sounds/effects/right.mp3")
 var wrong = new Audio("/sounds/effects/wrong.mp3")
 var explosion = new Audio("/sounds/effects/explosion.mp3")
 var memory = new Audio("/sounds/effects/memory.mp3")
+var loseMusic = new Audio("/sounds/effects/music-level/loseMusic.mp3");
+
 
 function gira() {
     if (fronte) {
@@ -86,14 +88,18 @@ function sconfitta() {
 
     var allElements = document.querySelector("body").children;
 
-    
-
     for (let i = 4; i < allElements.length; i++) {
         allElements[i].classList.add("complete");
         document.querySelector(".gira-button").classList.remove("complete")
     }
 
+    // Add the following lines to trigger loseMusic after 2 seconds
+    setTimeout(() => {
+        loseMusic.play();
+        loseMusic.volume = 0.2
+    }, 500);
 }
+
 
 document.addEventListener('keydown', function(event) {
     // Check if the pressed key is the "Escape" key (key code 27)

@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Explosion";
+    src: url(../fonts/esplosione.ttf) format("truetype");
+}
+
+
 .menu-container {
     position: absolute;
     width: 50%;
@@ -72,7 +78,11 @@
 }
 
 .menu-container h1 {
+    font-family: Explosion;
     font-size: 3.5vw;
+    color: rgb(184, 18, 18); /* Colore del testo (rosso) */
+    text-shadow: 0.2vw 0.2vw 0 black; /* Contorno del testo (nero) */
+    
 }
 
 .buttons {
