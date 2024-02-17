@@ -8,7 +8,35 @@
 </head>
 
 <body>
-    <a href="/html/bomba/livello1.html"><button>1</button></a>
+    <!-- Aggiungi una funzione di controllo al click del primo livello -->
+    <a href="/html/bomba/livello1.html" onclick="checkLevel(1)"><button>1</button></a>
+    <!-- Aggiungi una funzione di controllo al click del secondo livello -->
+    <a href="/html/bomba/livello2.html" onclick="checkLevel(2)" disabled><button id="level2Btn" disabled>2</button></a>
+    <script>
+         
+        function checkLevel(level) {
+            // Controlla se il livello precedente è stato completato
+            var prevLevel = level - 1;
+            var isPrevLevelCompleted = localStorage.getItem('level' + prevLevel) === 'completed';
+
+            // Se il livello precedente è stato completato, salva il completamento del livello attuale
+            if (isPrevLevelCompleted || prevLevel === 0) {
+                localStorage.setItem('level' + level, 'completed');
+            } else {
+                // Se il livello precedente non è stato completato, mostra un messaggio o fai altro
+                alert('Completa prima il livello ' + prevLevel);
+                return false; // Blocca il collegamento al livello
+            }
+        }
+
+        // Verifica se il livello 1 è stato completato all'avvio della pagina e abilita il livello 2 se necessario
+        document.addEventListener("DOMContentLoaded", function () {
+            var isLevel1Completed = localStorage.getItem('level1') === 'completed';
+            if (isLevel1Completed) {
+                document.getElementById('level2Btn').removeAttribute('disabled');
+            }
+        });
+    </script>
 </body>
 
 </html>

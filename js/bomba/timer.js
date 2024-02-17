@@ -37,7 +37,7 @@ function crea_timer(startingMinutes, startingSeconds) {
     let totalSeconds = startingMinutes * 60 + startingSeconds;
     intervalId = setInterval(() => {
         totalSeconds--;
-        if(totalSeconds == 0){
+        if(totalSeconds < 1){
             ticking.volume = 0
             musicLevel.pause()
             timeLeft.pause()
@@ -48,12 +48,6 @@ function crea_timer(startingMinutes, startingSeconds) {
             document.querySelector(".right-red-light").style.backgroundColor = "red";
             boom.play()
         }
-        if(totalSeconds == 1) {
-        }
-        if(totalSeconds == 10){
-            ticking.volume = 0
-        }
-
         if(totalSeconds == 10){
             ticking.volume = 0
             document.querySelector(".left-red-light").style.animation = "blink 0.1s ease-in-out infinite alternate-reverse";
