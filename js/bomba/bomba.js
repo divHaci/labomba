@@ -96,8 +96,13 @@ function sconfitta() {
     // Add the following lines to trigger loseMusic after 2 seconds
     setTimeout(() => {
         loseMusic.play();
-        loseMusic.volume = 0.2
+        loseMusic.volume = 0.08
     }, 500);
+
+    document.querySelector(".left-red-light").style.animation = "none";
+    document.querySelector(".right-red-light").style.animation = "none";
+    document.querySelector(".left-red-light").style.backgroundColor = "red";
+    document.querySelector(".right-red-light").style.backgroundColor = "red";
 }
 
 

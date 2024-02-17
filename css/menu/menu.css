@@ -1,13 +1,27 @@
 @font-face {
     font-family: "Explosion";
-    src: url(../fonts/esplosione.ttf) format("truetype");
+    src: url(../fonts/defused.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "Vittime";
+    src: url(../fonts/vittime.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Names";
+    src: url(../fonts/names.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Menu";
+    src: url(../fonts/menuText.ttf) format("truetype");
+}
 
 .menu-container {
     position: absolute;
     width: 50%;
-    height: 60%;
+    height: 65%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -15,16 +29,18 @@
     border-radius: 2vh;
     z-index: 999;
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(241, 228, 228, 0.6);
     box-shadow: 0 2vh 7vh rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1vh solid rgba(255, 255, 255, 1);
-    font-family: "Outline", sans-serif;
+    backdrop-filter: blur(0.3vw);
+    -webkit-backdrop-filter: blur(0.3vw);
+    border: 0.2vw solid rgb(255, 255, 255);
+    font-family: Menu;
+    text-align: center;
+    font-weight: bold;
 }
 
 .vittime {
-    font-size: 2.5vw;
+    font-size: 3vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,8 +48,10 @@
 
 .vittime span {
     margin: 2vw;
-    font-size: 2.8vw;
-    font-weight: bolder;
+    font-size: 4vw;
+    font-family: Vittime;
+    color: rgb(184, 18, 18);
+    text-shadow: 0.2vw 0.2vw 0 black;
 }
 
 .codice span {
@@ -45,7 +63,7 @@
 }
 
 .famous-list {
-    font-size: 1.7vw;
+    font-size: 2vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,11 +79,12 @@
     justify-content: space-evenly;
     width: 100%;
     height: 50%;
+    font-family: Names;
 }
 
 .famous-list span {
     margin: 0.4vw;
-    font-size: 2vw;
+    font-size: 2.5vw;
     font-weight: normal;
     display: flex;
     align-items: center;
@@ -75,14 +94,21 @@
     user-select: all;
     cursor: text;
     z-index: 999;
+    text-align: center;
+    user-select: none;
+    cursor: default;
 }
 
 .menu-container h1 {
     font-family: Explosion;
     font-size: 3.5vw;
-    color: rgb(184, 18, 18); /* Colore del testo (rosso) */
-    text-shadow: 0.2vw 0.2vw 0 black; /* Contorno del testo (nero) */
-    
+    margin: 2vw;
+    color: rgb(184, 18, 18);
+    /* Colore del testo (rosso) */
+    text-shadow: 0.2vw 0.2vw 0 black;
+    /* Contorno del testo (nero) */
+    letter-spacing: 0.7vw;
+
 }
 
 .buttons {

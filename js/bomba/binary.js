@@ -33,7 +33,6 @@ function generaBinary() {
 
     // Select a random word from the binary_words array
     let word = binary_words[Math.floor(Math.random() * binary_words.length)]
-    console.log(word);;
 
     var j = 0;
     let i = 0;
