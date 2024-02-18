@@ -1,7 +1,7 @@
 function creaBandiere() {
   let modulo = document.createElement("div");
   modulo.classList.add("bandiere-module");
-  
+
   let bandiere = document.createElement("img");
   bandiere.classList.add("bandieraImg");
 
@@ -110,11 +110,11 @@ function checkCapitale(random) {
         click.pause();
         stopTick();
         wrong.play();
-        musicLevel.pause()
+        musicLevel.pause();
         explosion.play();
         document.querySelector(".bgvideo").style.display = "none";
         minuteLeft.pause();
-        timeLeft.pause()
+        timeLeft.pause();
         sconfitta();
       }
     }
