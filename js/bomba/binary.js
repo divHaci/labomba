@@ -1,3 +1,5 @@
+var binaryModulo = "Modulo Codice Binario";
+
 function generaBinary() {
   var bits = [];
   var led_container = document.createElement("div");
@@ -133,7 +135,7 @@ function generaBinary() {
         musicLevel.pause();
         minuteLeft.pause();
         timeLeft.pause();
-        sconfitta();
+        sconfitta(binaryModulo);
       }
     }
   });

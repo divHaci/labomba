@@ -1,3 +1,5 @@
+var batteria = "Modulo Batteria";
+
 // Create battery element
 const battery = document.createElement("div");
 battery.className = "battery";
@@ -27,7 +29,7 @@ function updateBattery() {
       stopTick();
       wrong.play();
       explosion.play();
-      sconfitta("battery");
+      sconfitta(batteria);
       clearInterval(timer);
       timerRunning = false; // Reset timerRunning flag
     }

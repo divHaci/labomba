@@ -1,3 +1,5 @@
+var bandiere = "Modulo Bandiera";
+
 function creaBandiere() {
   let modulo = document.createElement("div");
   modulo.classList.add("bandiere-module");
@@ -115,7 +117,7 @@ function checkCapitale(random) {
         document.querySelector(".bgvideo").style.display = "none";
         minuteLeft.pause();
         timeLeft.pause();
-        sconfitta();
+        sconfitta(bandiere);
       }
     }
   }

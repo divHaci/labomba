@@ -74,6 +74,7 @@ function vittoria() {
 }
 function sconfitta(reason) {
   console.log(reason);
+  document.querySelector(".famous-list").innerHTML += `<div>Causa Esplosione: ${reason}</div>`;
   esploso = true;
   document.querySelector(".menu-container h1").innerHTML = "SEI ESPLOSO!";
   document.querySelector(".menu-container").style.display = "flex";

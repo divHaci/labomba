@@ -1,5 +1,5 @@
 var clickPwd = new Audio("../../sounds/effects/clickPassword.mp3");
-
+var pwdEsploso = "Modulo Password";
 
 function creaPassword() {
   var randomIndex = Math.floor(Math.random() * passwords.length);
@@ -154,7 +154,7 @@ function check(slots, indexes, led, modulo) {
       musicLevel.pause()
       minuteLeft.pause();
       timeLeft.pause()
-      sconfitta();
+      sconfitta(pwdEsploso);
     }
   }
 }

@@ -1,4 +1,5 @@
-// Aggiunge il modulo timer a un container casuale tra i 12
+var timerPressIt = "Modulo Press It";
+
 function creaPressIt(solution) {
   let modulo = document.createElement("div")
   modulo.classList.add("press-it-module")
@@ -80,7 +81,7 @@ function creaTimer(durationInSeconds, module) {
         explosion.play()
         minuteLeft.pause();
         timeLeft.pause()
-        sconfitta();
+        sconfitta(timerPressIt);
       }else if(errori.children.length > parseInt(max_errori.innerHTML)){
         var led = module.querySelector(".led-container .led")
         led.style.backgroundColor = "red"

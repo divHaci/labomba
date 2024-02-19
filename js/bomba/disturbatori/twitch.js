@@ -1,3 +1,5 @@
+var twitchDisturbatore = "Disturbatore Streamer Twitch"
+
 function createDataList() {
   let div = document.createElement("div");
   div.innerHTML =

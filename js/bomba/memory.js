@@ -1,3 +1,5 @@
+var memory = "Modulo Memory";
+
 function creaMemory() {
   var sequence;
   var blinking;
@@ -57,7 +59,7 @@ function creaMemory() {
               musicLevel.pause();
               explosion.play();
               document.querySelector(".bgvideo").style.display = "none";
-              sconfitta();
+              sconfitta(memory);
             }
           }
           break;
@@ -90,7 +92,7 @@ function creaMemory() {
               document.querySelector(".bgvideo").style.display = "none";
               minuteLeft.pause();
               timeLeft.pause();
-              sconfitta();
+              sconfitta(memory);
             }
           }
           break;
@@ -121,7 +123,7 @@ function creaMemory() {
               wrong.play();
               explosion.play();
               document.querySelector(".bgvideo").style.display = "none";
-              sconfitta();
+              sconfitta(memory);
             }
           }
         default:

@@ -1,3 +1,5 @@
+var messaggio = "Disturbatore Messagio"
+
 function disturb(frequenza, speed, cooldown) {
   let messageContainer = document.createElement("div");
   messageContainer.classList.add("message-container");
@@ -74,7 +76,7 @@ function disturb(frequenza, speed, cooldown) {
               document.querySelector(".bgvideo").style.display = "none";
               minuteLeft.pause();
               timeLeft.pause();
-              sconfitta();
+              sconfitta(messaggio);
             }
           }
         }, cooldown * 1000 + 4);

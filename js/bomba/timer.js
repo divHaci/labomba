@@ -1,4 +1,4 @@
-// Creazione del modulo time
+var timerModulo = "Tempo scaduto";
 
 var ticking = new Audio("/sounds/effects/tickingClock.mp3")
 var boom = new Audio("/sounds/effects/explosion.mp3")
@@ -73,7 +73,7 @@ function crea_timer(startingMinutes, startingSeconds) {
         if (totalSeconds < 0) {
             clearInterval(intervalId);
             display.textContent = "00:00";
-            sconfitta()
+            sconfitta(timerModulo)
 
         } else {
             let minutes = Math.floor(totalSeconds / 60);

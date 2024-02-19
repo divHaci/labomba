@@ -1,3 +1,5 @@
+var colori =  "Modulo Colori"
+
 let colori_colonna_hex = ["#FF0000", "#FF6B00", "#FFFF00", "#00FF00", "#009400", "#0000FF", "#00B6DE"];
 let colori_bottoni_hex = ["#FF0000", "#FF6B00", "#FFFF00", "#00FF00", "#009400", "#0000FF", "#00B6DE", "#000000", "#FFFFFF", "#DF00E3", "#00B6DE", "#714526"];
 let colori_nome = ["ROSSO", "ARANCIONE", "GIALLO", "VERDE", "AZZURRO", "BLU", "NERO", "BIANCO", "VIOLA", "ROSA", "GRIGIO", "MARRONE", "INDACO", "CELESTE", "LILLA"];
@@ -120,7 +122,7 @@ function checkColore(button) {
       musicLevel.pause()
       explosion.play()
       document.querySelector(".bgvideo").style.display = "none";
-      sconfitta();
+      sconfitta(colori);
     }
     for (let i = 0; i < ledContainer.children.length; i++) {
       ledContainer.children[i].style.backgroundColor = "gray"
