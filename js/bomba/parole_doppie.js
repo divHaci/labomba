@@ -32,6 +32,10 @@ function creaParoleDoppie() {
       .slice(0, correctWordIndex)
       .indexOf(buttonKeyword) != -1
   );
+
+  console.log("Keyword button index " + keywordButtonIndex);
+  console.log("Keyword button word " + buttonKeyword);
+  console.log("____________");
   displayParoleDoppie.innerHTML = displayWord;
 
   let ledContainerParoleDoppie = document.createElement("div");
@@ -50,11 +54,20 @@ function creaParoleDoppie() {
   for (let i = 0; i < 6; i = i + 1) {
     let button = document.createElement("button");
     button.classList.add("button-parole-doppie");
+    button.style.fontSize = "1vw";
+
     containerParoleDoppie.appendChild(button);
+
+    console.log("Button " + (i + 1) + " creation:");
+    console.log("Button index: " + i);
+
     if (i != correctButtonIndex) {
       button.setAttribute("id", "wrong");
+      console.log("Button " + (i + 1) + " ID: wrong");
+
       if (i == keywordButtonIndex) {
         button.innerHTML = buttonKeyword;
+        console.log("Button " + (i + 1) + " content: " + buttonKeyword);
       } else {
         let randomWord;
         do {
@@ -68,12 +81,22 @@ function creaParoleDoppie() {
         );
         button.innerHTML = randomWord;
         parole_uscite.push(randomWord);
+        console.log("Button " + (i + 1) + " content: " + randomWord);
       }
     } else {
       button.setAttribute("id", "right");
+      console.log("Button " + (i + 1) + " ID: right");
+
       button.innerHTML =
         soluzioni_parole[words.indexOf(buttonKeyword)][correctWordIndex];
+      console.log(
+        "Button " +
+          (i + 1) +
+          " content: " +
+          soluzioni_parole[words.indexOf(buttonKeyword)][correctWordIndex]
+      );
     }
+
     button.addEventListener("click", () => {
       var result = button.getAttribute("id");
 
@@ -192,6 +215,7 @@ function creaParoleDoppie() {
   moduloParoleDoppie.appendChild(displayParoleDoppie);
   moduloParoleDoppie.appendChild(containerParoleDoppie);
   moduloParoleDoppie.appendChild(ledContainerParoleDoppie);
+
   return moduloParoleDoppie;
 }
 

@@ -268,6 +268,7 @@ let soluzioni_parole = [
   [
     "OH",
     "LUNA",
+    "AMA",
     "C'ERA",
     "A",
     "ALL'ORA",
@@ -520,7 +521,7 @@ let words_ass = [
   { word: "LAGO", key: 3 },
   { word: "L'AGO", key: 4 },
   { word: "LASCIA", key: 0 },
-  { word: "L'ASCIA", key: 0 },
+  { word: "L'ASCIA", key: 5 },
   { word: "AH", key: 3 },
   { word: "A", key: 0 },
   { word: "HA", key: 1 },

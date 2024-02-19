@@ -315,7 +315,6 @@ function createDataList() {
     "<option value='Stanley'>" +
     "<option value='Stepanakert'>" +
     "<option value='Stoccolma'>" +
-    "<option value='Sucre'>" +
     "<option value='Sukhumi'>" +
     "<option value='Suva'>" +
     "<option value='Taipei'>" +

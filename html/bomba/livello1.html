@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../../css/bomba/moduli/binary.css">
     <link rel="stylesheet" href="../../css/bomba/moduli/paroledoppie.css">
     <link rel="stylesheet" href="../../css/bomba/disturbatori/messages.css">
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/battery.css">
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/twitch.css">
 
 </head>
 
@@ -48,15 +50,14 @@
         <source src="/img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none;">4</div>
+    <div class="starting-minutes" style="display: none;">5</div>
     <div class="starting-seconds" style="display: none;">0</div>
-    <div class="max-errori" style="display: none;">2</div>
+    <div class="max-errori" style="display: none;">0</div>
     <div class="n-moduli" style="display: none;">11</div>
     <div class="n-moduli-completati" style="display: none;">0</div>
     <button class="gira-button" onclick="gira()">GIRA</button>
     <!-- Creazione bomba con moduli vuoti -->
     <script src="../../js/bomba/bomba.js"></script>
-    <script src="../../js/bomba/timer.js"></script>
 
     <!-- LISTE PER I MODULI -->
     <script src="../../js/bomba/lists/nations.js"></script>
@@ -66,9 +67,11 @@
     <script src="../../js/bomba/lists/binary.js"></script>
     <script src="../../js/bomba/lists/parole_doppie.js"></script>
     <script src="../../js/bomba/lists/messages.js"></script>
+    <script src="../../js/bomba/lists/peopleTwitch.js"></script>
 
+    <!-- MODULI DI QUESTO LIVELLO -->
 
-    <script src="../../js/bomba/messages.js"></script>
+    <script src="../../js/bomba/disturbatori/twitch.js"></script>
 
     <script src="../../js/bomba/check-modulo-vuoto.js"></script>
 </body>

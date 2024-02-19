@@ -12,6 +12,10 @@ var wrong = new Audio("/sounds/effects/wrong.mp3");
 var explosion = new Audio("/sounds/effects/explosion.mp3");
 var memory = new Audio("/sounds/effects/memory.mp3");
 var loseMusic = new Audio("/sounds/effects/music-level/loseMusic.mp3");
+var notification = new Audio("/sounds/effects/notification.mp3");
+var notification_out = new Audio("/sounds/effects/notification_out.mp3");
+
+var esploso = false;
 
 function gira() {
   if (fronte) {
@@ -68,7 +72,9 @@ function vittoria() {
   show = true;
   win.play();
 }
-function sconfitta() {
+function sconfitta(reason) {
+  console.log(reason);
+  esploso = true;
   document.querySelector(".menu-container h1").innerHTML = "SEI ESPLOSO!";
   document.querySelector(".menu-container").style.display = "flex";
   document.querySelector(".vittime").style.display = "flex";

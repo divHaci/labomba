@@ -1,0 +1,30 @@
+.battery {
+    position: absolute;
+    height: 50%;
+    width: 10vw;
+    top: calc(50% - 25%);
+    left: 3vw;
+    border: solid grey;
+    cursor: pointer;
+    border-radius: 1.5vw 1.5vw 0vw 0vw;
+}
+
+.battery::before {
+    content: "";
+    position: absolute;
+    top: -1.5vw;
+    width: 50%;
+    height: 1.5vw;
+    border-radius: 0.3vw 0.3vw 0vw 0vw;
+    left: calc(50% - 25%);
+    background-color: grey;
+}
+
+.level {
+    position: absolute;
+    border-radius: 1vw 1vw 0vw 0vw;
+    height: 100%;
+    width: 100%;
+    background-color: lime;
+    bottom: 0;
+}

@@ -2,10 +2,11 @@
     position: absolute;
     bottom: 10vw;
     right: -30%;
-    width: 30%;
+    width: 45%;
     height: 5vw;
-    background-color: white;
-    z-index: 999;
+    background-color: #18181b;
+    color: white;
+    z-index: 2;
     display: flex;
     border-radius: 0.7vw 0vw 0vw 0vw;
     font-family: "Inter", sans-serif;
@@ -46,12 +47,12 @@
 .message-container .icons .icon {
     width: 25%;
     aspect-ratio: 1/1;
-    filter: opacity(0.6);
+    filter: invert() opacity(0.5);
     cursor: pointer;
 }
 
 .message-container .icons .icon:hover {
-    filter: brightness(0.3);
+    filter: opacity(1) invert();
 }
 
 .message-container .text-container {
@@ -59,11 +60,14 @@
     width: 70%;
     height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
     padding: 2vw;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
 }
+
+.message-container .text-container span {
+    color: #3db974;
+}
+
 
 @keyframes cooldown {
     from {
@@ -77,7 +81,7 @@
 
 @keyframes appear-message {
     from {
-        right: -30%
+        right: -45%
     }
 
     to {
@@ -91,6 +95,6 @@
     }
 
     to {
-        right: -30;
+        right: -45%;
     }
 }
