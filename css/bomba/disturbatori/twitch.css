@@ -4,6 +4,7 @@
     position: relative;
     font-family: "Inter", sans-serif;
     filter: invert();
+    background-color: greenyellow;
 }
 
 .spect-text {
