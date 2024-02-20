@@ -26,7 +26,8 @@ function gira() {
       bomba.children[i].classList.remove("dietro");
     }
     fronte = false;
-
+    swap.pause();
+    swap.currentTime = 0;
     swap.play();
   } else {
     for (let i = 0; i < numero_moduli / 2; i++) {
@@ -36,6 +37,8 @@ function gira() {
       bomba.children[i].classList.add("dietro");
     }
     fronte = true;
+    swap.pause();
+    swap.currentTime = 0;
     swap.play();
   }
 }
@@ -74,7 +77,9 @@ function vittoria() {
 }
 function sconfitta(reason) {
   console.log(reason);
-  document.querySelector(".famous-list").innerHTML += `<div>Causa Esplosione: ${reason}</div>`;
+  document.querySelector(
+    ".famous-list"
+  ).innerHTML += `<div>Causa Esplosione: ${reason}</div>`;
   esploso = true;
   document.querySelector(".menu-container h1").innerHTML = "SEI ESPLOSO!";
   document.querySelector(".menu-container").style.display = "flex";
