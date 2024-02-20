@@ -1,4 +1,5 @@
-var twitchDisturbatore = "Disturbatore Streamer Twitch"
+var twitchDisturbatore = "Disturbatore Streamer Twitch";
+var soundStart = new Audio("/sounds/effects/twitch.mp3");
 
 function createDataList() {
   let div = document.createElement("div");
@@ -25,8 +26,6 @@ function creaTwitch() {
   let moduloTwitch = document.createElement("div");
   moduloTwitch.classList.add("twitch-module");
 
-  var random = Math.floor(Math.random() * streamer.length);
-
   var spectText = document.createElement("div");
   spectText.classList.add("spect-text");
   var subText = document.createElement("div");
@@ -36,13 +35,6 @@ function creaTwitch() {
   var followersText = document.createElement("div");
   followersText.classList.add("followers-text");
 
-  spectText.innerHTML =
-    spettatori[random] + "<img src='/img/modulo/spect.svg'/>";
-  subText.innerHTML = sub[random] + "<img src='/img/modulo/sub.svg'/>";
-  viewsText.innerHTML = views[random] + "<img src='/img/modulo/views.svg'/>";
-  followersText.innerHTML =
-    followers[random] + "<img src='/img/modulo/followers.svg'/>";
-
   let inputContainer = document.createElement("div");
   inputContainer.classList.add("input-container");
   let inputText = document.createElement("input");
@@ -51,6 +43,20 @@ function creaTwitch() {
   let submit = document.createElement("button");
   submit.classList.add("submit");
   submit.innerText = "→";
+  var random;
+  setInterval(() => {
+    soundStart.pause();
+    soundStart.fastSeek(0);
+    soundStart.play();
+    random = Math.floor(Math.random() * streamer.length);
+    spectText.innerHTML =
+      spettatori[random] + "<img src='/img/modulo/spect.svg'/>";
+    subText.innerHTML = sub[random] + "<img src='/img/modulo/sub.svg'/>";
+    viewsText.innerHTML = views[random] + "<img src='/img/modulo/views.svg'/>";
+    followersText.innerHTML =
+      followers[random] + "<img src='/img/modulo/followers.svg'/>";
+  }, 1000);
+
   submit.addEventListener("click", () => {
     if (inputText.value == streamer[random]) {
       console.log("wins");
@@ -58,7 +64,6 @@ function creaTwitch() {
       console.log("lose");
     }
   });
-
   inputContainer.appendChild(inputText);
   inputContainer.appendChild(submit);
 
@@ -70,7 +75,6 @@ function creaTwitch() {
 
   return moduloTwitch;
 }
-
 createDataList();
 
 aggiungi_modulo(creaTwitch());
