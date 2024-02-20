@@ -31,7 +31,7 @@ function updateBattery() {
       explosion.play();
       sconfitta(batteria);
       clearInterval(timer);
-      timerRunning = false; // Reset timerRunning flag
+      timerRunning = false;
     }
     return;
   }
@@ -45,16 +45,10 @@ function updateBattery() {
     if (energy < 0) energy = 0;
   }
 
-  // Calculate color based on energy level
-  if (energy >= 75) {
-    color = "lime";
-  } else if (energy >= 50) {
-    color = "yellow";
-  } else if (energy >= 25) {
-    color = "orange";
-  } else {
-    color = "red";
-  }
+  // Calculate color based on a continuous scale
+  const hue = (energy / 100) * 120; // Inverting the hue direction
+
+  color = `hsl(${hue}, 100%, 50%)`;
 
   level.style.backgroundColor = color;
   level.style.height = energy + "%";
