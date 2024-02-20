@@ -1,0 +1,42 @@
+.speaker {
+    position: absolute;
+    height: 10vw;
+    width: 10vw;
+    top: 4vw;
+    right: 2vw;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../../img/modulo/speaker.png");
+    background-size: cover;
+    background-position: center; 
+}
+.speaker.active {
+    animation: pulse 1s infinite alternate; /* Aggiunge un'animazione di pulsazione */
+    animation-play-state: running; /* Assicura che l'animazione sia in esecuzione */
+}
+.speaker.reverse-pulse {
+    animation: none; /* Rimuove l'animazione normale */
+    transform: scale(1.2); /* Imposta la dimensione iniziale per l'animazione al contrario */
+    animation: reversePulse 1s forwards; /* Aggiunge un'animazione al contrario */
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1); /* Dimensione normale */
+    }
+    to {
+        transform: scale(1.2); /* Dimensione ingrandita */
+    }
+}
+
+@keyframes reversePulse {
+    from {
+        transform: scale(1.2); /* Dimensione ingrandita, iniziale per l'animazione al contrario */
+    }
+    to {
+        transform: scale(1); /* Dimensione normale, finale per l'animazione al contrario */
+    }
+}
