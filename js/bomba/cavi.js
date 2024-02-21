@@ -1,3 +1,5 @@
+var cavi = "Modulo Cavi";
+
 function creaCavi() {
   var last_digit = serialcode.charAt(serialcode.length - 1);
   var colors = [
@@ -12,9 +14,14 @@ function creaCavi() {
   ];
   let modulo = document.createElement("div");
   modulo.classList.add("cables-module");
+  let led_container = document.createElement("div");
+  led_container.classList.add("led-container");
 
-  //Math.floor(Math.random() * (7 - 4 + 1)) + 4;
-  var cables_n = 7;
+  let led = document.createElement("div");
+  led.classList.add("led");
+  led_container.appendChild(led);
+
+  var cables_n = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
 
   var cables = [];
   for (let i = 0; i < cables_n; i++) {
@@ -22,6 +29,8 @@ function creaCavi() {
   }
 
   var cables_to_cut = [];
+
+  console.log(cables);
 
   switch (cables_n) {
     case 4:
@@ -113,8 +122,73 @@ function creaCavi() {
       break;
   }
 
-  console.log(cables);
   console.log(cables_to_cut);
+
+  let cables_container = document.createElement("div");
+  cables_container.classList.add("cables-container");
+  cables.forEach((cable, index) => {
+    var cableImg = document.createElement("img");
+    cableImg.classList.add("cable");
+    cableImg.src = "/img/modulo/cavi/intero/" + cable + ".png";
+    cables_container.appendChild(cableImg);
+    cableImg.style.height = 75 / cables_n + "%";
+    cableImg.setAttribute("draggable", "false");
+    cableImg.addEventListener("click", () => {
+      if (cableImg.getAttribute("id") != "spezzato") {
+        caviSounds.pause();
+        caviSounds.currentTime = 0;
+        caviSounds.play();
+        cableImg.src = "/img/modulo/cavi/spezzato/" + cable + ".png";
+        cableImg.setAttribute("id", "spezzato");
+        var expectedSequence = cables_to_cut;
+        if (index === expectedSequence[0]) {
+          console.log("OK");
+          expectedSequence.shift();
+          if (cables_to_cut.length === 0) {
+            led.style.backgroundColor = "lime";
+            led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
+            led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+            modulo.children[0].classList.add("complete");
+            right.play();
+            checkForWin();
+            console.log("GIUSTO");
+          }
+        } else {
+          console.log("ERROR");
+          var expectedSequence = cables_to_cut;
+          if (errori.children.length < parseInt(max_errori.innerHTML)) {
+            var x = document.createElement("div");
+            x.innerHTML = "X";
+            errori.appendChild(x);
+            led.style.backgroundColor = "red";
+            led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+            led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+            wrong.play();
+          } else {
+            var x = document.createElement("div");
+            x.innerHTML = "X";
+            errori.appendChild(x);
+            led.style.backgroundColor = "red";
+            led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
+            led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+            click.pause();
+            stopTick();
+            wrong.play();
+            musicLevel.pause();
+            explosion.play();
+            minuteLeft.pause();
+            timeLeft.pause();
+            sconfitta(cavi);
+          }
+        }
+      }
+    });
+  });
+
+  modulo.appendChild(cables_container);
+  modulo.appendChild(led_container);
+
+  return modulo;
 }
 
-creaCavi();
+aggiungi_modulo(creaCavi());

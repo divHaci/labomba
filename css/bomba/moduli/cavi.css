@@ -1,0 +1,53 @@
+.cables-module {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cables-container {
+    width: 50%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    position: relative;
+    transform: rotate(-90deg);
+    background: rgb(60, 60, 60);
+}
+
+.cables-container::after {
+    content: "";
+    height: 100%;
+    width: 30%;
+    background: rgb(75, 75, 75);
+    background: linear-gradient(90deg, rgba(75, 75, 75, 1) 0%, rgba(36, 36, 36, 1) 25%, rgb(29, 29, 29) 35%, rgb(29, 29, 29) 65%, rgb(36, 36, 36, 1) 75%, rgba(75, 75, 75, 1) 100%);
+    position: absolute;
+    top: 0;
+    left: -10%;
+    border-radius: 0.4vw;
+    z-index: -1;
+}
+
+.cables-container::before {
+    content: "";
+    height: 100%;
+    width: 30%;
+    background: rgb(75, 75, 75);
+    background: linear-gradient(90deg, rgba(75, 75, 75, 1) 0%, rgba(36, 36, 36, 1) 25%, rgb(29, 29, 29) 35%, rgb(29, 29, 29) 65%, rgb(36, 36, 36, 1) 75%, rgba(75, 75, 75, 1) 100%);
+    position: absolute;
+    top: 0;
+    right: -10%;
+    border-radius: 0.4vw;
+    z-index: -1;
+}
+
+
+.cables-container img {
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}

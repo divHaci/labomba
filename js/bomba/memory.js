@@ -1,4 +1,4 @@
-var memory = "Modulo Memory";
+var memoryCause = "Modulo Memory";
 
 function creaMemory() {
   var sequence;
@@ -33,6 +33,8 @@ function creaMemory() {
       switch (errori.children.length) {
         case 0:
           if (zero_errori[sequence[user_index]] == i) {
+            memory.pause();
+            memory.currentTime = 0;
             memory.play();
             user_index++;
           } else {
@@ -59,13 +61,15 @@ function creaMemory() {
               musicLevel.pause();
               explosion.play();
               document.querySelector(".bgvideo").style.display = "none";
-              sconfitta(memory);
+              sconfitta(memoryCause);
             }
           }
           break;
         case 1:
           if (un_errore[sequence[user_index]] == i) {
             user_index++;
+            memory.pause();
+            memory.currentTime = 0;
             memory.play();
           } else {
             if (errori.children.length < parseInt(max_errori.innerHTML)) {
@@ -92,13 +96,15 @@ function creaMemory() {
               document.querySelector(".bgvideo").style.display = "none";
               minuteLeft.pause();
               timeLeft.pause();
-              sconfitta(memory);
+              sconfitta(memoryCause);
             }
           }
           break;
         case 2:
           if (due_errori[sequence[user_index]] == i) {
             user_index++;
+            memory.pause();
+            memory.currentTime = 0;
             memory.play();
           } else {
             if (errori.children.length < parseInt(max_errori.innerHTML)) {
@@ -123,7 +129,7 @@ function creaMemory() {
               wrong.play();
               explosion.play();
               document.querySelector(".bgvideo").style.display = "none";
-              sconfitta(memory);
+              sconfitta(memoryCause);
             }
           }
         default:

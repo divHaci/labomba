@@ -16,7 +16,7 @@ var memory = new Audio("/sounds/effects/memory.mp3");
 var loseMusic = new Audio("/sounds/effects/music-level/loseMusic.mp3");
 var notification = new Audio("/sounds/effects/notification.mp3");
 var notification_out = new Audio("/sounds/effects/notification_out.mp3");
-
+var caviSounds = new Audio("/sounds/effects/caviSounds.mp3");
 var esploso = false;
 
 function gira() {

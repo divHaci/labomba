@@ -106,10 +106,7 @@ function generaBinary() {
       led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
       led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
       right.play();
-      for (let i = 0; i < 3; i++) {
-        //SPEGNE IL MODULO TRANNE IL LED
-        modulo_binary.children[i].classList.add("complete");
-      }
+      modulo_binary.children[0].classList.add("complete");
       checkForWin();
     } else {
       if (errori.children.length < parseInt(max_errori.innerHTML)) {
