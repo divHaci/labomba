@@ -4,7 +4,52 @@ const giraButton = document.querySelector(".gira-button"); // Aggiunta del rifer
 
 var fronte = true;
 
-var serialcode = "AODAJSD1";
+function generaCodiceSeriale() {
+  const lettere = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numeri = "0123456789";
+
+  // Genera una lettera casuale come primo carattere
+  const primoCarattere = lettere.charAt(
+    Math.floor(Math.random() * lettere.length)
+  );
+
+  // Genera una sequenza casuale di lettere e numeri nel mezzo
+  let parteCentrale = "";
+  let sommaNumeri = 0;
+  for (let i = 0; i < 6; i++) {
+    // Alterna tra lettere e numeri
+    const carattere =
+      i % 2 === 0
+        ? lettere.charAt(Math.floor(Math.random() * lettere.length))
+        : numeri.charAt(Math.floor(Math.random() * numeri.length));
+
+    parteCentrale += carattere;
+
+    // Se il carattere è un numero, aggiungilo alla somma
+    if (!isNaN(parseInt(carattere))) {
+      sommaNumeri += parseInt(carattere);
+    }
+  }
+
+  // Genera un numero casuale come ultimo carattere
+  const ultimoCarattere = numeri.charAt(
+    Math.floor(Math.random() * numeri.length)
+  );
+
+  // Aggiungi l'ultimo carattere alla somma
+  sommaNumeri += parseInt(ultimoCarattere);
+
+  // Unisci tutto per ottenere il codice seriale completo
+  const codiceSeriale = primoCarattere + parteCentrale + ultimoCarattere;
+
+  // Restituisci il codice seriale e la somma dei numeri
+  return { codiceSeriale, sommaNumeri };
+}
+
+// Esempio di utilizzo
+var risultato = generaCodiceSeriale();
+console.log("Codice Seriale:", risultato.codiceSeriale);
+console.log("Somma dei Numeri:", risultato.sommaNumeri);
 
 var win = new Audio("../../sounds/livello-completato.mp3");
 var swap = new Audio("../../sounds/effects/swap.mp3");
