@@ -4,6 +4,8 @@ const giraButton = document.querySelector(".gira-button"); // Aggiunta del rifer
 
 var fronte = true;
 
+var serialcode = "AODAJSD1";
+
 var win = new Audio("../../sounds/livello-completato.mp3");
 var swap = new Audio("../../sounds/effects/swap.mp3");
 var click = new Audio("../../sounds/effects/click.mp3");
