@@ -30,8 +30,6 @@ function creaCavi() {
 
   var cables_to_cut = [];
 
-  console.log(cables);
-
   switch (cables_n) {
     case 4:
       if (cables.indexOf("orange") == -1) {
@@ -40,7 +38,6 @@ function creaCavi() {
         cables_to_cut.push(0);
         cables_to_cut.push(3);
       } else if (cables.indexOf("green") != -1) {
-        console.log(cables.indexOf("green"));
         cables_to_cut.push(cables.indexOf("green"));
       } else {
         cables_to_cut.push(0);
@@ -118,11 +115,8 @@ function creaCavi() {
       break;
     }
     default:
-      console.log("suca");
       break;
   }
-
-  console.log(cables_to_cut);
 
   let cables_container = document.createElement("div");
   cables_container.classList.add("cables-container");
@@ -142,7 +136,6 @@ function creaCavi() {
         cableImg.setAttribute("id", "spezzato");
         var expectedSequence = cables_to_cut;
         if (index === expectedSequence[0]) {
-          console.log("OK");
           expectedSequence.shift();
           if (cables_to_cut.length === 0) {
             led.style.backgroundColor = "lime";
@@ -151,10 +144,8 @@ function creaCavi() {
             modulo.children[0].classList.add("complete");
             right.play();
             checkForWin();
-            console.log("GIUSTO");
           }
         } else {
-          console.log("ERROR");
           var expectedSequence = cables_to_cut;
           if (errori.children.length < parseInt(max_errori.innerHTML)) {
             var x = document.createElement("div");

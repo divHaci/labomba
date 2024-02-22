@@ -1,0 +1,80 @@
+.piano-module {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.piano-module .piano {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    border: 0.3vw outset black;
+}
+
+.piano .blacks {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.piano .whites {
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.blacks .black-key {
+    width: 9%;
+    background-color: black;
+    height: 100%;
+    cursor: pointer;
+    color: transparent;
+}
+
+.whites .white-key {
+    color: transparent;
+    width: calc(100% / 7);
+    height: 100%;
+    cursor: pointer;
+    border: solid 0.1vw gray;
+}
+
+.black-key.invisible {
+    width: 4%;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.disable-white {
+    pointer-events: none;
+    background-color: rgb(159, 159, 159);
+}
+
+.black-key.disable-black {
+    pointer-events: none;
+    background-color: rgb(80, 80, 80);
+}
+
+
+
+.black-key.key-error {
+    background-color: rgb(255, 108, 108);
+}
+
+.white-key.key-error {
+    background-color: rgb(255, 108, 108);
+}

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: code;
+  src: url(/css/fonts/code.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -41,6 +46,47 @@ video {
   filter: blur(10vw);
 }
 
+
+.code-container {
+  width: 12%;
+  border-radius: 0.3vw;
+  height: 3vw;
+  font-size: 1.7vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.3vw;
+  background-color: rgb(255, 216, 187);
+  color: black;
+  position: absolute;
+  top: 0.5vw;
+  font-family: code;
+  color: rgb(107, 84, 52);
+  left: calc(50% - 6%);
+  z-index: 999;
+}
+
+.portslot1 {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  width: 9%;
+  height: 10%;
+}
+
+.portslot2 {
+  position: absolute;
+  bottom: 10%;
+  left: 3%;
+  width: 9%;
+  height: 10%;
+}
+
+.portslot1 img,
+.portslot2 img {
+  width: 100%;
+}
+
 .left-red-light {
   position: absolute;
   left: -25%;
@@ -62,6 +108,7 @@ video {
   border-radius: 50%;
   filter: blur(10vw);
 }
+
 
 @keyframes blink {
   0% {

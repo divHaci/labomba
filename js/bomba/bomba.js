@@ -3,6 +3,13 @@ const bomba = document.querySelector(".bomba");
 const giraButton = document.querySelector(".gira-button"); // Aggiunta del riferimento al pulsante
 
 var fronte = true;
+var serialcode = generaCodiceSeriale();
+
+var parallelExist;
+var RJ45Exist;
+var PS2Exist;
+var DVIDExist;
+var SerialExist;
 
 function generaCodiceSeriale() {
   const lettere = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -40,16 +47,11 @@ function generaCodiceSeriale() {
   sommaNumeri += parseInt(ultimoCarattere);
 
   // Unisci tutto per ottenere il codice seriale completo
-  const codiceSeriale = primoCarattere + parteCentrale + ultimoCarattere;
+  var serialcode = primoCarattere + parteCentrale + ultimoCarattere;
 
   // Restituisci il codice seriale e la somma dei numeri
-  return { codiceSeriale, sommaNumeri };
+  return { codiceSeriale: serialcode, sommaNumeri };
 }
-
-// Esempio di utilizzo
-var risultato = generaCodiceSeriale();
-console.log("Codice Seriale:", risultato.codiceSeriale);
-console.log("Somma dei Numeri:", risultato.sommaNumeri);
 
 var win = new Audio("../../sounds/livello-completato.mp3");
 var swap = new Audio("../../sounds/effects/swap.mp3");
@@ -90,7 +92,85 @@ function gira() {
   }
 }
 
+var ports = ["Parallel", "Serial", "PS2", "RJ45", "DVID"];
+
 function creaBomba() {
+  var portslot1 = document.createElement("div");
+  var portslot2 = document.createElement("div");
+  portslot1.classList.add("portslot1");
+  portslot2.classList.add("portslot2");
+
+  var port1 = document.createElement("img");
+  var port2 = document.createElement("img");
+  portslot1.appendChild(port1);
+  portslot2.appendChild(port2);
+
+  // Generate a random number between 0 and 2
+  var randomSpawn1 = Math.floor(Math.random() * 5);
+  var randomSpawn2 = Math.floor(Math.random() * 5);
+
+  // Check if the random number is 0 or 1, then spawn the port
+  if (randomSpawn1 !== 2 || randomSpawn1 !== 3) {
+    var port = Math.floor(Math.random() * ports.length);
+    switch (port) {
+      case 0:
+        parallelExist = true;
+        break;
+      case 3:
+        RJ45Exist = true;
+        break;
+      case 2:
+        PS2Exist = true;
+        break;
+      case 4:
+        DVIDExist = true;
+        break;
+      case 1:
+        SerialExist = true;
+        break;
+
+      default:
+        break;
+    }
+    portslot1.children[0].src = "/img/bomba/" + ports[port] + ".png";
+  }
+
+  if (randomSpawn2 !== 2 || randomSpawn2 !== 3) {
+    var port = Math.floor(Math.random() * ports.length);
+    switch (port) {
+      case 0:
+        parallelExist = true;
+        break;
+      case 3:
+        RJ45Exist = true;
+        break;
+      case 2:
+        PS2Exist = true;
+        break;
+      case 4:
+        DVIDExist = true;
+        break;
+      case 1:
+        SerialExist = true;
+        break;
+
+      default:
+        break;
+    }
+    portslot2.children[0].src = "/img/bomba/" + ports[port] + ".png";
+  }
+
+  var code_container = document.createElement("div");
+  code_container.classList.add("code-container");
+  code_container.innerHTML = serialcode.codiceSeriale;
+  var sum_cifre = document.createElement("div");
+  sum_cifre.style.display = "none";
+  sum_cifre.innerHTML = serialcode.sommaNumeri;
+  sum_cifre.classList.add("sum-cifre");
+  document.querySelector("body").appendChild(sum_cifre);
+  document.querySelector("body").appendChild(code_container);
+  document.querySelector("body").appendChild(portslot1);
+  document.querySelector("body").appendChild(portslot2);
   for (let i = 0; i < numero_moduli; i++) {
     let container_modulo = document.createElement("div");
     container_modulo.classList.add("container-modulo");

@@ -102,9 +102,6 @@ function checkCapitale(random) {
         led.style.boxShadow = "0px 0px 2vw 0.5vw red";
         wrong.play();
       } else {
-        var x = document.createElement("div");
-        x.innerHTML = "X";
-        errori.appendChild(x);
         var led = modulo.querySelector(".led-container .led");
         led.style.backgroundColor = "red";
         led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
@@ -114,7 +111,6 @@ function checkCapitale(random) {
         wrong.play();
         musicLevel.pause();
         explosion.play();
-        document.querySelector(".bgvideo").style.display = "none";
         minuteLeft.pause();
         timeLeft.pause();
         sconfitta(bandiere);

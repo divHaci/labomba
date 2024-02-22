@@ -118,6 +118,7 @@ video {
 }
 
 #volumeRange {
-    width: 10vw; 
-    height: 5vw; 
+    width: 10vw;
+    cursor: pointer;
+    height: 5vw;
 }
