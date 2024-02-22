@@ -6,8 +6,15 @@ const audioClick = document.getElementById("audioClick");
 const audioHover = document.getElementById("audioHover");
 const volumeRange = document.getElementById("volumeRange");
 
-// Inizializza l'audio come pausato
-music.pause();
+// Inizializza l'audio come non mutato
+
+// Inverti la classe all'inizio
+sound.classList.remove("fa-volume-mute");
+sound.classList.add("fa-volume-up");
+
+// Nascondi la freccia all'inizio
+hideArrow();
+showVolumeBar();
 
 sound.addEventListener("click", () => {
     // Cambia l'icona e gestisci lo stato del suono
