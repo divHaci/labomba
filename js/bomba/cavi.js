@@ -1,7 +1,7 @@
 var cavi = "Modulo Cavi";
 
 function creaCavi() {
-  var last_digit = serialcode.charAt(serialcode.length - 1);
+  var last_digit = serialcode.codiceSeriale.charAt(serialcode.length - 1);
   var colors = [
     "orange",
     "purple",
