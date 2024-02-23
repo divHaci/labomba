@@ -1,0 +1,79 @@
+.penalty-module {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../img/modulo/calcio/bg.png");
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.penalty-container {
+    width: 100%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.targets {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 4vw;
+    row-gap: 2vw;
+}
+
+.penalty-module .target {
+    border-radius: 50%;
+    width: 2.8vw;
+    /* Initial width */
+    aspect-ratio: 1/1;
+    z-index: 2.8;
+    background-image: url("../../../img/modulo/calcio/target.png");
+    background-size: cover;
+    animation: breath infinite ease-in-out 1s alternate;
+    z-index: 3;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.penalty-module .target.invisible {
+    background: none;
+    pointer-events: none;
+}
+
+.penalty-module .post {
+    width: 100%;
+    position: absolute;
+    height: 75%;
+    top: 1.5vw;
+    z-index: 1;
+}
+
+.penalty-module .hamb {
+    position: absolute;
+    height: 70%;
+    bottom: 1.5vw;
+    z-index: 2;
+}
+
+@keyframes breath {
+    from {
+        width: 2.6vw;
+    }
+
+    to {
+        width: 2.7vw;
+    }
+}
