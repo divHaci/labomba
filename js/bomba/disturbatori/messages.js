@@ -1,4 +1,4 @@
-var messaggio = "Disturbatore Messagio"
+var messaggio = "Disturbatore Messagio";
 
 function disturb(frequenza, speed, cooldown) {
   let messageContainer = document.createElement("div");
@@ -15,6 +15,10 @@ function disturb(frequenza, speed, cooldown) {
   banIcon.src = "/img/modulo/messages/ban.svg";
   timeoutIcon.src = "/img/modulo/messages/timeout.svg";
   vipIcon.src = "/img/modulo/messages/vip.svg";
+
+  banIcon.setAttribute("draggable", "false");
+  timeoutIcon.setAttribute("draggable", "false");
+  vipIcon.setAttribute("draggable", "false");
 
   var icons = document.createElement("div");
   icons.classList.add("icons");

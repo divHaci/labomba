@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cables-container {
@@ -50,4 +53,5 @@
     width: 100%;
     object-fit: contain;
     cursor: pointer;
+    filter: drop-shadow(0.3vw 0.7vw 0.9vw rgba(0, 0, 0, 0.75));
 }

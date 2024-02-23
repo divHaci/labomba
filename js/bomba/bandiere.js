@@ -18,6 +18,7 @@ function creaBandiere() {
 
   let input = document.createElement("input");
   input.type = "text";
+  input.placeholder = "Inserisci qui...";
   input.setAttribute("list", "capital");
 
   // Aggiungi un ascoltatore di eventi sull'input

@@ -5,6 +5,9 @@ var boom = new Audio("/sounds/effects/explosion.mp3");
 var musicLevel = new Audio("/sounds/effects/music-level/musicLevel.mp3");
 var timeLeft = new Audio("/sounds/effects/10secondsleft.mp3");
 var minuteLeft = new Audio("/sounds/effects/music-level/30seconds.mp3");
+var capture = new Audio("/sounds/effects/capture.mp3");
+var move = new Audio("/sounds/effects/move-self.mp3");
+var checkmate = new Audio("/sounds/effects/game-end.mp3");
 
 let intervalId;
 musicLevel.play();

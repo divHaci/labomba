@@ -33,7 +33,10 @@ function creaClacio() {
         led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
         modulo.children[0].classList.add("complete");
         right.play();
-
+        var elements = Array.from(targets.children);
+        elements.forEach((element) => {
+          element.style.animation = "none";
+        });
         checkForWin();
       } else {
         if (errori.children.length < parseInt(max_errori.innerHTML)) {

@@ -102,6 +102,8 @@ function creaBomba() {
 
   var port1 = document.createElement("img");
   var port2 = document.createElement("img");
+  port1.setAttribute("draggable", "false");
+  port2.setAttribute("draggable", "false");
   portslot1.appendChild(port1);
   portslot2.appendChild(port2);
 
