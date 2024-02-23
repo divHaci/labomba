@@ -98,6 +98,8 @@ var messages = [
 ];
 
 var nicknames = [
+  "Asdra22",
+  "Mainagio",
   "gianpiangoo__",
   "roccoo___",
   "deputy_ita",
