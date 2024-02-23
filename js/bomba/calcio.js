@@ -1,6 +1,7 @@
 var calcio = "Modulo Rigori";
 function creaClacio() {
-  let randomPose = Math.floor(Math.random() * combinations.length);
+  //Math.floor(Math.random() * combinations.length);
+  let randomPose = 4;
   let modulo = document.createElement("div");
   modulo.classList.add("penalty-module");
 
@@ -33,7 +34,6 @@ function creaClacio() {
         modulo.children[0].classList.add("complete");
         right.play();
 
-        //CHECK FOR WIN
         checkForWin();
       } else {
         if (errori.children.length < parseInt(max_errori.innerHTML)) {
