@@ -92,14 +92,6 @@ function crea_timer(startingMinutes, startingSeconds) {
         .toString()
         .padStart(2, "0")}`;
     }
-
-    if (totalSeconds == 350) {
-      musicLevel.play();
-    }
-
-    if (totalSeconds == 650) {
-      musicLevel.play();
-    }
     ticking.play();
   }, 1000);
 

@@ -207,8 +207,6 @@ function vittoria() {
   clearInterval(intervalId);
   show = true;
   win.play();
-
-  // Tempo iniziale
   var startingMinutes = parseInt(
     document.querySelector(".starting-minutes").innerHTML,
     10
@@ -217,24 +215,18 @@ function vittoria() {
     document.querySelector(".starting-seconds").innerHTML,
     10
   );
-
-  // Tempo finale
   var timeString = document.querySelector(".timer .display").innerHTML;
   var timeArray = timeString.split(":");
   var minutes = parseInt(timeArray[0], 10);
   var seconds = parseInt(timeArray[1], 10);
+  var elapsedMinutes = startingMinutes - minutes;
+  var elapsedSeconds = startingSeconds - seconds;
 
-  // Calcolo del tempo trascorso
-  elapsedMinutes = startingMinutes - minutes;
-  elapsedSeconds = startingSeconds - seconds;
-
-  // Correggi il tempo trascorso in caso di secondi negativi
+  // Correct the elapsed time if it's negative
   if (elapsedSeconds < 0) {
     elapsedSeconds += 60;
     elapsedMinutes--;
   }
-
-  // Correggi il tempo trascorso in caso di minuti negativi
   if (elapsedMinutes < 0) {
     elapsedMinutes += 60;
   }
@@ -244,9 +236,41 @@ function vittoria() {
   document.querySelector(".menu-container .time .seconds").innerHTML =
     elapsedSeconds;
 
+  console.log("Elapsed Minutes:", elapsedMinutes);
+  console.log("Elapsed Seconds:", elapsedSeconds);
+
+  // Get the level and keys for localStorage
   var nLivello = document.querySelector(".level").innerHTML;
-  localStorage.setItem("level" + nLivello + "Minutes", elapsedMinutes);
-  localStorage.setItem("level" + nLivello + "Seconds", elapsedSeconds);
+  var minutesKey = "level" + nLivello + "Minutes";
+  var secondsKey = "level" + nLivello + "Seconds";
+
+  // Get the previously saved best time
+  var savedMinutes = localStorage.getItem(minutesKey);
+  var savedSeconds = localStorage.getItem(secondsKey);
+
+  console.log("Saved Minutes:", savedMinutes);
+  console.log("Saved Seconds:", savedSeconds);
+
+  var totalSecondsElapsed = 60 * elapsedMinutes + elapsedSeconds;
+  var totalSecondsSaved = 60 * savedMinutes + savedSeconds;
+
+  if (
+    savedMinutes === null ||
+    savedSeconds === null || // Check if there's no previously saved time
+    totalSecondsElapsed < totalSecondsSaved
+  ) {
+    // Check if elapsed minutes are equal but elapsed seconds are less
+    localStorage.setItem(minutesKey, elapsedMinutes);
+    localStorage.setItem(secondsKey, elapsedSeconds);
+    document.querySelector(".menu-container .record .minutes").innerHTML =
+      elapsedMinutes;
+    document.querySelector(".menu-container .record .seconds").innerHTML =
+      elapsedSeconds;
+
+    console.log("Best time updated.");
+  } else {
+    console.log("No need to update best time.");
+  }
 }
 
 function sconfitta(reason) {

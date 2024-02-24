@@ -1,112 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>La bomba</title>
-    <link rel="stylesheet" href="../../css/generale.css" />
-    <link rel="stylesheet" href="../../css/menu/menu.css" />
-    <link rel="stylesheet" href="../../css/bomba/bomba/bomba.css" />
-    <link rel="stylesheet" href="../../css/bomba/giraButton/button.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/modulo.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/pressit.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/colori.css" />
-    <link rel="stylesheet" href="../../css/bomba/timer/timer.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/led.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/memory.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/bandiere.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/password.css" />
-    <link rel="stylesheet" href="../../css/bomba/moduli/binary.css" />
-  </head>
 
-  <body>
-    <div class="win-led"></div>
-    <div class="left-red-light"></div>
-    <div class="right-red-light"></div>
-    <div class="menu-container" style="display: none">
-      <h1>MENU</h1>
-      <div style="display: none" class="vittime">
-        Ci lasciano <span class="n-vittime"></span> bambini...
-      </div>
-      <div style="display: none" class="famous-list">
-        Tra le vittime più famose:
-        <div class="list"></div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La bomba</title>
+  <link rel="stylesheet" href="../../css/generale.css" />
+  <link rel="stylesheet" href="../../css/menu/menu.css" />
+  <link rel="stylesheet" href="../../css/bomba/bomba/bomba.css" />
+  <link rel="stylesheet" href="../../css/bomba/giraButton/button.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/modulo.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/pressit.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/colori.css" />
+  <link rel="stylesheet" href="../../css/bomba/timer/timer.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/led.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/memory.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/bandiere.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/password.css" />
+  <link rel="stylesheet" href="../../css/bomba/moduli/binary.css" />
+</head>
 
-      <div style="display: none" class="codice">
-        Codice livello 2: <span>WINEGRI69</span>
-      </div>
-
-      <div class="buttons">
-        <button
-          class="menu-buttons"
-          id="levels"
-          onclick="window.location.href = '/html/livelli/livelli.html';"
-        >
-          <span>Livelli</span>
-        </button>
-        <button class="menu-buttons" id="retry" onclick="location.reload()">
-          <span>Riprova</span>
-        </button>
-      </div>
+<body>
+  <div class="win-led"></div>
+  <div class="left-red-light"></div>
+  <div class="right-red-light"></div>
+  <div class="menu-container" style="display: none">
+    <h1>MENU</h1>
+    <div style="display: none" class="vittime">
+      Ci lasciano <span class="n-vittime"></span> bambini...
     </div>
-    <video class="bgvideo" autoplay loop muted id="videoBackground">
-      <source src="/img/bgvideo.mp4" type="video/mp4" />
-    </video>
-    <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none">0</div>
-    <div class="starting-seconds" style="display: none">34</div>
-    <div class="max-errori" style="display: none">0</div>
-    <div class="n-moduli" style="display: none">1</div>
-    <div class="n-moduli-completati" style="display: none">0</div>
-    <div class="level" style="display: none">2</div>
-    <button class="gira-button" onclick="gira()">GIRA</button>
-    <!-- Creazione bomba con moduli vuoti -->
-    <script src="../../js/bomba/bomba.js"></script>
-    <script src="../../js/bomba/timer.js"></script>
+    <div style="display: none" class="famous-list">
+      Tra le vittime più famose:
+      <div class="list"></div>
+    </div>
 
-    <!-- LISTE PER I MODULI -->
-    <script src="../../js/bomba/lists/nations.js"></script>
-    <script src="../../js/bomba/lists/passwords.js"></script>
-    <script src="../../js/bomba/lists/famous_people.js"></script>
-    <script src="../../js/bomba/lists/sequenze.js"></script>
-    <script src="../../js/bomba/lists/binary.js"></script>
+    <div style="display: none" class="time">
+      Tempo: <span class="minutes">0</span> minuti e
+      <span class="seconds">0</span> secondi
+    </div>
+    <div style="display: none" class="record">
+      Record: <span class="minutes">0</span> minuti e
+      <span class="seconds">0</span> secondi
+    </div>
 
-    <script src="../../js/bomba/bandiere.js"></script>
+    <div class="buttons">
+      <button class="menu-buttons" id="levels" onclick="window.location.href = '/html/livelli/livelli.html';">
+        <span>Livelli</span>
+      </button>
+      <button class="menu-buttons" id="retry" onclick="location.reload()">
+        <span>Riprova</span>
+      </button>
+    </div>
+  </div>
+  <video class="bgvideo" autoplay loop muted id="videoBackground">
+    <source src="/img/bgvideo.mp4" type="video/mp4" />
+  </video>
+  <div class="bomba"></div>
+  <div class="starting-minutes" style="display: none">0</div>
+  <div class="starting-seconds" style="display: none">34</div>
+  <div class="max-errori" style="display: none">0</div>
+  <div class="n-moduli" style="display: none">1</div>
+  <div class="n-moduli-completati" style="display: none">0</div>
+  <div class="level" style="display: none">2</div>
+  <button class="gira-button" onclick="gira()">GIRA</button>
+  <!-- Creazione bomba con moduli vuoti -->
+  <script src="../../js/bomba/bomba.js"></script>
+  <script src="../../js/bomba/timer.js"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Recupera il livello dal documento HTML
-        var levelElement = document.querySelector(".level");
+  <!-- LISTE PER I MODULI -->
+  <script src="../../js/bomba/lists/nations.js"></script>
+  <script src="../../js/bomba/lists/passwords.js"></script>
+  <script src="../../js/bomba/lists/famous_people.js"></script>
+  <script src="../../js/bomba/lists/sequenze.js"></script>
+  <script src="../../js/bomba/lists/binary.js"></script>
 
-        // Verifica se l'elemento esiste prima di tentare di accedere al suo contenuto
-        if (levelElement) {
-          var level = parseInt(levelElement.textContent.trim(), 10);
+  <script src="../../js/bomba/bandiere.js"></script>
 
-          // Ora puoi utilizzare il livello come necessario
-          console.log("Livello:", level);
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Recupera il livello dal documento HTML
+      var levelElement = document.querySelector(".level");
 
-          // Costruisci dinamicamente il nome del livello per il localStorage
-          var minutesKey = "level" + level + "Minutes";
-          var secondsKey = "level" + level + "Seconds";
+      // Verifica se l'elemento esiste prima di tentare di accedere al suo contenuto
+      if (levelElement) {
+        var level = parseInt(levelElement.textContent.trim(), 10);
 
-          // Recupera il tempo salvato dal localStorage
-          var savedMinutes = localStorage.getItem(minutesKey);
-          var savedSeconds = localStorage.getItem(secondsKey);
+        // Ora puoi utilizzare il livello come necessario
+        console.log("Livello:", level);
 
-          if (savedMinutes && savedSeconds) {
-            // Puoi utilizzare il tempo salvato come necessario, ad esempio visualizzarlo o utilizzarlo in altre parti del tuo gioco
-            console.log(
-              "Tempo salvato per il livello " + level + ":",
-              savedMinutes + " e " + savedSeconds
-            );
-          }
-        } else {
-          console.error("Elemento del livello non trovato.");
+        // Costruisci dinamicamente il nome del livello per il localStorage
+        var minutesKey = "level" + level + "Minutes";
+        var secondsKey = "level" + level + "Seconds";
+
+        // Recupera il tempo salvato dal localStorage
+        var savedMinutes = localStorage.getItem(minutesKey);
+        var savedSeconds = localStorage.getItem(secondsKey);
+
+        if (savedMinutes && savedSeconds) {
+          // Puoi utilizzare il tempo salvato come necessario, ad esempio visualizzarlo o utilizzarlo in altre parti del tuo gioco
+          document.querySelector(".menu-container .record .minutes").innerHTML = savedMinutes
+          document.querySelector(".menu-container .record .seconds").innerHTML = savedSeconds
         }
-      });
-    </script>
+      } else {
+        console.error("Elemento del livello non trovato.");
+      }
+    });
+  </script>
 
-    <script src="../../js/bomba/check-modulo-vuoto.js"></script>
-  </body>
+  <script src="../../js/bomba/check-modulo-vuoto.js"></script>
+</body>
+
 </html>
