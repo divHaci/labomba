@@ -193,7 +193,8 @@ function vittoria() {
   document.querySelector(".menu-container h1").innerHTML =
     "BOMBA DISINNESCATA!";
   document.querySelector(".menu-container").style.display = "flex";
-  document.querySelector(".codice").style.display = "flex";
+  document.querySelector(".menu-container .time").style.display = "flex";
+  document.querySelector(".menu-container .record").style.display = "flex";
   musicLevel.pause();
   ticking.pause();
   timeLeft.pause();
@@ -236,27 +237,14 @@ function vittoria() {
     elapsedMinutes += 60;
   }
 
-  // Output dei risultati
-  console.log(
-    "Tempo iniziale: " +
-      startingMinutes +
-      " minuti e " +
-      startingSeconds +
-      " secondi"
-  );
-  console.log("Tempo finale: " + minutes + " minuti e " + seconds + " secondi");
-  console.log(
-    "Tempo trascorso: " +
-      elapsedMinutes +
-      " minuti e " +
-      elapsedSeconds +
-      " secondi"
-  );
+  document.querySelector(".menu-container .time .minutes").innerHTML =
+    elapsedMinutes;
+  document.querySelector(".menu-container .time .seconds").innerHTML =
+    elapsedSeconds;
 
-  
   var nLivello = document.querySelector(".level").innerHTML;
-  localStorage.setItem('level' + nLivello + 'Minutes', elapsedMinutes);
-  localStorage.setItem('level' + nLivello + 'Seconds', elapsedSeconds);
+  localStorage.setItem("level" + nLivello + "Minutes", elapsedMinutes);
+  localStorage.setItem("level" + nLivello + "Seconds", elapsedSeconds);
 }
 
 function sconfitta(reason) {
@@ -311,6 +299,7 @@ document.addEventListener("keydown", function (event) {
     if (show) {
       document.querySelector(".menu-container h1").innerHTML = "MENU";
       document.querySelector(".menu-container").style.display = "flex";
+      document.querySelector(".menu-container .record").style.display = "flex";
     } else {
       document.querySelector(".menu-container").style.display = "none";
     }

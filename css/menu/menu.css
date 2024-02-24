@@ -179,3 +179,40 @@
     justify-content: center;
 }
 
+.time {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    font-family: "Helvetica", sans-serif;
+    color: blue;
+    text-shadow: 0.2vw 0.2vw 0.2vw rgb(77, 88, 212);
+}
+
+.time img,
+.record img {
+    width: 4vw;
+    aspect-ratio: 1/1;
+}
+
+.time span {
+    margin: 1vw;
+}
+
+.record {
+    width: 90%;
+    height: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    font-family: "Helvetica", sans-serif;
+    color: gold;
+    text-shadow: 0.2vw 0.2vw 0.2vw rgb(186, 115, 1);
+}
+
+.record span {
+    margin: 1vw;
+}
