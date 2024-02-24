@@ -198,12 +198,67 @@ function vittoria() {
   ticking.pause();
   timeLeft.pause();
   minuteLeft.pause();
+
   document.querySelector(".left-red-light").style.animation = "none";
   document.querySelector(".right-red-light").style.animation = "none";
   clearInterval(intervalId);
   show = true;
   win.play();
+
+  // Tempo iniziale
+  var startingMinutes = parseInt(
+    document.querySelector(".starting-minutes").innerHTML,
+    10
+  );
+  var startingSeconds = parseInt(
+    document.querySelector(".starting-seconds").innerHTML,
+    10
+  );
+
+  // Tempo finale
+  var timeString = document.querySelector(".timer .display").innerHTML;
+  var timeArray = timeString.split(":");
+  var minutes = parseInt(timeArray[0], 10);
+  var seconds = parseInt(timeArray[1], 10);
+
+  // Calcolo del tempo trascorso
+  var elapsedMinutes = startingMinutes - minutes;
+  var elapsedSeconds = startingSeconds - seconds;
+
+  // Correggi il tempo trascorso in caso di secondi negativi
+  if (elapsedSeconds < 0) {
+    elapsedSeconds += 60;
+    elapsedMinutes--;
+  }
+
+  // Correggi il tempo trascorso in caso di minuti negativi
+  if (elapsedMinutes < 0) {
+    elapsedMinutes += 60;
+  }
+
+  // Output dei risultati
+  console.log(
+    "Tempo iniziale: " +
+      startingMinutes +
+      " minuti e " +
+      startingSeconds +
+      " secondi"
+  );
+  console.log("Tempo finale: " + minutes + " minuti e " + seconds + " secondi");
+  console.log(
+    "Tempo trascorso: " +
+      elapsedMinutes +
+      " minuti e " +
+      elapsedSeconds +
+      " secondi"
+  );
+
+  
+  var nLivello = document.querySelector(".level").innerHTML;
+  localStorage.setItem('level' + nLivello + 'Minutes', elapsedMinutes);
+  localStorage.setItem('level' + nLivello + 'Seconds', elapsedSeconds);
 }
+
 function sconfitta(reason) {
   console.log(reason);
   document.querySelector(
