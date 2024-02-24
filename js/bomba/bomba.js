@@ -188,6 +188,8 @@ creaBomba();
 
 var show = false;
 giraButton.addEventListener("onclick", gira);
+var elapsedMinutes; // Declare these variables at a higher scope
+var elapsedSeconds;
 
 function vittoria() {
   document.querySelector(".menu-container h1").innerHTML =
@@ -223,8 +225,8 @@ function vittoria() {
   var seconds = parseInt(timeArray[1], 10);
 
   // Calcolo del tempo trascorso
-  var elapsedMinutes = startingMinutes - minutes;
-  var elapsedSeconds = startingSeconds - seconds;
+  elapsedMinutes = startingMinutes - minutes;
+  elapsedSeconds = startingSeconds - seconds;
 
   // Correggi il tempo trascorso in caso di secondi negativi
   if (elapsedSeconds < 0) {

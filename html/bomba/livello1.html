@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>La bomba</title>
@@ -28,40 +27,46 @@
     <link rel="stylesheet" href="../../css/bomba/moduli/piano.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/calcio.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/chess.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="win-led"></div>
     <div class="left-red-light"></div>
     <div class="right-red-light"></div>
     <div class="menu-container" style="display: none">
-        <h1>MENU</h1>
-        <div style="display: none" class="vittime">
-            Ci lasciano <span class="n-vittime"></span> bambini...
-        </div>
-        <div style="display: none" class="famous-list">
-            Tra le vittime più famose:
-            <div class="list"></div>
-        </div>
+      <h1>MENU</h1>
+      <div style="display: none" class="vittime">
+        Ci lasciano <span class="n-vittime"></span> bambini...
+      </div>
+      <div style="display: none" class="famous-list">
+        Tra le vittime più famose:
+        <div class="list"></div>
+      </div>
 
-        <div style="display: none" class="time">
-            Tempo: <span class="minutes">0</span> minuti e <span class="seconds">0</span> secondi
-        </div>
-        <div style="display: none" class="record">Record: <span class="minutes">0</span> minuti e <span
-                class="seconds">0</span> secondi
-        </div>
+      <div style="display: none" class="time">
+        Tempo: <span class="minutes">0</span> minuti e
+        <span class="seconds">0</span> secondi
+      </div>
+      <div style="display: none" class="record">
+        Record: <span class="minutes">0</span> minuti e
+        <span class="seconds">0</span> secondi
+      </div>
 
-        <div class="buttons">
-            <button class="menu-buttons" id="levels" onclick="window.location.href = '/html/livelli/livelli.html';">
-                <span>Livelli</span>
-            </button>
-            <button class="menu-buttons" id="retry" onclick="location.reload()">
-                <span>Riprova</span>
-            </button>
-        </div>
+      <div class="buttons">
+        <button
+          class="menu-buttons"
+          id="levels"
+          onclick="window.location.href = '/html/livelli/livelli.html';"
+        >
+          <span>Livelli</span>
+        </button>
+        <button class="menu-buttons" id="retry" onclick="location.reload()">
+          <span>Riprova</span>
+        </button>
+      </div>
     </div>
     <video class="bgvideo" autoplay loop muted id="videoBackground">
-        <source src="/img/bgvideo.mp4" type="video/mp4" />
+      <source src="/img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="bomba"></div>
     <div class="starting-minutes" style="display: none">15</div>
@@ -93,45 +98,43 @@
     <script src="../../js/bomba/timer.js"></script>
     <script src="../../js/bomba/bandiere.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        var levelElement = document.querySelector(".level");
 
-            // Recupera il livello dal documento HTML
-            var levelElement = document.querySelector(".level");
+        if (levelElement) {
+          var level = parseInt(levelElement.textContent.trim(), 10);
 
-            // Verifica se l'elemento esiste prima di tentare di accedere al suo contenuto
-            if (levelElement) {
-                var level = parseInt(levelElement.textContent.trim(), 10);
+          var minutesKey = "level" + level + "Minutes";
+          var secondsKey = "level" + level + "Seconds";
 
-                // Ora puoi utilizzare il livello come necessario
-                console.log("Livello:", level);
+          var savedMinutes = localStorage.getItem(minutesKey);
+          var savedSeconds = localStorage.getItem(secondsKey);
 
-                // Costruisci dinamicamente il nome del livello per il localStorage
-                var minutesKey = "level" + level + "Minutes";
-                var secondsKey = "level" + level + "Seconds";
+          if (savedMinutes && savedSeconds) {
+            var savedTimeInSeconds =
+              parseInt(savedMinutes) * 60 + parseInt(savedSeconds);
+            var currentTimeInSeconds = elapsedMinutes * 60 + elapsedSeconds;
 
-                // Recupera il tempo salvato dal localStorage
-                var savedMinutes = localStorage.getItem(minutesKey);
-                var savedSeconds = localStorage.getItem(secondsKey);
-
-                if (savedMinutes && savedSeconds) {
-                    // Puoi utilizzare il tempo salvato come necessario, ad esempio visualizzarlo o utilizzarlo in altre parti del tuo gioco
-                    console.log(
-                        "Tempo salvato per il livello " + level + ":",
-                        savedMinutes + " e " + savedSeconds
-                    );
-
-                    console.log(document.querySelector(".menu-container .record .minutes").innerHTML =
-                        savedMinutes);
-                    console.log(
-                        document.querySelector(".menu-container .record .seconds").innerHTML =
-                        savedSeconds);
-                }
-            } else {
-                console.error("Elemento del livello non trovato.");
+            if (
+              !savedTimeInSeconds ||
+              currentTimeInSeconds < savedTimeInSeconds
+            ) {
+              localStorage.setItem(minutesKey, elapsedMinutes);
+              localStorage.setItem(secondsKey, elapsedSeconds);
             }
-        });
+
+            document.querySelector(
+              ".menu-container .record .minutes"
+            ).innerHTML = localStorage.getItem(minutesKey);
+            document.querySelector(
+              ".menu-container .record .seconds"
+            ).innerHTML = localStorage.getItem(secondsKey);
+          }
+        } else {
+          console.error("Elemento del livello non trovato.");
+        }
+      });
     </script>
     <script src="../../js/bomba/check-modulo-vuoto.js"></script>
-</body>
-
+  </body>
 </html>
