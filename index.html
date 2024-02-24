@@ -53,14 +53,13 @@
 </head>
 
 <body ondragstart="return false" onselectstart="return false">
+  <video autoplay loop muted id="videoBackground">
+    <source src="../img/index/bg.mp4" type="video/mp4" />
+    <audio id="musiMenu" loop autoplay>
+      <source src="../sounds/effects/index/menuMusic.mp3" type="audio/mp3" />
+    </audio>
+  </video>
   <div class="screen">
-    <video autoplay loop muted id="videoBackground">
-      <source src="../img/index/bg.mp4" type="video/mp4" />
-      <audio id="musiMenu" loop autoplay>
-        <source src="../sounds/effects/index/menuMusic.mp3" type="audio/mp3" />
-      </audio>
-    </video>
-
     <audio id="audioClick">
       <source src="../sounds/effects/index/buttonclick.wav" type="audio/wav" />
     </audio>
@@ -71,7 +70,7 @@
     <audio id="player" autoplay loop>
       <source src="../sounds/effects/index/musiMenu.mp3" type="audio/mp3" />
     </audio>
-    <div class="menu">
+    <div class="menu" style="display: none;">
       <h1 class="customfont">LA BOMBA</h1>
       <ul>
         <li><a href="/html/livelli/livelli.html">Gioca</a></li>
@@ -84,6 +83,47 @@
         </li>
       </ul>
     </div>
+    <div class="levels-container" style="color: white;">
+      <h1>Livelli</h1>
+      <li>
+        <ul>LEVEL 1
+          <li>
+            <ul> - L'INIZIO SUCA</ul>
+            <ul> - SUCA</ul>
+            <ul> - SUCA</ul>
+          </li>
+        </ul>
+        <ul>LEVEL 1
+          <li>
+            <ul> - L'INIZIO SUCA</ul>
+            <ul> - SUCA</ul>
+            <ul> - SUCA</ul>
+          </li>
+        </ul>
+        <ul>LEVEL 1
+          <li>
+            <ul> - L'INIZIO SUCA</ul>
+            <ul> - SUCA</ul>
+            <ul> - SUCA</ul>
+          </li>
+        </ul>
+        <ul>LEVEL 1
+          <li>
+            <ul> - L'INIZIO SUCA</ul>
+            <ul> - SUCA</ul>
+            <ul> - SUCA</ul>
+          </li>
+        </ul>
+        <ul>LEVEL 1
+          <li>
+            <ul> - L'INIZIO SUCA</ul>
+            <ul> - SUCA</ul>
+            <ul> - SUCA</ul>
+          </li>
+        </ul>
+      </li>
+    </div>
+    <div class="filler"></div>
   </div>
   <script src="../js/bomba/index.js"></script>
   <script>
