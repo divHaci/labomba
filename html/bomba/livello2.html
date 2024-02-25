@@ -44,7 +44,10 @@
     </div>
 
     <div class="buttons">
-      <button class="menu-buttons" id="levels" onclick="window.location.href = '/html/livelli/livelli.html';">
+      <button class="menu-buttons" id="levels" onclick="(() => {
+        localStorage.setItem('menu', 'false');
+        window.location = '../../index.html';
+    })()">
         <span>Livelli</span>
       </button>
       <button class="menu-buttons" id="retry" onclick="location.reload()">

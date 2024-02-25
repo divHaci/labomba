@@ -271,6 +271,8 @@ function vittoria() {
   } else {
     console.log("No need to update best time.");
   }
+  localStorage.setItem("level" + (parseInt(nLivello) + 1), "sbloccato");
+  console.log("Livello " + (parseInt(nLivello) + 1) + " sbloccato");
 }
 
 function sconfitta(reason) {

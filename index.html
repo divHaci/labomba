@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-xx+J5NTHUqOCXb7wWZ6xrSzHOYVw2vA5Y8eb5xmNlMr5rP8H7O5EKWfSP9Hj3hFUKjTGFo/Md7mgiECEC6Oz0w=="
     crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/index/backButton.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/ccbd4d6bc1.js" crossorigin="anonymous"></script>
@@ -53,7 +54,7 @@
 </head>
 
 <body ondragstart="return false" onselectstart="return false">
-  <video autoplay loop muted id="videoBackground">
+  <video autoplay loop muted id="videoBackground" style="position: absolute;">
     <source src="../img/index/bg.mp4" type="video/mp4" />
     <audio id="musiMenu" loop autoplay>
       <source src="../sounds/effects/index/menuMusic.mp3" type="audio/mp3" />
@@ -70,65 +71,141 @@
     <audio id="player" autoplay loop>
       <source src="../sounds/effects/index/musiMenu.mp3" type="audio/mp3" />
     </audio>
-    <div class="menu" style="display: none;">
+    <div class="menu" style="display: flex;">
       <h1 class="customfont">LA BOMBA</h1>
       <ul>
-        <li><a href="/html/livelli/livelli.html">Gioca</a></li>
-        <li><a href="Manuale_Bomba.docx">Manuale Bomba</a></li>
+        <li><a href="#" onclick="(() => {
+          localStorage.setItem('menu', 'false');
+          switchView();
+      })()">Gioca</a></li>
+        <li><a href=" https://manualebomba.netlify.app">Manuale Bomba</a></li>
         <li><a href="">Riconoscimenti</a></li>
-        <li style="width: 30%;"><i style="position: relative; font-size: 4vw;" id="sound"
+        <li style=" width: 30%;"><i style="position: relative; font-size: 4vw;" id="sound"
             class="fas fa-volume-mute"></i>
           <div class="arrow" style="margin-bottom: 0.45vw;">🡸</div>
           <input type="range" id="volumeRange" min="0" max="100" step="1" value="100" style="display: none">
         </li>
       </ul>
     </div>
-    <div class="levels-container" style="color: white;">
-      <h1>Livelli</h1>
-      <li>
-        <ul>LEVEL 1
-          <li>
-            <ul> - L'INIZIO SUCA</ul>
-            <ul> - SUCA</ul>
-            <ul> - SUCA</ul>
-          </li>
+    <button onclick="(() => {
+      localStorage.setItem('menu', 'true');
+      console.log(localStorage.getItem('menu'));
+      switchView();
+      })()" class="glowing-btn" style="display: none;"><span class="glowing-txt">&larr;<span
+          class="faulty-letter">M</span>ENU</span></button>
+    <div class="levels-container" style="color: white; display: none;">
+      <h1>LIVELLI</h1>
+      <details open="true">
+        <summary>CATEGORIA 1</summary>
+        <li>
+          <ul>
+            <li><a href="/html/bomba/livello1.html">Livello 1</a>
+            </li>
+            <li><a href=" #" id="level2link">SUCA</a><img src="/img/index/locked.svg" id="level2lock"
+                style="display: block;">
+            </li>
+            <li><a href="#" id="level3link">SUCA</a><img src="/img/index/locked.svg" id="level3lock"
+                style="display: block;">
+            </li>
+          </ul>
+        </li>
+      </details>
+      <details>
+        <summary>CATEGORIA 2</summary>
+        <li>
+          <ul>
+            <li><a href=" #" id="level4link">SUCA</a><img src="/img/index/locked.svg" id="level4lock"
+                style="display: block;">
+            </li>
+            <li><a href="#" id="level5link">SUCA</a><img src="/img/index/locked.svg" id="level5lock"
+                style="display: block;">
+            <li><a href=" #" id="level6link">SUCA</a><img src="/img/index/locked.svg" id="level6lock"
+                style="display: block;">
+            </li>
+        </li>
         </ul>
-        <ul>LEVEL 1
-          <li>
-            <ul> - L'INIZIO SUCA</ul>
-            <ul> - SUCA</ul>
-            <ul> - SUCA</ul>
-          </li>
-        </ul>
-        <ul>LEVEL 1
-          <li>
-            <ul> - L'INIZIO SUCA</ul>
-            <ul> - SUCA</ul>
-            <ul> - SUCA</ul>
-          </li>
-        </ul>
-        <ul>LEVEL 1
-          <li>
-            <ul> - L'INIZIO SUCA</ul>
-            <ul> - SUCA</ul>
-            <ul> - SUCA</ul>
-          </li>
-        </ul>
-        <ul>LEVEL 1
-          <li>
-            <ul> - L'INIZIO SUCA</ul>
-            <ul> - SUCA</ul>
-            <ul> - SUCA</ul>
-          </li>
-        </ul>
-      </li>
+        </li>
+      </details>
+
     </div>
     <div class="filler"></div>
-  </div>
-  <script src="../js/bomba/index.js"></script>
-  <script>
+    <script src="../js/bomba/index.js"></script>
 
-  </script>
 </body>
+<script>
+
+  function checkAndUnlockLevel(levelNumber, lockElementId, linkElementId, linkUrl) {
+    console.log(localStorage.getItem("level" + levelNumber) == "sbloccato");
+    if (localStorage.getItem("level" + levelNumber) == "sbloccato") { // If the level is completed
+      const lockElement = document.querySelector(lockElementId);
+      const linkElement = document.querySelector(linkElementId);
+      if (lockElement && linkElement) { // Ensure elements are found
+        lockElement.style.display = "none";
+        linkElement.setAttribute("href", linkUrl);
+      }
+    }
+  }
+
+  var NLivelli = 3;
+
+  for (let i = 2; i <= NLivelli; i++) {
+    checkAndUnlockLevel(i, `#level${i}lock`, `#level${i}link`, `/html/bomba/livello${i}.html`);
+  }
+</script>
+
+<script>
+  window.onload = () => {
+    let menu = localStorage.getItem("menu");
+    const menuElement = document.querySelector(".menu");
+    const levelsContainerElement = document.querySelector(".levels-container");
+    const button = document.querySelector(".glowing-btn");
+
+    console.log("suca1");
+
+    if (menu === null) {
+      localStorage.setItem('menu', 'true');
+      console.log("suca2");
+      menu = "true"; // Set menu to "true" since it's the default state
+    }
+
+    if (menu === "true") {
+      menuElement.style.display = "flex";
+      levelsContainerElement.style.display = "none";
+      levelsContainerElement.style.left = "-100%";
+      button.style.display = "none";
+    } else {
+      console.log("suca4");
+      menuElement.style.display = "none";
+      levelsContainerElement.style.display = "flex";
+      levelsContainerElement.style.left = "0%";
+      button.classList.add("enter");
+      button.style.display = "flex";
+    }
+  }
+
+  function switchView() {
+    let menu = localStorage.getItem("menu");
+    const menuElement = document.querySelector(".menu");
+    const levelsContainerElement = document.querySelector(".levels-container");
+    const button = document.querySelector(".glowing-btn");
+
+    if (menu === "true") {
+      localStorage.setItem('menu', 'false');
+      menuElement.style.display = "flex";
+      levelsContainerElement.style.display = "none";
+      levelsContainerElement.style.left = "-100%";
+      button.style.display = "none";
+    } else {
+      localStorage.setItem('menu', 'true');
+      menuElement.style.display = "none";
+      levelsContainerElement.style.display = "flex";
+      levelsContainerElement.style.left = "0%";
+      button.classList.add("enter");
+      button.style.display = "flex";
+    }
+  }
+
+
+</script>
 
 </html>
