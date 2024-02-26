@@ -32,6 +32,8 @@ function creaClacio() {
         led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
         led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
         modulo.children[0].classList.add("complete");
+        right.pause();
+        right.currentTime = 0;
         right.play();
         var elements = Array.from(targets.children);
         elements.forEach((element) => {
@@ -47,6 +49,8 @@ function creaClacio() {
           led.style.backgroundColor = "red";
           led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
           led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+          wrong.pause();
+          wrong.currentTime = 0;
           wrong.play();
         } else {
           led.style.backgroundColor = "red";
@@ -54,8 +58,12 @@ function creaClacio() {
           led.style.boxShadow = "0px 0px 2vw 0.5vw red";
           click.pause();
           stopTick();
+          wrong.pause();
+          wrong.currentTime = 0;
           wrong.play();
           musicLevel.pause();
+          explosion.pause();
+          explosion.currentTime = 0;
           explosion.play();
           minuteLeft.pause();
           timeLeft.pause();
@@ -83,5 +91,3 @@ function creaClacio() {
 
   return modulo;
 }
-
-aggiungi_modulo(creaClacio());

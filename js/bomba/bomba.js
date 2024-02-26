@@ -206,6 +206,8 @@ function vittoria() {
   document.querySelector(".right-red-light").style.animation = "none";
   clearInterval(intervalId);
   show = true;
+  win.pause();
+  win.currentTime = 0;
   win.play();
   var startingMinutes = parseInt(
     document.querySelector(".starting-minutes").innerHTML,
@@ -309,6 +311,8 @@ function sconfitta(reason) {
 
   // Add the following lines to trigger loseMusic after 2 seconds
   setTimeout(() => {
+    loseMusic.pause();
+    loseMusic.currentTime = 0;
     loseMusic.play();
     loseMusic.volume = 0.08;
   }, 500);

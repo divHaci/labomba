@@ -107,6 +107,8 @@ function creaTwitch() {
             var x = document.createElement("div");
             x.innerHTML = "X";
             errori.appendChild(x);
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
           } else {
             var x = document.createElement("div");
@@ -114,8 +116,12 @@ function creaTwitch() {
             errori.appendChild(x);
             click.pause();
             stopTick();
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
             musicLevel.pause();
+            explosion.pause();
+            explosion.currentTime = 0;
             explosion.play();
             minuteLeft.pause();
             timeLeft.pause();
@@ -132,6 +138,8 @@ function creaTwitch() {
               "radial-gradient(50% 50% at 50% 50%, #292929 0%, #000000 100%)";
           }, 1000);
           display.innerHTML = "";
+          right.pause();
+          right.currentTime = 0;
           right.play();
         } else {
           // Handle incorrect input after the timer expires
@@ -145,6 +153,8 @@ function creaTwitch() {
             var x = document.createElement("div");
             x.innerHTML = "X";
             errori.appendChild(x);
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
           } else {
             var x = document.createElement("div");
@@ -152,8 +162,12 @@ function creaTwitch() {
             errori.appendChild(x);
             click.pause();
             stopTick();
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
             musicLevel.pause();
+            explosion.pause();
+            explosion.currentTime = 0;
             explosion.play();
             minuteLeft.pause();
             timeLeft.pause();

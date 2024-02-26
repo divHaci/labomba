@@ -105,6 +105,8 @@ function generaBinary() {
       led.style.backgroundColor = "lime";
       led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
       led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+      right.pause();
+      right.currentTime = 0;
       right.play();
       modulo_binary.children[0].classList.add("complete");
       checkForWin();
@@ -116,6 +118,8 @@ function generaBinary() {
         led.style.backgroundColor = "red";
         led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
         led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        wrong.pause();
+        wrong.currentTime = 0;
         wrong.play();
       } else {
         var x = document.createElement("div");
@@ -126,7 +130,11 @@ function generaBinary() {
         led.style.boxShadow = "0px 0px 2vw 0.5vw red";
         click.pause();
         stopTick();
+        wrong.pause();
+        wrong.currentTime = 0;
         wrong.play();
+        explosion.pause();
+        explosion.currentTime = 0;
         explosion.play();
         document.querySelector(".bgvideo").style.display = "none";
         musicLevel.pause();

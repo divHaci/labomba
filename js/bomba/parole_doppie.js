@@ -87,6 +87,8 @@ function creaParoleDoppie() {
       var result = button.getAttribute("id");
 
       if (result == "right") {
+        right.pause();
+        right.currentTime = 0;
         right.play();
         ledContainerParoleDoppie.children[lvl].style.backgroundColor =
           "#fde910";
@@ -174,6 +176,8 @@ function creaParoleDoppie() {
           var x = document.createElement("div");
           x.innerHTML = "X";
           errori.appendChild(x);
+          wrong.pause();
+          wrong.currentTime = 0;
           wrong.play();
         } else {
           var x = document.createElement("div");
@@ -181,8 +185,12 @@ function creaParoleDoppie() {
           errori.appendChild(x);
           click.pause();
           stopTick();
+          wrong.pause();
+          wrong.currentTime = 0;
           wrong.play();
           musicLevel.pause();
+          explosion.pause();
+          explosion.currentTime = 0;
           explosion.play();
           document.querySelector(".bgvideo").style.display = "none";
           sconfitta(paroleDoppie);

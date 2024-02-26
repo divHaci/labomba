@@ -11,16 +11,48 @@ function creaPassword() {
   let characters;
   // FILL ALL THE SLOTS RANDOMLY WITHOUT REPEATING CHARACTERS
   for (let i = 0; i < slots.length; i++) {
-    let characters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?'];
+    let characters = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+      "!",
+      "?",
+    ];
 
     // Fisher-Yates shuffle algorithm
     for (let j = characters.length - 1; j > 0; j--) {
-        const randomIndex = Math.floor(Math.random() * (j + 1));
-        [characters[j], characters[randomIndex]] = [characters[randomIndex], characters[j]];
+      const randomIndex = Math.floor(Math.random() * (j + 1));
+      [characters[j], characters[randomIndex]] = [
+        characters[randomIndex],
+        characters[j],
+      ];
     }
 
     for (let j = 0; j < 7; j++) {
-        slots[i][j] = characters[j];
+      slots[i][j] = characters[j];
     }
   }
 
@@ -81,7 +113,7 @@ function creaPassword() {
   submit.classList.add("submit-password");
   submit.innerText = "INVIO";
   submit.addEventListener("click", function () {
-    check(slots, indexes, led, password_modulo); 
+    check(slots, indexes, led, password_modulo);
   });
 
   display.appendChild(button_left);
@@ -112,7 +144,6 @@ function updateDisplay(slotIndex, slots, indexes, slots_display) {
     slots[slotIndex][indexes[slotIndex]];
 }
 
-
 function check(slots, indexes, led, modulo) {
   // Pass led as a parameter
   var userword = "";
@@ -124,11 +155,13 @@ function check(slots, indexes, led, modulo) {
     led.style.backgroundColor = "lime";
     led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
     led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
+    right.pause();
+    right.currentTime = 0;
     right.play();
     for (let i = 0; i < 3; i++) {
-        //SPEGNE IL MODULO TRANNE IL LED
-        modulo.children[i].classList.add("complete")
-      }
+      //SPEGNE IL MODULO TRANNE IL LED
+      modulo.children[i].classList.add("complete");
+    }
     checkForWin();
   } else {
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
@@ -138,6 +171,8 @@ function check(slots, indexes, led, modulo) {
       led.style.backgroundColor = "red";
       led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
       led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+      wrong.pause();
+      wrong.currentTime = 0;
       wrong.play();
     } else {
       var x = document.createElement("div");
@@ -148,12 +183,16 @@ function check(slots, indexes, led, modulo) {
       led.style.boxShadow = "0px 0px 2vw 0.5vw red";
       click.pause();
       stopTick();
+      wrong.pause();
+      wrong.currentTime = 0;
       wrong.play();
+      explosion.pause();
+      explosion.currentTime = 0;
       explosion.play();
       document.querySelector(".bgvideo").style.display = "none";
-      musicLevel.pause()
+      musicLevel.pause();
       minuteLeft.pause();
-      timeLeft.pause()
+      timeLeft.pause();
       sconfitta(pwdEsploso);
     }
   }

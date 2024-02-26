@@ -67,6 +67,8 @@ function disturb(frequenza, speed, cooldown) {
               var x = document.createElement("div");
               x.innerHTML = "X";
               errori.appendChild(x);
+              wrong.pause();
+              wrong.currentTime = 0;
               wrong.play();
             } else {
               var x = document.createElement("div");
@@ -74,8 +76,12 @@ function disturb(frequenza, speed, cooldown) {
               errori.appendChild(x);
               click.pause();
               stopTick();
+              wrong.pause();
+              wrong.currentTime = 0;
               wrong.play();
               musicLevel.pause();
+              explosion.pause();
+              explosion.currentTime = 0;
               explosion.play();
               document.querySelector(".bgvideo").style.display = "none";
               minuteLeft.pause();
@@ -111,6 +117,8 @@ function disturb(frequenza, speed, cooldown) {
         var x = document.createElement("div");
         x.innerHTML = "X";
         errori.appendChild(x);
+        wrong.pause();
+        wrong.currentTime = 0;
         wrong.play();
       } else {
         var x = document.createElement("div");
@@ -118,8 +126,12 @@ function disturb(frequenza, speed, cooldown) {
         errori.appendChild(x);
         click.pause();
         stopTick();
+        wrong.pause();
+        wrong.currentTime = 0;
         wrong.play();
         musicLevel.pause();
+        explosion.pause();
+        explosion.currentTime = 0;
         explosion.play();
         document.querySelector(".bgvideo").style.display = "none";
         minuteLeft.pause();

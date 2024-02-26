@@ -142,6 +142,8 @@ function creaCavi() {
             led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw #74FF66ed";
             led.style.boxShadow = "0px 0px 2vw 0.5vw #74FF66";
             modulo.children[0].classList.add("complete");
+            right.pause();
+            right.currentTime = 0;
             right.play();
             checkForWin();
           }
@@ -154,6 +156,8 @@ function creaCavi() {
             led.style.backgroundColor = "red";
             led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
             led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
           } else {
             var x = document.createElement("div");
@@ -164,8 +168,12 @@ function creaCavi() {
             led.style.boxShadow = "0px 0px 2vw 0.5vw red";
             click.pause();
             stopTick();
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
             musicLevel.pause();
+            explosion.pause();
+            explosion.currentTime = 0;
             explosion.play();
             minuteLeft.pause();
             timeLeft.pause();

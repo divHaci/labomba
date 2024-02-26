@@ -121,9 +121,13 @@ function creaScacchi() {
           cells[
             solutions[randomIndex]["moves"][currentMove]["currentCell"]
           ].appendChild(piece);
+          capture.pause();
+          capture.currentTime = 0;
           capture.play();
         }, 1000);
       } else {
+        move.pause();
+        move.currentTime = 0;
         move.play();
         cells[
           solutions[randomIndex]["moves"][currentMove]["currentCell"]
@@ -152,9 +156,13 @@ function creaScacchi() {
           // SPEGNE IL MODULO TRANNE IL LED
           modulo.children[i].classList.add("complete");
         }
+        right.pause();
+        right.currentTime = 0;
         right.play();
 
         checkForWin();
+        checkmate.pause();
+        checkmate.currentTime = 0;
         checkmate.play();
       }
 
@@ -208,6 +216,8 @@ function creaScacchi() {
         led.style.backgroundColor = "red";
         led.style.webkitBoxShadow = "0px 0px 2vw 0.5vw red";
         led.style.boxShadow = "0px 0px 2vw 0.5vw red";
+        wrong.pause();
+        wrong.currentTime = 0;
         wrong.play();
       } else {
         led.style.backgroundColor = "red";
@@ -215,8 +225,12 @@ function creaScacchi() {
         led.style.boxShadow = "0px 0px 2vw 0.5vw red";
         click.pause();
         stopTick();
+        wrong.pause();
+        wrong.currentTime = 0;
         wrong.play();
         musicLevel.pause();
+        explosion.pause();
+        explosion.currentTime = 0;
         explosion.play();
         minuteLeft.pause();
         timeLeft.pause();

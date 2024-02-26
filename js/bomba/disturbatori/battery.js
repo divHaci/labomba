@@ -27,7 +27,11 @@ function updateBattery() {
       musicLevel.pause();
       click.pause();
       stopTick();
+      wrong.pause();
+      wrong.currentTime = 0;
       wrong.play();
+      explosion.pause();
+      explosion.currentTime = 0;
       explosion.play();
       sconfitta(batteria);
       clearInterval(timer);

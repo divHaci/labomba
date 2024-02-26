@@ -17,58 +17,62 @@ hideArrow();
 showVolumeBar();
 
 sound.addEventListener("click", () => {
-    // Cambia l'icona e gestisci lo stato del suono
-    if (music.paused) {
-        sound.classList.remove("fa-volume-mute");
-        sound.classList.add("fa-volume-up");
-        music.play();
-        hideArrow();
-        showVolumeBar();
-    } else {
-        sound.classList.remove("fa-volume-up");
-        sound.classList.add("fa-volume-mute");
-        music.pause();
-        showArrow();
-        hideVolumeBar();
-    }
+  // Cambia l'icona e gestisci lo stato del suono
+  if (music.paused) {
+    sound.classList.remove("fa-volume-mute");
+    sound.classList.add("fa-volume-up");
+    music.play();
+    hideArrow();
+    showVolumeBar();
+  } else {
+    sound.classList.remove("fa-volume-up");
+    sound.classList.add("fa-volume-mute");
+    music.pause();
+    showArrow();
+    hideVolumeBar();
+  }
 
-    clickSound();
+  clickSound();
 });
 
 sound.addEventListener("mouseenter", hoverSound);
 
 for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", clickSound);
-    links[i].addEventListener("mouseenter", hoverSound);
+  links[i].addEventListener("click", clickSound);
+  links[i].addEventListener("mouseenter", hoverSound);
 }
 
 volumeRange.addEventListener("input", () => {
-    // Imposta il volume dell'audio in base al valore dell'input range (da 0 a 1)
-    music.volume = volumeRange.value / 100;
+  // Imposta il volume dell'audio in base al valore dell'input range (da 0 a 1)
+  music.volume = volumeRange.value / 100;
 });
 
 function clickSound() {
-    audioClick.play();
+  audioClick.pause();
+  audioClick.currentTime = 0;
+  audioClick.play();
 }
 
 function hoverSound() {
-    audioHover.play();
+  audioHover.pause();
+  audioHover.currentTime = 0;
+  audioHover.play();
 }
 
 function hideArrow() {
-    const arrow = document.querySelector('.arrow');
-    arrow.style.color = 'transparent';
+  const arrow = document.querySelector(".arrow");
+  arrow.style.color = "transparent";
 }
 
 function showArrow() {
-    const arrow = document.querySelector('.arrow');
-    arrow.style.color = 'white';
+  const arrow = document.querySelector(".arrow");
+  arrow.style.color = "white";
 }
 
 function showVolumeBar() {
-    volumeRange.style.display = 'block';
+  volumeRange.style.display = "block";
 }
 
 function hideVolumeBar() {
-    volumeRange.style.display = 'none';
+  volumeRange.style.display = "none";
 }
