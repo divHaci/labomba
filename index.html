@@ -61,6 +61,33 @@
     </audio>
   </video>
   <div class="screen">
+    <div class="level-info" style="display: none;">
+      <h1 class="level-title">Level 1</h1>
+      <p class="level-desc-1">Descrizione del primo livello</p>
+      <p class="level-desc-2">Questa è la descrizione del primo livello, quindi qua ci sarà la descrizione che
+        descriverà come sarà fatto il
+        livello</p>
+      <table border="1" style="border-collapse: collapse;">
+        <tr>
+          <th>Tempo</th>
+          <th>Moduli</th>
+          <th>Max Errori</th>
+          <th>Difficoltà</th>
+        </tr>
+        <tr>
+          <td class="time">5:00</td>
+          <td class="n-moduli">3</td>
+          <td class="n-max-errori">3</td>
+          <td class="difficulty">Easy</td>
+        </tr>
+        <tr>
+          <td colspan="2"><a href="#"><button
+                onclick="document.querySelector('.level-info').style.display = 'none'">BACK</button></a></td>
+          <td colspan="2"><a href="/html/bomba/livello1.html" class="level-link"><button>PLAY</button></a></td>
+        </tr>
+      </table>
+      <p>Record per questa bomba: <span>1:30</span></p>
+    </div>
     <audio id="audioClick">
       <source src="../sounds/effects/index/buttonclick.wav" type="audio/wav" />
     </audio>
@@ -99,7 +126,7 @@
         <summary>CATEGORIA 1</summary>
         <li>
           <ul>
-            <li><a href="/html/bomba/livello1.html">Livello 1</a>
+            <li><a href="#" onclick="getLevelInfo(0)">Livello 1</a>
             </li>
             <li><a href=" #" id="level2link">SUCA</a><img src="/img/index/locked.svg" id="level2lock"
                 style="display: block;">
@@ -126,22 +153,23 @@
         </ul>
         </li>
       </details>
-
     </div>
     <div class="filler"></div>
-    <script src="../js/bomba/index.js"></script>
-
+  </div>
+  <script src="/js/bomba/index.js"></script>
+  <script src="/js/menu/list/levelsInfo.js"></script>
+  <script src="/js/menu/getLevelInfo.js"></script>
 </body>
 <script>
 
-  function checkAndUnlockLevel(levelNumber, lockElementId, linkElementId, linkUrl) {
+  function checkAndUnlockLevel(levelNumber, lockElementId, linkElementId, linkUrl, i) {
     console.log(localStorage.getItem("level" + levelNumber) == "sbloccato");
     if (localStorage.getItem("level" + levelNumber) == "sbloccato") { // If the level is completed
       const lockElement = document.querySelector(lockElementId);
       const linkElement = document.querySelector(linkElementId);
       if (lockElement && linkElement) { // Ensure elements are found
         lockElement.style.display = "none";
-        linkElement.setAttribute("href", linkUrl);
+        linkElement.setAttribute("onclick", "getLevelInfo(" + (i - 1) + ")");
       }
     }
   }
@@ -149,7 +177,7 @@
   var NLivelli = 3;
 
   for (let i = 2; i <= NLivelli; i++) {
-    checkAndUnlockLevel(i, `#level${i}lock`, `#level${i}link`, `/html/bomba/livello${i}.html`);
+    checkAndUnlockLevel(i, `#level${i}lock`, `#level${i}link`, `/html/bomba/livello${i}.html`, i);
   }
 </script>
 
@@ -159,8 +187,6 @@
     const menuElement = document.querySelector(".menu");
     const levelsContainerElement = document.querySelector(".levels-container");
     const button = document.querySelector(".glowing-btn");
-
-    console.log("suca1");
 
     if (menu === null) {
       localStorage.setItem('menu', 'true');
@@ -174,7 +200,6 @@
       levelsContainerElement.style.left = "-100%";
       button.style.display = "none";
     } else {
-      console.log("suca4");
       menuElement.style.display = "none";
       levelsContainerElement.style.display = "flex";
       levelsContainerElement.style.left = "0%";
@@ -186,17 +211,17 @@
   function switchView() {
     let menu = localStorage.getItem("menu");
     const menuElement = document.querySelector(".menu");
+    const levelTab = document.querySelector(".level-info");
     const levelsContainerElement = document.querySelector(".levels-container");
     const button = document.querySelector(".glowing-btn");
 
     if (menu === "true") {
-      localStorage.setItem('menu', 'false');
       menuElement.style.display = "flex";
       levelsContainerElement.style.display = "none";
+      levelTab.style.display = "none"
       levelsContainerElement.style.left = "-100%";
       button.style.display = "none";
     } else {
-      localStorage.setItem('menu', 'true');
       menuElement.style.display = "none";
       levelsContainerElement.style.display = "flex";
       levelsContainerElement.style.left = "0%";
