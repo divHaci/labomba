@@ -238,11 +238,8 @@ function vittoria() {
   document.querySelector(".menu-container .time .seconds").innerHTML =
     elapsedSeconds;
 
-  console.log("Elapsed Minutes:", elapsedMinutes);
-  console.log("Elapsed Seconds:", elapsedSeconds);
-
   // Get the level and keys for localStorage
-  var nLivello = document.querySelector(".level").innerHTML;
+  var nLivello = parseInt(document.querySelector(".level").innerHTML);
   var minutesKey = "level" + nLivello + "Minutes";
   var secondsKey = "level" + nLivello + "Seconds";
 
@@ -250,35 +247,28 @@ function vittoria() {
   var savedMinutes = localStorage.getItem(minutesKey);
   var savedSeconds = localStorage.getItem(secondsKey);
 
-  console.log("Saved Minutes:", savedMinutes);
-  console.log("Saved Seconds:", savedSeconds);
-
   var totalSecondsElapsed = 60 * elapsedMinutes + elapsedSeconds;
-  var totalSecondsSaved = 60 * savedMinutes + savedSeconds;
+  var totalSecondsSaved = savedMinutes * 60 + savedSeconds;
 
   if (
-    savedMinutes === null ||
-    savedSeconds === null || // Check if there's no previously saved time
+    savedMinutes == null ||
+    savedSeconds == null || // Check if there's no previously saved time
     totalSecondsElapsed < totalSecondsSaved
   ) {
-    // Check if elapsed minutes are equal but elapsed seconds are less
+    // Update the record if the current time is better
     localStorage.setItem(minutesKey, elapsedMinutes);
     localStorage.setItem(secondsKey, elapsedSeconds);
     document.querySelector(".menu-container .record .minutes").innerHTML =
       elapsedMinutes;
     document.querySelector(".menu-container .record .seconds").innerHTML =
       elapsedSeconds;
-
-    console.log("Best time updated.");
-  } else {
-    console.log("No need to update best time.");
   }
   localStorage.setItem("level" + (parseInt(nLivello) + 1), "sbloccato");
-  console.log("Livello " + (parseInt(nLivello) + 1) + " sbloccato");
+  console.log(localStorage.getItem(secondsKey));
+  console.log(localStorage.getItem(minutesKey));
 }
 
 function sconfitta(reason) {
-  console.log(reason);
   document.querySelector(
     ".famous-list"
   ).innerHTML += `<div>Causa Esplosione: ${reason}</div>`;
@@ -287,9 +277,19 @@ function sconfitta(reason) {
   document.querySelector(".menu-container").style.display = "flex";
   document.querySelector(".vittime").style.display = "flex";
   document.querySelector(".famous-list").style.display = "flex";
-
+  var kills = Math.floor(Math.random() * 300 + 100);
   document.querySelector(".menu-container .n-vittime").innerHTML =
-    " " + Math.floor(Math.random() * 300 + 100) + " ";
+    " " + kills + " ";
+
+  if (localStorage.getItem("totalKills") != null) {
+    localStorage.setItem(
+      "totalKills",
+      parseInt(localStorage.getItem("totalKills")) + kills
+    );
+  } else {
+    localStorage.setItem("totalKills", kills);
+  }
+
   for (let i = 0; i < 2; i++) {
     var index = Math.floor(Math.random() * people.length);
     var person = document.createElement("span");

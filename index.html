@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/ccbd4d6bc1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/index/index.css" />
+  <link rel="stylesheet" href="/css/menu/menu.css" />
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
 
   <title>La bomba</title>
@@ -61,6 +62,7 @@
     </audio>
   </video>
   <div class="screen">
+    <h1 class="total-kill">Totale bambini morti: 0</h1>
     <div class="level-info" style="display: none;">
       <h1 class="level-title">Level 1</h1>
       <p class="level-desc-1">Descrizione del primo livello</p>
@@ -75,18 +77,23 @@
           <th>Difficoltà</th>
         </tr>
         <tr>
-          <td class="time">5:00</td>
+          <td class="max-time">5:00</td>
           <td class="n-moduli">3</td>
           <td class="n-max-errori">3</td>
           <td class="difficulty">Easy</td>
         </tr>
-        <tr>
-          <td colspan="2"><a href="#"><button
-                onclick="document.querySelector('.level-info').style.display = 'none'">BACK</button></a></td>
-          <td colspan="2"><a href="/html/bomba/livello1.html" class="level-link"><button>PLAY</button></a></td>
+        <tr style="border: none;">
+          <td colspan="2" style="border: none;"><a href="#"><button
+                onclick="document.querySelector('.level-info').style.display = 'none'"
+                class="menu-buttons">BACK</button></a></td>
+          <td colspan="2" style="border: none;"><a href="/html/bomba/livello1.html" class="level-link"><button
+                class="menu-buttons">PLAY</button></a></td>
         </tr>
       </table>
-      <p>Record per questa bomba: <span>1:30</span></p>
+      <div class="record-container">
+        <div>Record per questa bomba:</div>
+        <div class="record-for-level"></div>
+      </div>
     </div>
     <audio id="audioClick">
       <source src="../sounds/effects/index/buttonclick.wav" type="audio/wav" />
@@ -126,7 +133,7 @@
         <summary>CATEGORIA 1</summary>
         <li>
           <ul>
-            <li><a href="#" onclick="getLevelInfo(0)">Livello 1</a>
+            <li><a href="#" onclick="getLevelInfo(1)">Livello 1</a>
             </li>
             <li><a href=" #" id="level2link">SUCA</a><img src="/img/index/locked.svg" id="level2lock"
                 style="display: block;">
@@ -169,7 +176,8 @@
       const linkElement = document.querySelector(linkElementId);
       if (lockElement && linkElement) { // Ensure elements are found
         lockElement.style.display = "none";
-        linkElement.setAttribute("onclick", "getLevelInfo(" + (i - 1) + ")");
+        linkElement.setAttribute("onclick", "getLevelInfo(" + (i) + ")");
+        console.log(i);
       }
     }
   }
@@ -182,6 +190,10 @@
 </script>
 
 <script>
+  window.addEventListener('beforeunload', function () {
+    // Pulisci il localStorage
+    localStorage.removeItem('menu')
+  });
   window.onload = () => {
     let menu = localStorage.getItem("menu");
     const menuElement = document.querySelector(".menu");
@@ -207,6 +219,15 @@
       button.style.display = "flex";
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function (event) {
+    if (localStorage.getItem("totalKills") != null) {
+
+      document.querySelector(".total-kill").innerHTML = "Totale bambini morti: " + localStorage.getItem("totalKills");
+    } else {
+      document.querySelector(".total-kill").innerHTML = "Tutti salvi per ora...";
+    }
+  });
 
   function switchView() {
     let menu = localStorage.getItem("menu");

@@ -44,7 +44,15 @@ for (let i = 0; i < links.length; i++) {
 
 volumeRange.addEventListener("input", () => {
   // Imposta il volume dell'audio in base al valore dell'input range (da 0 a 1)
+  localStorage.setItem("volume", volumeRange.value);
   music.volume = volumeRange.value / 100;
+});
+
+window.addEventListener("load", () => {
+  if (localStorage.getItem("volume") != null) {
+    var volume = localStorage.getItem("volume");
+    music.volume = volume / 100;
+  }
 });
 
 function clickSound() {
