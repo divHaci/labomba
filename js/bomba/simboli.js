@@ -76,6 +76,7 @@ function buttonClicked(
   modulo,
   expectedSequence
 ) {
+  console.log(expectedSequence);
   click.pause();
   click.currentTime = 0;
   click.play();
@@ -102,7 +103,9 @@ function buttonClicked(
     }
   } else {
     console.log("ERROR");
-    expectedSequence = [0, 1, 2, 3];
+    expectedSequence.length = 0;
+    expectedSequence.push(0, 1, 2, 3);
+    console.log(expectedSequence);
     var buttons = Array.from(buttons_container.children);
     buttons.forEach((button) => (button.style.filter = "brightness(1)"));
     if (errori.children.length < parseInt(max_errori.innerHTML)) {
