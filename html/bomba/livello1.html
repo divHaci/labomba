@@ -28,61 +28,55 @@
     <link rel="stylesheet" href="../../css/bomba/moduli/piano.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/calcio.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/chess.css" />
-    <link rel="stylesheet" href="../../css/loader.css">
 
 </head>
 
 <body>
-    <div class="loader-container" style="display:  none;">
-        <div class="loader"></div>
-    </div>
-    <div class="content" style="display:none;">
-        <div class="win-led"></div>
-        <div class="left-red-light"></div>
-        <div class="right-red-light"></div>
-        <div class="menu-container" style="display: none">
-            <h1>MENU</h1>
-            <div style="display: none" class="vittime">
-                Ci lasciano <span class="n-vittime"></span> bambini...
-            </div>
-            <div style="display: none" class="famous-list">
-                Tra le vittime più famose:
-                <div class="list"></div>
-            </div>
+    <div class="win-led"></div>
+    <div class="left-red-light"></div>
+    <div class="right-red-light"></div>
+    <div class="menu-container" style="display: none">
+        <h1>MENU</h1>
+        <div style="display: none" class="vittime">
+            Ci lasciano <span class="n-vittime"></span> bambini...
+        </div>
+        <div style="display: none" class="famous-list">
+            Tra le vittime più famose:
+            <div class="list"></div>
+        </div>
 
-            <div style="display: none" class="time">
-                Tempo: <span class="minutes">0</span> minuti e
-                <span class="seconds">0</span> secondi
-            </div>
-            <div style="display: none" class="record">
-                Record: <span class="minutes">0</span> minuti e
-                <span class="seconds">0</span> secondi
-            </div>
+        <div style="display: none" class="time">
+            Tempo: <span class="minutes">0</span> minuti e
+            <span class="seconds">0</span> secondi
+        </div>
+        <div style="display: none" class="record">
+            Record: <span class="minutes">0</span> minuti e
+            <span class="seconds">0</span> secondi
+        </div>
 
-            <div class="buttons">
-                <button class="menu-buttons" id="levels" onclick="(() => {
+        <div class="buttons">
+            <button class="menu-buttons" id="levels" onclick="(() => {
                 localStorage.setItem('menu', 'false');
                 window.location = '../../index.html';
             })()">
-                    <span>Livelli</span>
-                </button>
-                <button class="menu-buttons" id="retry" onclick="location.reload()">
-                    <span>Riprova</span>
-                </button>
-            </div>
+                <span>Livelli</span>
+            </button>
+            <button class="menu-buttons" id="retry" onclick="location.reload()">
+                <span>Riprova</span>
+            </button>
         </div>
-        <video class="bgvideo" autoplay loop muted id="videoBackground">
-            <source src="/img/bgvideo.mp4" type="video/mp4" />
-        </video>
-        <div class="bomba"></div>
-        <div class="starting-minutes" style="display: none">5</div>
-        <div class="starting-seconds" style="display: none">0</div>
-        <div class="max-errori" style="display: none">2</div>
-        <div class="n-moduli" style="display: none">1</div>
-        <div class="n-moduli-completati" style="display: none">0</div>
-        <div class="level" style="display: none">1</div>
-        <button class="gira-button" onclick="gira()">GIRA</button>
     </div>
+    <video class="bgvideo" autoplay loop muted id="videoBackground">
+        <source src="/img/bgvideo.mp4" type="video/mp4" />
+    </video>
+    <div class="bomba"></div>
+    <div class="starting-minutes" style="display: none">5</div>
+    <div class="starting-seconds" style="display: none">0</div>
+    <div class="max-errori" style="display: none">2</div>
+    <div class="n-moduli" style="display: none">1</div>
+    <div class="n-moduli-completati" style="display: none">0</div>
+    <div class="level" style="display: none">1</div>
+    <button class="gira-button" onclick="gira()">GIRA</button>
 
     <!-- Creazione bomba con moduli vuoti -->
     <script src="../../js/bomba/bomba.js"></script>
@@ -145,8 +139,6 @@
         });
     </script>
     <script src="../../js/bomba/check-modulo-vuoto.js"></script>
-
-    <script src="../../js/loading.js"></script>
 </body>
 
 </html>
