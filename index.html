@@ -56,7 +56,7 @@
 
 <body ondragstart="return false" onselectstart="return false">
   <video autoplay loop muted id="videoBackground" style="position: absolute;">
-    <source src="../img/index/bg.mp4" type="video/mp4" />
+    <source src="/img/index/bg.mp4" type="video/mp4" />
     <audio id="musiMenu" loop autoplay>
       <source src="../sounds/effects/index/menuMusic.mp3" type="audio/mp3" />
     </audio>
@@ -102,7 +102,7 @@
       <source src="../sounds/effects/index/buttonclickrelease.wav" type="audio/wav" />
     </audio>
     <iframe src="../sounds/effects/index/mouseEntered.wav" allow="autoplay" id="audio" style="display: none"></iframe>
-    <audio id="player" autoplay loop>
+    <audio id="player" autoplay="true" loop>
       <source src="../sounds/effects/index/musiMenu.mp3" type="audio/mp3" />
     </audio>
     <div class="menu" style="display: flex;">
@@ -188,7 +188,6 @@
     checkAndUnlockLevel(i, `#level${i}lock`, `#level${i}link`, `/html/bomba/livello${i}.html`, i);
   }
 </script>
-
 <script>
   window.addEventListener('beforeunload', function () {
     // Pulisci il localStorage
