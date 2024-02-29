@@ -28,75 +28,90 @@
     <link rel="stylesheet" href="../../css/bomba/moduli/piano.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/calcio.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/chess.css" />
+    <link rel="stylesheet" href="../../css/loader.css">
+
+    <script src="../../js/loading.js"></script>
 </head>
 
 <body>
-    <div class="win-led"></div>
-    <div class="left-red-light"></div>
-    <div class="right-red-light"></div>
-    <div class="menu-container" style="display: none">
-        <h1>MENU</h1>
-        <div style="display: none" class="vittime">
-            Ci lasciano <span class="n-vittime"></span> bambini...
-        </div>
-        <div style="display: none" class="famous-list">
-            Tra le vittime più famose:
-            <div class="list"></div>
-        </div>
+    <div class="loader"></div>
+    <div class="content" style="display:none;">
+        <div class="win-led"></div>
+        <div class="left-red-light"></div>
+        <div class="right-red-light"></div>
+        <div class="menu-container" style="display: none">
+            <h1>MENU</h1>
+            <div style="display: none" class="vittime">
+                Ci lasciano <span class="n-vittime"></span> bambini...
+            </div>
+            <div style="display: none" class="famous-list">
+                Tra le vittime più famose:
+                <div class="list"></div>
+            </div>
 
-        <div style="display: none" class="time">
-            Tempo: <span class="minutes">0</span> minuti e
-            <span class="seconds">0</span> secondi
-        </div>
-        <div style="display: none" class="record">
-            Record: <span class="minutes">0</span> minuti e
-            <span class="seconds">0</span> secondi
-        </div>
+            <div style="display: none" class="time">
+                Tempo: <span class="minutes">0</span> minuti e
+                <span class="seconds">0</span> secondi
+            </div>
+            <div style="display: none" class="record">
+                Record: <span class="minutes">0</span> minuti e
+                <span class="seconds">0</span> secondi
+            </div>
 
-        <div class="buttons">
-            <button class="menu-buttons" id="levels" onclick="(() => {
+            <div class="buttons">
+                <button class="menu-buttons" id="levels" onclick="(() => {
                 localStorage.setItem('menu', 'false');
                 window.location = '../../index.html';
             })()">
-                <span>Livelli</span>
-            </button>
-            <button class="menu-buttons" id="retry" onclick="location.reload()">
-                <span>Riprova</span>
-            </button>
+                    <span>Livelli</span>
+                </button>
+                <button class="menu-buttons" id="retry" onclick="location.reload()">
+                    <span>Riprova</span>
+                </button>
+            </div>
         </div>
+        <video class="bgvideo" autoplay loop muted id="videoBackground">
+            <source src="/img/bgvideo.mp4" type="video/mp4" />
+        </video>
+        <div class="bomba"></div>
+        <div class="starting-minutes" style="display: none">5</div>
+        <div class="starting-seconds" style="display: none">0</div>
+        <div class="max-errori" style="display: none">2</div>
+        <div class="n-moduli" style="display: none">1</div>
+        <div class="n-moduli-completati" style="display: none">0</div>
+        <div class="level" style="display: none">1</div>
+        <button class="gira-button" onclick="gira()">GIRA</button>
     </div>
-    <video class="bgvideo" autoplay loop muted id="videoBackground">
-        <source src="/img/bgvideo.mp4" type="video/mp4" />
-    </video>
-    <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none">5</div>
-    <div class="starting-seconds" style="display: none">0</div>
-    <div class="max-errori" style="display: none">2</div>
-    <div class="n-moduli" style="display: none">1</div>
-    <div class="n-moduli-completati" style="display: none">0</div>
-    <div class="level" style="display: none">1</div>
-    <button class="gira-button" onclick="gira()">GIRA</button>
+
     <!-- Creazione bomba con moduli vuoti -->
     <script src="../../js/bomba/bomba.js"></script>
 
-    <!-- LISTE PER I MODULI -->
-    <script src="../../js/bomba/lists/nations.js"></script>
-    <script src="../../js/bomba/lists/passwords.js"></script>
     <script src="../../js/bomba/lists/famous_people.js"></script>
+    <script src="../../js/bomba/lists/passwords.js"></script>
     <script src="../../js/bomba/lists/sequenze.js"></script>
     <script src="../../js/bomba/lists/binary.js"></script>
-    <script src="../../js/bomba/lists/parole_doppie.js"></script>
-    <script src="../../js/bomba/lists/messages.js"></script>
-    <script src="../../js/bomba/lists/peopleTwitch.js"></script>
-    <script src="../../js/bomba/lists/simboli.js"></script>
-    <script src="../../js/bomba/lists/piano_songs.js"></script>
     <script src="../../js/bomba/lists/calcio.js"></script>
     <script src="../../js/bomba/lists/chess.js"></script>
+    <script src="../../js/bomba/lists/messages.js"></script>
+    <script src="../../js/bomba/lists/parole_doppie.js"></script>
+    <script src="../../js/bomba/lists/piano_songs.js"></script>
+    <script src="../../js/bomba/lists/simboli.js"></script>
 
-    <!-- MODULI DI QUESTO LIVELLO -->
 
-    <script src="../../js/bomba/timer.js"></script>
+    <script src="../../js/bomba/pressit.js"></script>
+    <script src="../../js/bomba/scacchi.js"></script>
+    <script src="../../js/bomba/binary.js"></script>
+    <script src="../../js/bomba/memory.js"></script>
+    <script src="../../js/bomba/simboli.js"></script>
+    <script src="../../js/bomba/parole_doppie.js"></script>
     <script src="../../js/bomba/calcio.js"></script>
+    <script src="../../js/bomba/colori.js"></script>
+    <script src="../../js/bomba/cavi.js"></script>
+    <script src="../../js/bomba/piano.js"></script>
+    <script src="../../js/bomba/password.js"></script>
+    <script src="../../js//bomba/disturbatori/battery.js"></script>
+    <script src="../../js//bomba/disturbatori/messages.js"></script>
+    <script src="../../js/bomba/disturbatori/speaker.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Recupera il livello dal documento HTML
