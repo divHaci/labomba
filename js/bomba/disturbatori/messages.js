@@ -136,7 +136,7 @@ function disturb(frequenza, speed, cooldown) {
         document.querySelector(".bgvideo").style.display = "none";
         minuteLeft.pause();
         timeLeft.pause();
-        sconfitta();
+        sconfitta(messaggio);
       }
     }
   }
