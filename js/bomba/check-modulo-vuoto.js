@@ -1,12 +1,16 @@
-var moduli = document.querySelectorAll(".container-modulo");
+//check id all document has loaded then log "loaded"
+function checkEmptyModule() {
+  var moduli = document.querySelectorAll(".bomba .container-modulo");
+  console.log(moduli);
+    moduli.forEach(modulo => {
+      console.log(modulo.hasChildNodes());
+    
+      if (!modulo.hasChildNodes()) {
+        modulo.style.backgroundImage = "url('/img/modulo/placca.jpg')";
+        modulo.style.backgroundSize = "cover";
+      }
+    });
 
-for (var i = 0; i < moduli.length; i++) {
-  var modulo = moduli[i];
-
-  // Verifica se l'elemento è vuoto
-  if (modulo.innerHTML.trim() === "") {
-    // Cambia lo sfondo con un'immagine
-    modulo.style.backgroundImage = "url('/img/modulo/placca.jpg')";
-    modulo.style.backgroundSize = "cover";
-  }
+    console.log("Luca Marelli - Check avvenuto");
+    
 }

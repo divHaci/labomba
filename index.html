@@ -135,10 +135,10 @@
           <ul>
             <li><a href="#" onclick="getLevelInfo(1)">Livello 1</a>
             </li>
-            <li><a href=" #" id="level2link">SUCA</a><img src="/img/index/locked.svg" id="level2lock"
+            <li><a href=" #" id="level2link">LIVELLO 2</a><img src="/img/index/locked.svg" id="level2lock"
                 style="display: block;">
             </li>
-            <li><a href="#" id="level3link">SUCA</a><img src="/img/index/locked.svg" id="level3lock"
+            <li><a href="#" id="level3link">LIVELLO 3</a><img src="/img/index/locked.svg" id="level3lock"
                 style="display: block;">
             </li>
           </ul>
@@ -148,12 +148,12 @@
         <summary>CATEGORIA 2</summary>
         <li>
           <ul>
-            <li><a href=" #" id="level4link">SUCA</a><img src="/img/index/locked.svg" id="level4lock"
+            <li><a href=" #" id="level4link">LIVELLO 4</a><img src="/img/index/locked.svg" id="level4lock"
                 style="display: block;">
             </li>
-            <li><a href="#" id="level5link">SUCA</a><img src="/img/index/locked.svg" id="level5lock"
+            <li><a href="#" id="level5link">LIVELLO 5</a><img src="/img/index/locked.svg" id="level5lock"
                 style="display: block;">
-            <li><a href=" #" id="level6link">SUCA</a><img src="/img/index/locked.svg" id="level6lock"
+            <li><a href=" #" id="level6link">LIVELLO 6</a><img src="/img/index/locked.svg" id="level6lock"
                 style="display: block;">
             </li>
         </li>
@@ -182,7 +182,7 @@
     }
   }
 
-  var NLivelli = 3;
+  var NLivelli = 6;
 
   for (let i = 2; i <= NLivelli; i++) {
     checkAndUnlockLevel(i, `#level${i}lock`, `#level${i}link`, `/html/bomba/livello${i}.html`, i);

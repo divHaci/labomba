@@ -60,7 +60,10 @@ function creaTimer(durationInSeconds, module) {
         wrong.currentTime = 0;
         wrong.play();
         count = 0;
-
+        var n_moduli = document.querySelector(".n-moduli");
+        var n_moduli_completati = document.querySelector(".n-moduli-completati");
+      
+        n_moduli_completati.innerHTML = parseInt(n_moduli_completati.innerHTML) + 1;
         // Riavvia il timer solo se non è già in esecuzione
         if (!intervalId) {
           remainingTime = durationInSeconds;
