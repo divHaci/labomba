@@ -91,13 +91,10 @@
     
         for (let i = 0; i < totalScripts; i++) {
             let rng = Math.floor(Math.random() * easy_modules.length);
+    
             let script = document.createElement('script');
             script.src = `../../js/bomba/easy/${easy_modules[rng]}`;
-            
-            if (rng === 0 && pressit) {
-                easy_modules.shift();
-                pressit == false;
-            }
+    
             // Track when each script is loaded
             script.onload = () => {
                 scriptsLoaded++;
@@ -107,9 +104,13 @@
             };
     
             document.querySelector(".modules").appendChild(script);
+            // Do only one time that the rng is 0, remove the first element
+            if (rng === 0 && pressit) {
+                easy_modules.shift();
+                pressit == false;
+            }
         }
     </script>
-    <script src="../../js/bomba/easy/pressit.js"></script>
     <script>
       for (let i = 0; i < 1; i++) {
           let rng = Math.floor(Math.random() * disturbation_modules_easy.length);
