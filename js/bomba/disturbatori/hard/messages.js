@@ -35,7 +35,7 @@ function disturb(frequenza, speed, cooldown) {
   for (let i = 0; i < frequenza; i++) {
     speed = Math.floor(Math.random() * (40 - 25 + 1)) + 25;
     if (!esploso) {
-      setTimeout(() => {
+      var messagesInterval = setTimeout(() => {
         clicked = false;
         var randomIndex = Math.floor(Math.random() * messages.length);
         var randomMessage = messages[randomIndex]["message"];
