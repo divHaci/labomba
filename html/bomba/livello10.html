@@ -79,6 +79,38 @@
     <div class="level" style="display: none">10</div>
     <button class="gira-button" onclick="gira()">GIRA</button>
 
+    // disturbator easy
+    <script>
+        for (let i = 0; i < 0; i++) {
+            let rng = Math.floor(Math.random() * disturbation_modules_easy.length);
+            // Include a script with js file name = easy_modules[rng]
+            let script = document.createElement('script');
+            script.src = `../../js/bomba/disturbatori/easy/${disturbation_modules_easy[rng]}`;
+            document.querySelector(".modules").appendChild(script);
+        }
+    </script>
+    // disturbator medium
+    <script>
+        for (let i = 0; i < 1; i++) {
+            let rng = Math.floor(Math.random() * disturbation_modules_medium.length);
+            // Include a script with js file name = easy_modules[rng]
+            let script = document.createElement('script');
+            script.src = `../../js/bomba/disturbatori/medium/${disturbation_modules_medium[rng]}`;
+            document.querySelector(".modules").appendChild(script);
+        }
+    </script>
+
+    // disturbator hard
+    <script>
+        for (let i = 0; i < 1; i++) {
+            let rng = Math.floor(Math.random() * disturbation_modules_hard.length);
+            // Include a script with js file name = easy_modules[rng]
+            let script = document.createElement('script');
+            script.src = `../../js/bomba/disturbatori/hard/${disturbation_modules_hard[rng]}`;
+            document.querySelector(".modules").appendChild(script);
+        }
+    </script>
+
     <!-- Creazione bomba con moduli vuoti -->
     <script src="../../js/bomba/bomba.js"></script>
     <script src="../../js/bomba/lists/famous_people.js"></script>
@@ -180,37 +212,7 @@
         }
     </script>
 
-    // disturbator easy
-    <script>
-        for (let i = 0; i < 0; i++) {
-            let rng = Math.floor(Math.random() * disturbation_modules_easy.length);
-            // Include a script with js file name = easy_modules[rng]
-            let script = document.createElement('script');
-            script.src = `../../js/bomba/disturbatori/easy/${disturbation_modules_easy[rng]}`;
-            document.querySelector(".modules").appendChild(script);
-        }
-    </script>
-    // disturbator medium
-    <script>
-        for (let i = 0; i < 1; i++) {
-            let rng = Math.floor(Math.random() * disturbation_modules_medium.length);
-            // Include a script with js file name = easy_modules[rng]
-            let script = document.createElement('script');
-            script.src = `../../js/bomba/disturbatori/medium/${disturbation_modules_medium[rng]}`;
-            document.querySelector(".modules").appendChild(script);
-        }
-    </script>
-
-    // disturbator hard
-    <script>
-        for (let i = 0; i < 1; i++) {
-            let rng = Math.floor(Math.random() * disturbation_modules_hard.length);
-            // Include a script with js file name = easy_modules[rng]
-            let script = document.createElement('script');
-            script.src = `../../js/bomba/disturbatori/hard/${disturbation_modules_hard[rng]}`;
-            document.querySelector(".modules").appendChild(script);
-        }
-    </script>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Recupera il livello dal documento HTML
