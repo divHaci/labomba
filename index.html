@@ -227,6 +227,24 @@
   <script src="/js/menu/getLevelInfo.js"></script>
 </body>
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Recupera lo stato delle sezioni da localStorage
+    const detailsElements = document.querySelectorAll("details");
+    detailsElements.forEach((details, index) => {
+      const savedState = localStorage.getItem(`details-open-${index}`);
+      if (savedState === "true") {
+        details.setAttribute("open", "true");
+      } else {
+        details.removeAttribute("open");
+      }
+
+      // Aggiungi un event listener per salvare lo stato
+      details.addEventListener("toggle", () => {
+        const isOpen = details.hasAttribute("open");
+        localStorage.setItem(`details-open-${index}`, isOpen);
+      });
+    });
+  });
 
   function checkAndUnlockLevel(levelNumber, lockElementId, linkElementId, linkUrl, i) {
     console.log(localStorage.getItem("level" + levelNumber) == "sbloccato");
