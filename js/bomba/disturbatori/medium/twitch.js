@@ -111,22 +111,24 @@ function creaTwitch() {
             wrong.currentTime = 0;
             wrong.play();
           } else {
-            var x = document.createElement("div");
-            x.innerHTML = "X";
-            errori.appendChild(x);
-            click.pause();
-            stopTick();
-            wrong.pause();
-            wrong.currentTime = 0;
-            wrong.play();
-            musicLevel.pause();
-            explosion.pause();
-            explosion.currentTime = 0;
-            explosion.play();
-            minuteLeft.pause();
-            timeLeft.pause();
-            clearInterval(twitch);
-            sconfitta(twitchDisturbatore);
+            if(!esploso){
+              var x = document.createElement("div");
+              x.innerHTML = "X";
+              errori.appendChild(x);
+              click.pause();
+              stopTick();
+              wrong.pause();
+              wrong.currentTime = 0;
+              wrong.play();
+              musicLevel.pause();
+              explosion.pause();
+              explosion.currentTime = 0;
+              explosion.play();
+              minuteLeft.pause();
+              timeLeft.pause();
+              clearInterval(twitch);
+              sconfitta(twitchDisturbatore);
+            }
           }
         } else if (
           inputText.value.toLowerCase() === streamer[random].toLowerCase()
