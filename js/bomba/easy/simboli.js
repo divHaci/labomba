@@ -76,13 +76,11 @@ function buttonClicked(
   modulo,
   expectedSequence
 ) {
-  console.log(expectedSequence);
   click.pause();
   click.currentTime = 0;
   click.play();
   var clickedIndex = parseInt(clickedButton.getAttribute("id"));
   if (clickedIndex === expectedSequence[0]) {
-    console.log("OK");
     clickedButton.style.filter = "brightness(0.3)";
     expectedSequence.shift();
     if (expectedSequence.length === 0) {
@@ -99,13 +97,10 @@ function buttonClicked(
       right.currentTime = 0;
       right.play();
       checkForWin();
-      console.log("GIUSTO");
     }
   } else {
-    console.log("ERROR");
     expectedSequence.length = 0;
     expectedSequence.push(0, 1, 2, 3);
-    console.log(expectedSequence);
     var buttons = Array.from(buttons_container.children);
     buttons.forEach((button) => (button.style.filter = "brightness(1)"));
     if (errori.children.length < parseInt(max_errori.innerHTML)) {

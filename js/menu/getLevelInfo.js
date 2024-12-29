@@ -1,5 +1,4 @@
 function getLevelInfo(level) {
-  console.log(level);
   var tab = document.querySelector(".level-info");
   tab.style.display = "flex";
 
@@ -20,11 +19,6 @@ function getLevelInfo(level) {
   // Get the previously saved best time
   var savedMinutes = localStorage.getItem(minutesKey);
   var savedSeconds = localStorage.getItem(secondsKey);
-
-  console.log(
-    "Best time for level " + level + ": " + savedMinutes + ":" + savedSeconds
-  );
-
   if (
     localStorage.getItem("level" + level + "Minutes") != null &&
     localStorage.getItem("level" + level + "Seconds") != null

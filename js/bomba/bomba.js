@@ -264,8 +264,6 @@ function vittoria() {
       elapsedSeconds;
   }
   localStorage.setItem("level" + (parseInt(nLivello) + 1), "sbloccato");
-  console.log(localStorage.getItem(secondsKey));
-  console.log(localStorage.getItem(minutesKey));
 }
 
 function sconfitta(reason) {

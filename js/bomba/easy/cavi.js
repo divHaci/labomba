@@ -69,7 +69,6 @@ function creaCavi() {
 
     case 6:
       if (cables[cables_n - 1] == "brown" && last_digit % 2 != 0) {
-        console.log("Last digit -> " + last_digit + " so cat the cable 5");
         
         cables_to_cut.push(4);
       } else if (

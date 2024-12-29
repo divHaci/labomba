@@ -86,7 +86,6 @@ function creaScacchi() {
       input.value.toLowerCase() ==
       solutions[randomIndex]["moves"][currentMove]["notation"].toLowerCase()
     ) {
-      console.log("CORRECT");
       cells[
         solutions[randomIndex]["moves"][currentMove]["prevCell"]
       ].removeChild(

@@ -41,7 +41,6 @@ function disturb(frequenza, speed, cooldown) {
         var randomMessage = messages[randomIndex]["message"];
         solution = messages[randomIndex]["type"];
         messages.splice(randomIndex, 1);
-        console.log(messages.length);
         textContainer.innerHTML =
           "<span>" +
           nicknames[Math.floor(Math.random() * nicknames.length)] +
