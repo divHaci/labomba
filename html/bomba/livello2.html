@@ -87,12 +87,17 @@
     <script>
         let scriptsLoaded = 0;
         const totalScripts = 3;
+        let pressit = true;
     
         for (let i = 0; i < totalScripts; i++) {
             let rng = Math.floor(Math.random() * easy_modules.length);
             let script = document.createElement('script');
             script.src = `../../js/bomba/easy/${easy_modules[rng]}`;
-    
+            
+            if (rng === 0 && pressit) {
+                easy_modules.shift();
+                pressit == false;
+            }
             // Track when each script is loaded
             script.onload = () => {
                 scriptsLoaded++;

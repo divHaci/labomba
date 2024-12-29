@@ -126,7 +126,7 @@ var nicknames = [
   "nisos__",
 ];
 
-var colors = [
+var chat_colors = [
   "Blue",
   "Coral",
   "DodgerBlue",

@@ -48,7 +48,7 @@ function disturb(frequenza, speed, cooldown) {
           "</span>: " +
           randomMessage;
         textContainer.querySelector("span").style.color =
-          colors[Math.floor(Math.random() * colors.length)];
+          chat_colors[Math.floor(Math.random() * chat_colors.length)];
         notification.play();
         messageContainer.style.animation = "appear-message ease-in-out 0.4s";
         messageContainer.classList.add("show");

@@ -99,13 +99,18 @@
         const easyScripts = 3;
         const mediumScripts = 3;
         const totalScripts = easyScripts + mediumScripts;
+        let pressit = true;
+        let colors = true;
     
         // Load 3 easy modules
         for (let i = 0; i < easyScripts; i++) {
             let erng = Math.floor(Math.random() * easy_modules.length);
             let escript = document.createElement('script');
             escript.src = `../../js/bomba/easy/${easy_modules[erng]}`;
-    
+            if (erng === 0 && pressit) {
+                easy_modules.shift();
+                pressit == false;
+            }
             // Track when each script is loaded
             escript.onload = () => {
                 scriptsLoaded++;
@@ -129,7 +134,10 @@
                     checkEmptyModule();
                 }
             };
-    
+            if (mrng === 0 && colors) {
+                medium_modules.shift();
+                colors == false;
+            }
             document.querySelector(".modules").appendChild(mscript);
         }
     </script>

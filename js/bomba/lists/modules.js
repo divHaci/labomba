@@ -1,15 +1,16 @@
 easy_modules = [
+    "pressit.js",
     "bandiere.js",
     "cavi.js",
     "password.js",
-    "simboli.js"
+    "simboli.js",
 ]
 
 medium_modules = [
-    "calcio.js",
     "colori.js",
-    "parole_doppie.js",
     "piano.js",
+    "calcio.js",
+    "parole_doppie.js",
 ]
 
 hard_modules = [

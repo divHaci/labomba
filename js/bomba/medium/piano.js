@@ -35,30 +35,45 @@ function creaPiano() {
 
   if (lastDigit % 2 != 0) {
     if (sum > 20 && parallelExist) {
+      "The sum is over 20 and the parallel port exists";
       randomIndex = 0;
-    } else if (sum < 20 && (!SerialExist || !PS2Exist)) {
+    } else if (sum < 20 && !SerialExist && !PS2Exist) {
+
+      
       randomIndex = 1;
     } else if (!letterFirstHalf && RJ45Exist) {
+      console.log("The first letter of the serial code is in the second half of the alphabet and the RJ45 port exists");
+      
       randomIndex = 2;
     } else if (!RJ45Exist && PS2Exist) {
+      console.log("The RJ45 port doesn't exist and the PS/2 port exists");
       randomIndex = 3;
     } else if (sum % 2 == 0) {
+      log("The sum is even");
       randomIndex = 4;
     } else if (sum % 2 != 0) {
+      log("The sum is odd");
       randomIndex = 5;
     }
   } else {
     if (PS2Exist && DVIDExist) {
+      console.log("The PS/2 and DVI-D ports exist");
       randomIndex = 6;
     } else if (sum > 15 && SerialExist) {
+      console.log("The sum is over 15 and the serial port exists");
+      
       randomIndex = 7;
     } else if (sum < 15 && DVIDExist) {
+      console.log("The sum is under 15 and the DVI-D port exists");
       randomIndex = 8;
     } else if (letterFirstHalf && RJ45Exist) {
+      console.log("The first letter of the serial code is in the first half of the alphabet and the RJ45 port exists");
       randomIndex = 9;
     } else if (sum % 2 == 0) {
+      console.log("The sum is even");
       randomIndex = 10;
     } else if (sum % 2 != 0) {
+      console.log("The sum is odd");
       randomIndex = 11;
     }
   }

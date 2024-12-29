@@ -1,7 +1,7 @@
 var cavi = "Modulo Cavi";
 
 function creaCavi() {
-  var last_digit = serialcode.codiceSeriale.charAt(serialcode.length - 1);
+  var last_digit = serialcode.codiceSeriale.charAt(serialcode.codiceSeriale.length - 1);
   var colors = [
     "orange",
     "purple",
@@ -69,6 +69,8 @@ function creaCavi() {
 
     case 6:
       if (cables[cables_n - 1] == "brown" && last_digit % 2 != 0) {
+        console.log("Last digit -> " + last_digit + " so cat the cable 5");
+        
         cables_to_cut.push(4);
       } else if (
         cables.filter((color) => color === "green").length == 2 &&
