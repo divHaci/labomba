@@ -252,7 +252,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Salva il volume nel localStorage
       localStorage.setItem("audioVolume", volume);
     });
-
     const detailsElements = document.querySelectorAll("details");
     detailsElements.forEach((details, index) => {
       const savedState = localStorage.getItem(`details-open-${index}`);
