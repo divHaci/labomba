@@ -227,8 +227,32 @@
   <script src="/js/menu/getLevelInfo.js"></script>
 </body>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Recupera lo stato delle sezioni da localStorage
+document.addEventListener("DOMContentLoaded", function () {
+    const volumeControl = document.getElementById("volumeRange");
+    const audioElements = document.querySelectorAll("audio");
+
+    // Recupera il volume salvato dal localStorage
+    const savedVolume = localStorage.getItem("audioVolume");
+
+    if (savedVolume !== null) {
+      const volume = parseFloat(savedVolume);
+      audioElements.forEach((audio) => {
+        audio.volume = volume; // Applica il volume salvato
+      });
+      volumeControl.value = volume * 100; // Aggiorna il controllo del volume
+    }
+
+    // Ascolta i cambiamenti del volume
+    volumeControl.addEventListener("input", function () {
+      const volume = volumeControl.value / 100; // Converti il valore del range da 0-100 a 0-1
+      audioElements.forEach((audio) => {
+        audio.volume = volume; // Aggiorna il volume di tutti gli elementi audio
+      });
+
+      // Salva il volume nel localStorage
+      localStorage.setItem("audioVolume", volume);
+    });
+
     const detailsElements = document.querySelectorAll("details");
     detailsElements.forEach((details, index) => {
       const savedState = localStorage.getItem(`details-open-${index}`);
@@ -245,6 +269,7 @@
       });
     });
   });
+
 
   function checkAndUnlockLevel(levelNumber, lockElementId, linkElementId, linkUrl, i) {
     console.log(localStorage.getItem("level" + levelNumber) == "sbloccato");
