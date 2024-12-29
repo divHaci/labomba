@@ -269,8 +269,6 @@ function vittoria() {
 }
 
 function sconfitta(reason) {
-  clearInterval(twitch);
-  clearInterval(messagesInterval);
   document.querySelector(
     ".famous-list"
   ).innerHTML += `<div>Causa Esplosione: ${reason}</div>`;
