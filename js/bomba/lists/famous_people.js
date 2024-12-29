@@ -268,4 +268,6 @@ people = [
   "Weston McKenny",
   "Abraham Lincoln",
   "Ed Sheeran",
+  "Pesh",
+  "Fabrizio Moccia"
 ];

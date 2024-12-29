@@ -1,9 +1,7 @@
 var info = [
   {
-    nome: "Livello 1",
-    desc1: "Descrizione del primo livello",
-    desc2:
-      "Questa è la descrizione del primo livello, quindi qua ci sarà la descrizione che descriverà come sarà fatto il livello 1",
+    nome: "Livello 1: Primi Passi",
+    desc1: "Nessuno ti disturberà. È il momento di imparare senza fretta.",
     tempo: "2:00",
     moduli: "3",
     errori: "3",
@@ -11,10 +9,8 @@ var info = [
     link: "/html/bomba/livello1.html",
   },
   {
-    nome: "Livello 2",
-    desc1: "Descrizione del secondo livello",
-    desc2:
-      "Questa è la descrizione del secondo livello, quindi qua ci sarà la descrizione che descriverà come sarà fatto il livello 2",
+    nome: "Livello 2: Piccole Distrazioni",
+    desc1: "Un piccolo disturbo non dovrebbe preoccuparti… o sì?",
     tempo: "3:00",
     moduli: "4",
     errori: "3",
@@ -22,10 +18,8 @@ var info = [
     link: "/html/bomba/livello2.html",
   },
   {
-    nome: "Livello 3",
-    desc1: "Descrizione del terzo livello",
-    desc2:
-      "Questa è la descrizione del terzo livello, quindi qua ci sarà la descrizione che descriverà come sarà fatto il livello 3",
+    nome: "Livello 3: L’Alba del Caos",
+    desc1: "Hai imparato le basi. Ora prova a gestire un po’ di pressione!",
     tempo: "4:00",
     moduli: "5",
     errori: "2",
@@ -33,10 +27,8 @@ var info = [
     link: "/html/bomba/livello3.html",
   },
   {
-    nome: "Livello 4",
-    desc1: "Descrizione del quarto livello",
-    desc2:
-      "Questa è la descrizione del quarto livello, quindi qua ci sarà la descrizione che descriverà come sarà fatto il livello 3",
+    nome: "Livello 4: Equilibrio Fragile",
+    desc1: "Semplice, ma con un pizzico di sfida. Concentrati!",
     tempo: "3:30",
     moduli: "4",
     errori: "3",
@@ -44,10 +36,8 @@ var info = [
     link: "/html/bomba/livello4.html",
   },
   {
-    nome: "Livello 5",
-    desc1: "Descrizione del quinto livello",
-    desc2:
-      "Questa è la descrizione del quinto livello, quindi qua ci sarà la descrizione che descriverà come sarà fatto il livello 3",
+    nome: "Livello 5: Tra Due Fuochi",
+    desc1: "Distrazioni in aumento. Mantieni il sangue freddo!",
     tempo: "4:30",
     moduli: "5",
     errori: "2",
@@ -55,10 +45,8 @@ var info = [
     link: "/html/bomba/livello5.html",
   },
   {
-    nome: "Livello 6",
-    desc1: "Descrizione del sesto livello",
-    desc2:
-      "Questa è la descrizione del quinto livello, quindi qua ci sarà la descrizione che descriverà come sarà fatto il livello 3",
+    nome: "Livello 6: Sotto Pressione",
+    desc1: "Il ritmo accelera. Sei pronto per una sfida più seria?",
     tempo: "5:00",
     moduli: "6",
     errori: "2",

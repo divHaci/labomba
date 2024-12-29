@@ -1,8 +1,8 @@
 var symbols = [
   ["zazzone", "blur", "ragnar", "gianko", "manuxo", "jtaz", "zw"],
-  ["king", "legge", "mario", "hamburgerona", "fius", "sofia", "dario"],
+  ["grenbaud", "legge", "mario", "hamburgerona", "fius", "pesh", "dario"],
   ["marza", "fazza", "ciccio", "gilbert", "violet", "mollu", "delux"],
   ["zano", "nezak", "masseo", "duce", "justengine", "freneh", "mario"],
-  ["blur", "sofia", "ciccio", "mollu", "freneh", "jtaz", "gianko"],
-  ["king", "fazza", "zazzone", "marza", "zano", "legge", "duce"],
+  ["blur", "pesh", "ciccio", "mollu", "freneh", "jtaz", "gianko"],
+  ["grenbaud", "fazza", "zazzone", "marza", "zano", "legge", "duce"],
 ];

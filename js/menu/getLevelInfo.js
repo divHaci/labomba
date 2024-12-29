@@ -10,7 +10,6 @@ function getLevelInfo(level) {
   tab.querySelector(".level-title").innerHTML = info[level - 1].difficolta;
   tab.querySelector(".level-title").innerHTML = info[level - 1].nome;
   tab.querySelector(".level-desc-1").innerHTML = info[level - 1].desc1;
-  tab.querySelector(".level-desc-2").innerHTML = info[level - 1].desc2;
   tab
     .querySelector(".level-link")
     .setAttribute("href", "/html/bomba/livello" + level + ".html");
@@ -38,6 +37,6 @@ function getLevelInfo(level) {
     tab.querySelector(".record-for-level").innerHTML =
       formattedMinutes + ":" + formattedSeconds;
   } else {
-    tab.querySelector(".record-for-level").innerHTML = "NOT SET";
+    tab.querySelector(".record-for-level").innerHTML = "NESSUNO";
   }
 }
