@@ -17,6 +17,18 @@
     <link rel="stylesheet" href="../../css/bomba/moduli/password.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/simboli.css" />
     <link rel="stylesheet" href="../../css/bomba/moduli/cavi.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/calcio.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/colori.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/paroledoppie.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/piano.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/binary.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/memory.css" />
+    <link rel="stylesheet" href="../../css/bomba/moduli/chess.css" />
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/battery.css" />
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/speaker.css" />
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/twitch.css" />
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/messages.css" />
+    
 
 </head>
 
@@ -59,12 +71,12 @@
         <source src="/img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none">2</div>
+    <div class="starting-minutes" style="display: none">6</div>
     <div class="starting-seconds" style="display: none">0</div>
-    <div class="max-errori" style="display: none">3</div>
-    <div class="n-moduli" style="display: none">3</div>
+    <div class="max-errori" style="display: none">0</div>
+    <div class="n-moduli" style="display: none">10</div>
     <div class="n-moduli-completati" style="display: none">0</div>
-    <div class="level" style="display: none">1</div>
+    <div class="level" style="display: none">12</div>
     <button class="gira-button" onclick="gira()">GIRA</button>
 
     <!-- Creazione bomba con moduli vuoti -->
@@ -75,7 +87,16 @@
     <script src="../../js/bomba/lists/passwords.js"></script>
     <script src="../../js/bomba/lists/simboli.js"></script>
     <script src="../../js/bomba/lists/modules.js"></script>
-
+    <script src="../../js/bomba/lists/calcio.js"></script>
+    <script src="../../js/bomba/lists/binary.js"></script>
+    <script src="../../js/bomba/lists/sequenze.js"></script>
+    <script src="../../js/bomba/lists/chess.js"></script>
+    <script src="../../js/bomba/lists/parole_doppie.js"></script>
+    <script src="../../js/bomba/lists/piano_songs.js"></script>
+    <script src="../../js/bomba/lists/peopleTwitch.js"></script>
+    <script src="../../js/bomba/lists/messages.js"></script>
+    
+    
 
     <script src="../../js/bomba/check-modulo-vuoto.js"></script>
     <script src="../../js/bomba/timer.js"></script>
@@ -83,32 +104,109 @@
     <div class="modules"></div>
     <script>
         let scriptsLoaded = 0;
-        const totalScripts = 3;
+        const easyScripts = 1;
+        const mediumScripts = 2;
+        const hardScripts = 7;
+        const totalScripts = easyScripts + mediumScripts + hardScripts;
         let pressit = true;
+        let colors = true;
+        let piano = true;
     
-        for (let i = 0; i < totalScripts; i++) {
-            let rng = Math.floor(Math.random() * easy_modules.length);
-            // Do only one time that the rng is 0, remove the first element
-            if (rng === 0 && pressit) {
+        // Load 2 easy modules
+        for (let i = 0; i < easyScripts; i++) {
+            let erng = Math.floor(Math.random() * easy_modules.length);
+            let escript = document.createElement('script');
+            escript.src = `../../js/bomba/easy/${easy_modules[erng]}`;
+
+            if (erng === 0 && pressit) {
                 easy_modules.shift();
                 pressit == false;
             }
-    
-            let script = document.createElement('script');
-            script.src = `../../js/bomba/easy/${easy_modules[rng]}`;
-    
+
+            console.log(easy_modules);
             // Track when each script is loaded
-            script.onload = () => {
+            escript.onload = () => {
                 scriptsLoaded++;
                 if (scriptsLoaded === totalScripts) {
                     checkEmptyModule();
                 }
             };
     
+            document.querySelector(".modules").appendChild(escript);
+        }
+    
+        // Load 2 medium modules
+
+        for (let i = 0; i < mediumScripts; i++) {
+            let mrng = Math.floor(Math.random() * medium_modules.length);
+            let mscript = document.createElement('script');
+            mscript.src = `../../js/bomba/medium/${medium_modules[mrng]}`;
+    
+            // Track when each script is loaded
+            mscript.onload = () => {
+                scriptsLoaded++;
+                if (scriptsLoaded === totalScripts) {
+                    checkEmptyModule();
+                }
+            };
+            if (mrng === 0 && colors) {
+                medium_modules.shift();
+                colors == false;
+            }
+            if (mrng === 1 && piano && colors) {
+                //remove module on index 1 
+                medium_modules.splice(1, 1);
+                piano == false;
+            }else if(mrng === 1 && piano && !colors){
+                medium_modules.shift();
+                piano == false;
+            }
+            document.querySelector(".modules").appendChild(mscript);
+        }
+
+        // Load 1 hard module
+        for (let i = 0; i < hardScripts; i++) {
+            let hrng = Math.floor(Math.random() * hard_modules.length);
+            let hscript = document.createElement('script');
+            hscript.src = `../../js/bomba/hard/${hard_modules[hrng]}`;
+            document.querySelector(".modules").appendChild(hscript);
+
+            hscript.onload = () => {
+                scriptsLoaded++;
+                if (scriptsLoaded === totalScripts) {
+                    checkEmptyModule();
+                }
+            };
+        }
+    </script>
+    <script>
+        for (let i = 0; i < 2; i++) {
+            let rng = Math.floor(Math.random() * disturbation_modules_easy.length);
+            // Include a script with js file name = easy_modules[rng]
+            let script = document.createElement('script');
+            script.src = `../../js/bomba/disturbatori/easy/${disturbation_modules_easy[rng]}`;
+            document.querySelector(".modules").appendChild(script);
+        }
+    </script>
+    <script>
+        for (let i = 0; i < 0; i++) {
+            let rng = Math.floor(Math.random() * disturbation_modules_medium.length);
+            // Include a script with js file name = easy_modules[rng]
+            let script = document.createElement('script');
+            script.src = `../../js/bomba/disturbatori/medium/${disturbation_modules_medium[rng]}`;
             document.querySelector(".modules").appendChild(script);
         }
     </script>
 
+<script>
+    for (let i = 0; i < 1; i++) {
+        let rng = Math.floor(Math.random() * disturbation_modules_hard.length);
+        // Include a script with js file name = easy_modules[rng]
+        let script = document.createElement('script');
+        script.src = `../../js/bomba/disturbatori/hard/${disturbation_modules_hard[rng]}`;
+        document.querySelector(".modules").appendChild(script);
+    }
+</script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Recupera il livello dal documento HTML
@@ -139,8 +237,6 @@
             }
         });
     </script>
-
-    <script src="../../js/bomba/check-modulo-vuoto.js"></script>
 </body>
 
 </html>

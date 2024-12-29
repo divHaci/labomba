@@ -49,10 +49,8 @@ function creaPiano() {
       console.log("The RJ45 port doesn't exist and the PS/2 port exists");
       randomIndex = 3;
     } else if (sum % 2 == 0) {
-      log("The sum is even");
       randomIndex = 4;
     } else if (sum % 2 != 0) {
-      log("The sum is odd");
       randomIndex = 5;
     }
   } else {

@@ -18,6 +18,8 @@
     src: url(../fonts/menuText.ttf) format("truetype");
 }
 
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .menu-container {
     position: absolute;
     width: 50%;

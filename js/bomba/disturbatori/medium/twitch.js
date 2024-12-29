@@ -86,7 +86,7 @@ function creaTwitch() {
     soundStart.play();
 
     // SECONDS
-    var i = 25;
+    var i = 25; //25 seconds
     var timer = setInterval(() => {
       display.innerHTML = i;
       if (i === 0) {

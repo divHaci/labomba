@@ -78,7 +78,7 @@ var solutions = [
     white: [
       { piece: 0, cell: 40 },
       { piece: 3, cell: 9 },
-      { piece: 1, cell: 35 },
+      { piece: 2, cell: 35 },
       { piece: 0, cell: 41 },
     ],
     black: [

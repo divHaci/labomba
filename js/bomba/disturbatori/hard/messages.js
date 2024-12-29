@@ -148,7 +148,7 @@ function disturb(frequenza, speed, cooldown) {
 
 var frequenza = 5;
 var speed = Math.floor(Math.random() * (40 - 25 + 1)) + 25;
-var cooldown = 10;
+var cooldown = 15;
 
 setTimeout(() => {
   disturb(frequenza, speed, cooldown);

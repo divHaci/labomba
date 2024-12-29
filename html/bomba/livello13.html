@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../../css/bomba/disturbatori/battery.css" />
     <link rel="stylesheet" href="../../css/bomba/disturbatori/speaker.css" />
     <link rel="stylesheet" href="../../css/bomba/disturbatori/twitch.css" />
+    <link rel="stylesheet" href="../../css/bomba/disturbatori/messages.css" />
     
 
 </head>
@@ -70,12 +71,12 @@
         <source src="/img/bgvideo.mp4" type="video/mp4" />
     </video>
     <div class="bomba"></div>
-    <div class="starting-minutes" style="display: none">6</div>
-    <div class="starting-seconds" style="display: none">0</div>
-    <div class="max-errori" style="display: none">1</div>
-    <div class="n-moduli" style="display: none">7</div>
+    <div class="starting-minutes" style="display: none">5</div>
+    <div class="starting-seconds" style="display: none">30</div>
+    <div class="max-errori" style="display: none">0</div>
+    <div class="n-moduli" style="display: none">8</div>
     <div class="n-moduli-completati" style="display: none">0</div>
-    <div class="level" style="display: none">9</div>
+    <div class="level" style="display: none">13</div>
     <button class="gira-button" onclick="gira()">GIRA</button>
 
     <!-- Creazione bomba con moduli vuoti -->
@@ -93,6 +94,7 @@
     <script src="../../js/bomba/lists/parole_doppie.js"></script>
     <script src="../../js/bomba/lists/piano_songs.js"></script>
     <script src="../../js/bomba/lists/peopleTwitch.js"></script>
+    <script src="../../js/bomba/lists/messages.js"></script>
     
     
 
@@ -103,8 +105,8 @@
     <script>
         let scriptsLoaded = 0;
         const easyScripts = 1;
-        const mediumScripts = 3;
-        const hardScripts = 3;
+        const mediumScripts = 0;
+        const hardScripts = 7;
         const totalScripts = easyScripts + mediumScripts + hardScripts;
         let pressit = true;
         let colors = true;
@@ -195,6 +197,16 @@
             document.querySelector(".modules").appendChild(script);
         }
     </script>
+
+<script>
+    for (let i = 0; i < 1; i++) {
+        let rng = Math.floor(Math.random() * disturbation_modules_hard.length);
+        // Include a script with js file name = easy_modules[rng]
+        let script = document.createElement('script');
+        script.src = `../../js/bomba/disturbatori/hard/${disturbation_modules_hard[rng]}`;
+        document.querySelector(".modules").appendChild(script);
+    }
+</script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Recupera il livello dal documento HTML
