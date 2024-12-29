@@ -125,6 +125,7 @@ function creaTwitch() {
             explosion.play();
             minuteLeft.pause();
             timeLeft.pause();
+            clearInterval(twitch);
             sconfitta(twitchDisturbatore);
           }
         } else if (

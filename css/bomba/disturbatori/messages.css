@@ -21,7 +21,7 @@
     background-color: rgb(255, 0, 0);
     bottom: -0.3vw;
     left: 0;
-    animation: cooldown-animation 10s linear;
+    animation: cooldown-animation 15s linear;
     /* adjust timing as needed */
 }
 
